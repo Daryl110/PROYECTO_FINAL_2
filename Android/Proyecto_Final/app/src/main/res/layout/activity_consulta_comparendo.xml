@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConsultaComparendo">
+
+    <LinearLayout
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <Space
+            android:layout_width="12dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="27dp" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lista de comparendos"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="18sp"
+                    tools:textColor="@android:color/black" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="27dp" />
+
+                <EditText
+                    android:id="@+id/txtVehiculo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Ingrese la placa que desea buscar"
+                    android:inputType="textPersonName" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="26dp" />
+
+                <EditText
+                    android:id="@+id/txtCiudadano"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Ingrese la cedula que desea buscar"
+                    android:inputType="textPersonName" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="26dp" />
+
+                <Spinner
+                    android:id="@+id/cbEstado"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="26dp" />
+
+                <EditText
+                    android:id="@+id/txtFecha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Ingrese la fecha que desea buscar"
+                    android:inputType="date" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="26dp" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+
+                    <Button
+                        android:id="@+id/btnVolver"
+                        style="@android:style/Widget.Holo.Light.Button"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:onClick="ingresar"
+                        android:text="Volver"
+                        android:textColor="@android:color/background_light"
+                        tools:textColor="@android:color/background_dark" />
+
+                    <Button
+                        android:id="@+id/btnActualizar"
+                        style="@android:style/Widget.Holo.Light.Button"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Actualizar"
+                        android:textColor="@android:color/background_light"
+                        tools:textColor="@android:color/background_dark" />
+
+                    <Button
+                        android:id="@+id/btnBuscar"
+                        style="@android:style/Widget.Holo.Light.Button"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Buscar"
+                        android:textColor="@android:color/background_light"
+                        tools:textColor="@android:color/background_dark" />
+
+                </LinearLayout>
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+
+            </LinearLayout>
+        </ScrollView>
+
+        <Space
+            android:layout_width="17dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
