@@ -3,6 +3,8 @@ package com.eam.proyecto.vista;
 import com.eam.proyecto.controlador.CtlUsuario;
 import com.placeholder.PlaceHolder;
 import java.awt.Color;
+import javax.swing.JOptionPane;
+import org.json.simple.JSONObject;
 
 /**
  * @author Daryl Ospina
@@ -368,7 +370,23 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
-        System.out.println(this.controladorUsuario.iniciarSesion(txtNombreUsuario.getText().trim(), txtContrasenia.getText().trim()));
+        if (txtNombreUsuario.getText().isEmpty() ||  txtNombreUsuario.getText().equals("Nombre de usuario")
+                || txtContrasenia.getText().isEmpty() || txtContrasenia.getText().equals("Contrasenia")) {
+            JOptionPane.showMessageDialog(this, "Por favor no deje los campos vacios");
+        }else{
+            String nombreUsuario,contrasenia;
+            
+            nombreUsuario = txtNombreUsuario.getText().trim();
+            contrasenia = txtContrasenia.getText().trim();
+            
+            JSONObject respuesta = this.controladorUsuario.iniciarSesion(nombreUsuario, contrasenia);
+            
+            if ((boolean)respuesta.get("Acceso")) {
+                this.controladorUsuario.iniciarVentana(this,respuesta.get("Rol").toString());
+            }else{
+                JOptionPane.showMessageDialog(this, "La contraseña y el nombre de usuario no coinciden con ningun usuario registrado");
+            }
+        }
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

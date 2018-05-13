@@ -1,11 +1,12 @@
 package com.eam.proyecto.Services.service;
 
 import com.eam.proyecto.DTO.Administrador;
+import com.eam.proyecto.DTO.Usuario;
+import com.eam.proyecto.util.Herramientas;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -21,28 +22,46 @@ import org.json.simple.parser.ParseException;
  */
 @Path("Sesion")
 public class ServicioIniciarSesion {
-    
+
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response iniciarSesion(String json){
+    public Response iniciarSesion(String json) {
         try {
             String jsonDecodificada = URLDecoder.decode(json, "UTF-8");
-            
-            JSONObject obj = (JSONObject) new JSONParser().parse(jsonDecodificada.split("=")[1]);
-            System.out.println(json);
-            System.out.println(jsonDecodificada);
-            ServicioAdministrador admin = new ServicioAdministrador();
-            List<Administrador> admins = admin.findAll();
-            return Response
-                    .status(200)
-                    .header("Access-Control-Allow-Origin", "*")
-                    .header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
-                    .header("Access-Control-Allow-Credentials", "true")
-                    .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
-                    .header("Access-Control-Max-Age", "1209600")
-                    .entity("True")
-                    .build();
+
+            JSONObject obj = (JSONObject) new JSONParser().parse(jsonDecodificada.split("=")[1]),
+                    objRespuesta = new JSONObject();
+
+            ServicioAdministrador serviceAdmin = new ServicioAdministrador();
+            ServicioUsuario serviceUsuario = new ServicioUsuario();
+
+            ArrayList<Administrador> admins = new ArrayList<>(serviceAdmin.findAll());
+            ArrayList<Usuario> usus = new ArrayList<>(serviceUsuario.findAll());
+
+            boolean acceso = false;
+            String rol = "";
+
+            for (Administrador admin : admins) {
+                if (admin.getUsuario().equals(obj.get("nombreUsuario").toString())
+                        && admin.getContrasena().equals(obj.get("contrasenia"))) {
+                    acceso = true;
+                    rol = "Administrador";
+                }
+            }
+
+            for (Usuario usu : usus) {
+                if (usu.getNombreUsuario().equals(obj.get("nombreUsuario").toString())
+                        && usu.getPassword().equals(obj.get("contrasenia"))) {
+                    acceso = true;
+                    rol = usu.getTipoUsuario();
+                }
+            }
+
+            objRespuesta.put("Acceso", acceso);
+            objRespuesta.put("Rol", rol);
+            return Herramientas.construirResponse(objRespuesta.toString());
+
         } catch (UnsupportedEncodingException | ParseException ex) {
             return null;
         }
