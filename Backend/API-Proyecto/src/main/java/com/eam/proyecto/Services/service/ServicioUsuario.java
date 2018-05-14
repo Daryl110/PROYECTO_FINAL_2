@@ -17,6 +17,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /**
  *
@@ -32,21 +33,24 @@ public class ServicioUsuario extends EstructuraRestFul<Usuario> {
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_JSON})
-    public void create(Usuario entity) {
-        super.create(entity);
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response create(Usuario entity) {
+        return super.create(entity);
     }
 
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") String id, Usuario entity) {
-        super.edit(entity);
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response edit(@PathParam("id") String id, Usuario entity) {
+        return super.edit(entity);
     }
 
     @DELETE
     @Path("{id}")
-    public void remove(@PathParam("id") String id) {
-        super.remove(super.find(id));
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response remove(@PathParam("id") String id) {
+        return super.remove(super.find(id));
     }
 
     @GET

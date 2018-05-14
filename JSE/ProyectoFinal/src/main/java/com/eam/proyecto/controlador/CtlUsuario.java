@@ -9,19 +9,13 @@ import com.eam.proyecto.vista.FrmAdministrador;
 import com.eam.proyecto.vista.FrmAgente;
 import com.eam.proyecto.vista.FrmCiudadano;
 import com.eam.proyecto.vista.FrmFuncionario;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
 import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -30,7 +24,7 @@ import org.json.simple.parser.ParseException;
  *
  * @author Daryl Ospina
  */
-public class CtlUsuario extends ICTL {
+public class CtlUsuario extends ControladorAbstracto {
 
     public void iniciarVentana(JFrame padre, String rol) {
         padre.dispose();
@@ -62,12 +56,12 @@ public class CtlUsuario extends ICTL {
 
     public JSONObject iniciarSesion(String nombreUsaurio, String contrasenia) {
         try {
-            URL api = new URL(this.url + "Sesion/");
             Map<String, Object> parametros = new HashMap<>();
 
             parametros.put("validacion", "{\"nombreUsuario\":\"" + nombreUsaurio + "\",\"contrasenia\":\"" + contrasenia + "\"}");
 
             StringBuilder postData = new StringBuilder();
+            
             for (Map.Entry<String, Object> parametro : parametros.entrySet()) {
                 postData.append('?');
                 postData.append(URLEncoder.encode(parametro.getKey(), "UTF-8"));
@@ -75,31 +69,30 @@ public class CtlUsuario extends ICTL {
                 postData.append(URLEncoder.encode(String.valueOf(parametro.getValue()) + "", "UTF-8"));
             }
             byte[] postDataEnBytes = postData.toString().getBytes("UTF-8");
-
-            HttpURLConnection conexion = (HttpURLConnection) api.openConnection();
-
-            conexion.setRequestMethod("POST");
-            conexion.setRequestProperty("Content-Type", "application/json");
-            conexion.setRequestProperty("Content-Length", String.valueOf(postDataEnBytes.length));
-            conexion.setDoOutput(true);
-            conexion.getOutputStream().write(postDataEnBytes);
-
-            Reader entrada = new BufferedReader(new InputStreamReader(conexion.getInputStream(), "UTF-8"));
-            String respuestaJson = "";
-
-            for (int i = entrada.read(); i != -1; i = entrada.read()) {
-                respuestaJson += (char) i;
-            }
+            
+            String respuestaJson = this.conectarConAPI("Sesion/", "POST", "application/json", postDataEnBytes);
 
             JSONObject objRespuesta = ((JSONObject) (new JSONParser().parse(respuestaJson)));
 
             return objRespuesta;
 
-        } catch (MalformedURLException | UnsupportedEncodingException ex) {
-            return null;
-        } catch (IOException | ParseException ex) {
+        } catch (UnsupportedEncodingException | ParseException ex) {
             return null;
         }
     }
 
+    @Override
+    public DefaultTableModel listar(String entidad) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public JSONObject buscar(Object id, String entidad) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean eliminar(Object id, String entidad) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

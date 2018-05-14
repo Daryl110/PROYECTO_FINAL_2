@@ -18,6 +18,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /**
  *
@@ -25,7 +26,7 @@ import javax.ws.rs.core.MediaType;
  */
 @Path("Perjudicados")
 public class ServicioPerjudicados extends EstructuraRestFul<Perjudicados> {
-    
+
     public ServicioPerjudicados() {
         super(Perjudicados.class);
     }
@@ -33,21 +34,24 @@ public class ServicioPerjudicados extends EstructuraRestFul<Perjudicados> {
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_JSON})
-    public void create(Perjudicados entity) {
-        super.create(entity);
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response create(Perjudicados entity) {
+        return super.create(entity);
     }
 
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") BigDecimal id, Perjudicados entity) {
-        super.edit(entity);
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response edit(@PathParam("id") BigDecimal id, Perjudicados entity) {
+        return super.edit(entity);
     }
 
     @DELETE
     @Path("{id}")
-    public void remove(@PathParam("id") BigDecimal id) {
-        super.remove(super.find(id));
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response remove(@PathParam("id") BigDecimal id) {
+        return super.remove(super.find(id));
     }
 
     @GET
@@ -77,5 +81,5 @@ public class ServicioPerjudicados extends EstructuraRestFul<Perjudicados> {
     public String countREST() {
         return String.valueOf(super.count());
     }
-    
+
 }

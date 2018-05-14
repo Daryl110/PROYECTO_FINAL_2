@@ -5,17 +5,33 @@
  */
 package com.eam.proyecto.vista.paneles;
 
+import com.eam.proyecto.controlador.CtlComboBox;
+import com.eam.proyecto.controlador.CtlPersona;
+import com.placeholder.PlaceHolder;
+import java.awt.Color;
+import java.awt.HeadlessException;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import org.json.simple.JSONObject;
+
 /**
  *
  * @author Daryl Ospina
  */
 public class PnlCrudUsuPerson extends javax.swing.JPanel {
 
-    /**
-     * Creates new form PnlCrudUsuarios
-     */
+    private final CtlPersona controladorPersona;
+    private String cedulaModificar;
+
     public PnlCrudUsuPerson() {
-        initComponents();
+        this.initComponents();
+        this.ponerDisenios();
+        this.cargarCombos();
+        this.controladorPersona = new CtlPersona();
+        this.listarPersonas();
+        this.cedulaModificar = null;
+        this.btnModificar.setEnabled(false);
+        this.btnActualizar.setEnabled(false);
     }
 
     /**
@@ -45,6 +61,9 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         cbEps = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         cbTipoDocumento = new javax.swing.JComboBox<>();
@@ -54,6 +73,10 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
         txtTelefono = new javax.swing.JFormattedTextField();
         jLabel9 = new javax.swing.JLabel();
         cbMunicipio = new javax.swing.JComboBox<>();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         btnModificar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
@@ -107,6 +130,18 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Entidad promotora de salud (EPS):");
 
+        jLabel11.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel11.setText("*");
+
+        jLabel12.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel12.setText("*");
+
+        jLabel13.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel13.setText("*");
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -121,14 +156,23 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
                     .addComponent(cbEps, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel11))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel12))
                             .addComponent(jLabel3)
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel5))
-                            .addComponent(jLabel10))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel13)))
                         .addGap(0, 18, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -136,11 +180,15 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNombreCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -154,7 +202,9 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNumeroPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel10)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbEps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -170,6 +220,8 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Numero de documento:");
 
+        txtNumeroDocumento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Telefono:");
@@ -179,6 +231,22 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Municipio de residencia:");
+
+        jLabel14.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel14.setText("*");
+
+        jLabel15.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel15.setText("*");
+
+        jLabel16.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel16.setText("*");
+
+        jLabel17.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel17.setText("*");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -193,30 +261,50 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
                     .addComponent(txtNumeroDocumento)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel7))
-                        .addGap(0, 60, Short.MAX_VALUE)))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel15))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel17))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel16))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel14)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel6)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel17))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(jLabel7)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel16))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtNumeroDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
-                .addComponent(jLabel8)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
-                .addComponent(jLabel9)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbMunicipio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -225,14 +313,44 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
         jPanel9.setBackground(new java.awt.Color(5, 117, 154));
 
         btnModificar.setText("Modificar");
+        btnModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
 
         btnBuscar.setText("Buscar");
+        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setText("Eliminar");
+        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         btnActualizar.setText("Actualizar Tabla");
+        btnActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         btnGuardar.setText("Guardar");
+        btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -301,11 +419,11 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 542, Short.MAX_VALUE)
+            .addGap(0, 528, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 571, Short.MAX_VALUE)
+            .addGap(0, 607, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Usuarios", jPanel6);
@@ -314,7 +432,7 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -346,6 +464,129 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        this.listarPersonas();
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        if (txtNombreCompleto.getText().isEmpty() || txtNombreCompleto.getText().equalsIgnoreCase("Nombre completo")
+                || txtDireccion.getText().equalsIgnoreCase("Direccion de residencia") || txtDireccion.getText().isEmpty()
+                || cbEps.getSelectedIndex() == 0 || cbMunicipio.getSelectedIndex() == 0
+                || cbTipoDocumento.getSelectedIndex() == 0 || txtNumeroDocumento.getText().isEmpty() || txtTelefono.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor llene los campos obligatorios");
+        } else {
+            String nombreCompleto, direccion, numeroPlaca = null, eps, numeroDocumento, telefono;
+            int tipoDocumento, municipio;
+            Date fechaN = null;
+
+            nombreCompleto = txtNombreCompleto.getText().trim();
+            direccion = txtDireccion.getText().trim();
+            if (txtFechaN.getDate() != null) {
+                fechaN = txtFechaN.getDate();
+            }
+            if (!txtNumeroPlaca.getText().isEmpty() && !txtNumeroPlaca.getText().equalsIgnoreCase("Numero de placa")) {
+                numeroPlaca = txtNumeroPlaca.getText().trim();
+            }
+            eps = cbEps.getSelectedItem().toString();
+            tipoDocumento = cbTipoDocumento.getSelectedIndex();
+            numeroDocumento = txtNumeroDocumento.getText().trim();
+            telefono = txtTelefono.getText().trim();
+            municipio = cbMunicipio.getSelectedIndex();
+
+            if (this.controladorPersona.guardar(nombreCompleto, direccion, fechaN,
+                    numeroPlaca, eps, tipoDocumento, numeroDocumento, telefono, municipio)) {
+                JOptionPane.showMessageDialog(this, "Persona registrada con exito");
+                this.vaciarCampos();
+                this.listarPersonas();
+            } else {
+                JOptionPane.showMessageDialog(this, "No se pudo registrar la persona");
+            }
+        }
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        String cedula = null;
+        if (tblPersonas.getSelectedRow() < 0) {
+            try {
+                cedula = JOptionPane.showInputDialog("Ingrese la cedula del usuario que desea buscar");
+            } catch (HeadlessException e) {
+                JOptionPane.showMessageDialog(this, "Debe ingresar una cedula valida");
+                return;
+            }
+        } else {
+            cedula = tblPersonas.getValueAt(tblPersonas.getSelectedRow(), 2).toString();
+        }
+        if (cedula != null) {
+            this.llenarCamposPersona(this.controladorPersona.buscar(cedula, "Persona"));
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe ingresar una cedula valida");
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        String cedula = null;
+        if (tblPersonas.getSelectedRow() < 0) {
+            try {
+                cedula = JOptionPane.showInputDialog("Ingrese la cedula del usuario que desea buscar");
+            } catch (HeadlessException e) {
+                JOptionPane.showMessageDialog(this, "Debe ingresar una cedula valida");
+                return;
+            }
+        } else {
+            cedula = tblPersonas.getValueAt(tblPersonas.getSelectedRow(), 2).toString();
+        }
+        if (cedula != null) {
+            if (this.controladorPersona.eliminar(cedula, "Persona")) {
+                this.listarPersonas();
+                JOptionPane.showMessageDialog(this, "La persona con la cedula: "+cedula+" fue eliminada");
+            } else {
+                JOptionPane.showMessageDialog(this, "No se pudo eliminar la persona");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe ingresar una cedula valida");
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        if (this.cedulaModificar != null) {
+            if (txtNombreCompleto.getText().isEmpty() || txtNombreCompleto.getText().equalsIgnoreCase("Nombre completo")
+                    || txtDireccion.getText().equalsIgnoreCase("Direccion de residencia") || txtDireccion.getText().isEmpty()
+                    || cbEps.getSelectedIndex() == 0 || cbMunicipio.getSelectedIndex() == 0
+                    || cbTipoDocumento.getSelectedIndex() == 0 || txtNumeroDocumento.getText().isEmpty() || txtTelefono.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Por favor llene los campos obligatorios");
+            } else {
+                String nombreCompleto, direccion, numeroPlaca = null, eps, numeroDocumento, telefono;
+                int tipoDocumento, municipio;
+                Date fechaN = null;
+
+                nombreCompleto = txtNombreCompleto.getText().trim();
+                direccion = txtDireccion.getText().trim();
+                if (txtFechaN.getDate() != null) {
+                    fechaN = txtFechaN.getDate();
+                }
+                if (!txtNumeroPlaca.getText().isEmpty() && !txtNumeroPlaca.getText().equalsIgnoreCase("Numero de placa")) {
+                    numeroPlaca = txtNumeroPlaca.getText().trim();
+                }
+                eps = cbEps.getSelectedItem().toString();
+                tipoDocumento = cbTipoDocumento.getSelectedIndex();
+                numeroDocumento = txtNumeroDocumento.getText().trim();
+                telefono = txtTelefono.getText().trim();
+                municipio = cbMunicipio.getSelectedIndex();
+
+                if (this.controladorPersona.modificar(nombreCompleto, direccion, fechaN,
+                        numeroPlaca, eps, tipoDocumento, numeroDocumento, telefono, municipio)) {
+                    JOptionPane.showMessageDialog(this, "Persona modificada con exito");
+                    this.vaciarCampos();
+                    this.listarPersonas();
+                } else {
+                    JOptionPane.showMessageDialog(this, "No se pudo modificar la persona");
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "No ha sido posible modificar");
+        }
+    }//GEN-LAST:event_btnModificarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
@@ -358,6 +599,13 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cbTipoDocumento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -383,4 +631,65 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
     private javax.swing.JTextField txtNumeroPlaca;
     private javax.swing.JFormattedTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
+
+    private void ponerDisenios() {
+        new PlaceHolder(txtNombreCompleto, new Color(117, 117, 117), Color.BLACK,
+                "Nombre completo", false, txtNombreCompleto.getFont().toString(), 12);
+        new PlaceHolder(txtDireccion, new Color(117, 117, 117), Color.BLACK,
+                "Direccion de residencia", false, txtDireccion.getFont().toString(), 12);
+        new PlaceHolder(txtNumeroPlaca, new Color(117, 117, 117), Color.BLACK,
+                "Numero de placa", false, txtNumeroPlaca.getFont().toString(), 12);
+    }
+
+    private void cargarCombos() {
+        CtlComboBox controladorComboBox = new CtlComboBox();
+        controladorComboBox.cargarTipoDocumeto(this.cbTipoDocumento);
+        controladorComboBox.cargarMunicipio(this.cbMunicipio);
+        controladorComboBox.cargarEps(this.cbEps);
+    }
+
+    private void listarPersonas() {
+        this.tblPersonas.setModel(this.controladorPersona.listar("Persona"));
+        btnModificar.setEnabled(false);
+        btnGuardar.setEnabled(true);
+        btnActualizar.setEnabled(false);
+        txtNumeroDocumento.setEditable(true);
+        this.cedulaModificar = null;
+        this.vaciarCampos();
+    }
+
+    private void llenarCamposPersona(JSONObject persona) {
+        try {
+            txtNombreCompleto.setText(persona.get("nombreCompleto").toString());
+            txtDireccion.setText(persona.get("direccion").toString());
+            cbTipoDocumento.setSelectedIndex(Integer.parseInt(((JSONObject) (persona.get("tipoDocumentoId"))).get("id").toString()));
+            cbMunicipio.setSelectedIndex(Integer.parseInt(((JSONObject) (persona.get("municipioId"))).get("id").toString()));
+            cbEps.setSelectedItem(persona.get("eps").toString());
+            txtTelefono.setText(persona.get("telefono").toString());
+            txtNumeroDocumento.setText(persona.get("nip").toString());
+            if (persona.get("placa") != null) {
+                txtNumeroPlaca.setText(persona.get("placa").toString());
+            }
+            //falta fecha
+            btnModificar.setEnabled(true);
+            btnGuardar.setEnabled(false);
+            btnActualizar.setEnabled(true);
+            txtNumeroDocumento.setEditable(false);
+            this.cedulaModificar = persona.get("nip").toString();
+        } catch (NullPointerException e) {
+            System.out.println(e);
+        }
+    }
+
+    private void vaciarCampos() {
+        txtNombreCompleto.setText("Nombre completo");
+        txtDireccion.setText("Direccion de residencia");
+        cbTipoDocumento.setSelectedIndex(0);
+        cbMunicipio.setSelectedIndex(0);
+        cbEps.setSelectedIndex(0);
+        txtTelefono.setText("");
+        txtNumeroPlaca.setText("Numero de placa");
+        txtNumeroDocumento.setText("");
+        txtFechaN.setDate(null);
+    }
 }

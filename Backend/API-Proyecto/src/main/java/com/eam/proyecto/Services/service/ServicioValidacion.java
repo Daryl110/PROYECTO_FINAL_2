@@ -30,26 +30,6 @@ public class ServicioValidacion extends EstructuraRestFul<Validacion> {
         super(Validacion.class);
     }
 
-    @POST
-    @Override
-    @Consumes({MediaType.APPLICATION_JSON})
-    public void create(Validacion entity) {
-        super.create(entity);
-    }
-
-    @PUT
-    @Path("{id}")
-    @Consumes({MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") BigDecimal id, Validacion entity) {
-        super.edit(entity);
-    }
-
-    @DELETE
-    @Path("{id}")
-    public void remove(@PathParam("id") BigDecimal id) {
-        super.remove(super.find(id));
-    }
-
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
@@ -62,20 +42,6 @@ public class ServicioValidacion extends EstructuraRestFul<Validacion> {
     @Produces({MediaType.APPLICATION_JSON})
     public List<Validacion> findAll() {
         return super.findAll();
-    }
-
-    @GET
-    @Path("{from}/{to}")
-    @Produces({MediaType.APPLICATION_JSON})
-    public List<Validacion> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
-        return super.findRange(new int[]{from, to});
-    }
-
-    @GET
-    @Path("count")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String countREST() {
-        return String.valueOf(super.count());
     }
     
 }

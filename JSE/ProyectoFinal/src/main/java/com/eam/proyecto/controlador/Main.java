@@ -1,4 +1,4 @@
-package com.eam.proyectofinal;
+package com.eam.proyecto.controlador;
 
 import com.eam.proyecto.vista.FrmPrincipal;
 

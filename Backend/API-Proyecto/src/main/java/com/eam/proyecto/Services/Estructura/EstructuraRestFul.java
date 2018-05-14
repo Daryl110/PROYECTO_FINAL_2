@@ -8,6 +8,7 @@ package com.eam.proyecto.Services.Estructura;
 import com.eam.proyecto.DAO.DAOoracle;
 import com.eam.proyecto.DAO.IDAO;
 import java.util.List;
+import javax.ws.rs.core.Response;
 
 /**
  *
@@ -22,16 +23,16 @@ public abstract class EstructuraRestFul<T> {
         this.entityClass = entityClass;
     }
 
-    public void create(T entity) {
-        dao.guardar(entity);
+    public Response create(T entity) {
+        return dao.guardar(entity);
     }
 
-    public void edit(T entity) {
-        dao.getEntityManagerFactory().createEntityManager().merge(entity);
+    public Response edit(T entity) {
+        return dao.modificar(entity);
     }
 
-    public void remove(T entity) {
-        dao.eliminar(entity, entityClass);
+    public Response remove(T entity) {
+       return dao.eliminar(entity, entityClass);
     }
 
     public T find(Object id) {

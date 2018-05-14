@@ -1,9 +1,11 @@
-package proyectofinal.proyecto_final;
+package proyectofinal.proyecto_final.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import proyectofinal.proyecto_final.R;
 
 public class RegistroVehiculo extends AppCompatActivity {
 

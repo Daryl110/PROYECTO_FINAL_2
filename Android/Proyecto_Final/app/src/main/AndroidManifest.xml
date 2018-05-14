@@ -9,18 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ComparendoFormulario1" />
-        <activity android:name=".Menu" />
-        <activity android:name=".RegistroPersona" />
-        <activity android:name=".RegistroVehiculo" />
-        <activity android:name=".ConsultaComparendo"></activity>
+        <activity android:name=".Activities.ComparendoFormulario1" />
+        <activity android:name=".Activities.Menu" />
+        <activity android:name=".Activities.RegistroPersona" />
+        <activity android:name=".Activities.RegistroVehiculo" />
+        <activity android:name=".Activities.ConsultaComparendo"></activity>
     </application>
 
 </manifest>

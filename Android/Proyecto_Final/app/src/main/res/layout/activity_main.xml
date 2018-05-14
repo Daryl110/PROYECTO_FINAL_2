@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Activities.MainActivity">
 
     <LinearLayout
         android:layout_width="368dp"
@@ -15,58 +15,118 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="25dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@mipmap/agente"
-                android:textAlignment="center" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="136dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="210dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@mipmap/agente"
+                    android:textAlignment="center" />
+
+                <Space
+                    android:layout_width="142dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="41dp" />
+
         </LinearLayout>
 
-        <Space
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="22dp" />
+            android:layout_height="153dp"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/txtUsuario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Ingrese el usuario"
-            android:inputType="textPersonName"
-            android:textColorLink="@color/colorPrimaryDark" />
+            <Space
+                android:layout_width="129dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="22dp" />
+            <LinearLayout
+                android:layout_width="299dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/txtPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Ingrese la contraseña"
-            android:inputType="textPassword"
-            android:textColorLink="@color/colorPrimaryDark" />
+                <EditText
+                    android:id="@+id/txtNombeUsuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:fontFamily="sans-serif"
+                    android:hint="Ingrese el usuario"
+                    android:inputType="textPersonName"
+                    android:textColorLink="@color/colorPrimaryDark"
+                    android:textSize="18sp" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="22dp" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp" />
 
-        <Button
-            android:id="@+id/btnIngresar"
+                <EditText
+                    android:id="@+id/txtContrasenia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:fontFamily="sans-serif"
+                    android:hint="Ingrese la contraseña"
+                    android:inputType="textPassword"
+                    android:textColorLink="@color/colorPrimaryDark"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="129dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="ingresar"
-            android:text="Ingresar" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="115dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnIngresar"
+                android:layout_width="256dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="ingresar"
+                android:text="Ingresar" />
+
+            <Space
+                android:layout_width="112dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+        </LinearLayout>
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

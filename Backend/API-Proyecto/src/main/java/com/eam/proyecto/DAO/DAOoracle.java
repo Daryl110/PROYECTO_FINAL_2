@@ -1,14 +1,17 @@
 package com.eam.proyecto.DAO;
 
+import com.eam.proyecto.util.Herramientas;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
+import javax.ws.rs.core.Response;
+import org.json.simple.JSONObject;
 
 /**
  *
  * @author Daryl Ospina
  */
-public class DAOoracle implements IDAO{
+public class DAOoracle implements IDAO {
 
     private EntityManagerFactory entityManager;
 
@@ -31,16 +34,16 @@ public class DAOoracle implements IDAO{
     }
 
     @Override
-    public Object cargar(String nombreClase,String campos) {
+    public Object cargar(String nombreClase, String campos) {
         EntityManager manager = null;
         Object lista = null;
 
         try {
             manager = getEntityManager();
-            Query query = manager.createQuery("SELECT "+campos+" FROM "+nombreClase+" p");
+            Query query = manager.createQuery("SELECT " + campos + " FROM " + nombreClase + " p");
             lista = (Object) query.getResultList();
         } catch (Exception e) {
-            System.out.println("[Error] - "+e);
+            System.out.println("[Error] - " + e);
         } finally {
             if (manager != null) {
                 manager.close();
@@ -48,7 +51,7 @@ public class DAOoracle implements IDAO{
         }
         return lista;
     }
-    
+
     @Override
     public Object cargar(String nombreClase) {
         EntityManager manager = null;
@@ -56,10 +59,10 @@ public class DAOoracle implements IDAO{
 
         try {
             manager = getEntityManager();
-            Query query = manager.createQuery("SELECT p FROM "+nombreClase+" p");
+            Query query = manager.createQuery("SELECT p FROM " + nombreClase + " p");
             lista = (Object) query.getResultList();
         } catch (Exception e) {
-            System.out.println("[Error] - "+e);
+            System.out.println("[Error] - " + e);
         } finally {
             if (manager != null) {
                 manager.close();
@@ -67,16 +70,18 @@ public class DAOoracle implements IDAO{
         }
         return lista;
     }
-    
+
     @Override
-    public boolean guardar(Object objeto) {
+    public Response guardar(Object objeto) {
         EntityManager manager = null;
+        JSONObject objRespuesta = new JSONObject();
         try {
             manager = getEntityManager();
             manager.getTransaction().begin();
             manager.persist(objeto);
             manager.getTransaction().commit();
-            return true;
+            objRespuesta.put("Resultado", true);
+            return Herramientas.construirResponse(objRespuesta.toString());
         } catch (Exception e) {
             System.err.println(e);
         } finally {
@@ -84,18 +89,21 @@ public class DAOoracle implements IDAO{
                 manager.close();
             }
         }
-        return false;
+        objRespuesta.put("Resultado", false);
+        return Herramientas.construirResponse(objRespuesta.toString());
     }
-    
+
     @Override
-    public boolean modificar(Object objeto) {
+    public Response modificar(Object objeto) {
         EntityManager manager = null;
+        JSONObject objRespuesta = new JSONObject();
         try {
             manager = getEntityManager();
             manager.getTransaction().begin();
             manager.merge(objeto);
             manager.getTransaction().commit();
-            return true;
+            objRespuesta.put("Resultado", true);
+            return Herramientas.construirResponse(objRespuesta.toString());
         } catch (Exception e) {
             System.err.println(e);
         } finally {
@@ -103,11 +111,12 @@ public class DAOoracle implements IDAO{
                 manager.close();
             }
         }
-        return false;
+        objRespuesta.put("Resultado", false);
+        return Herramientas.construirResponse(objRespuesta.toString());
     }
-    
+
     @Override
-    public Object buscar(Object valorId,Class clase) {
+    public Object buscar(Object valorId, Class clase) {
         EntityManager manager = null;
         try {
             manager = getEntityManager();
@@ -121,17 +130,19 @@ public class DAOoracle implements IDAO{
             }
         }
     }
-    
+
     @Override
-    public boolean eliminar(Object obj,Class clase) {
+    public Response eliminar(Object obj, Class clase) {
         EntityManager manager = null;
+        JSONObject objRespuesta = new JSONObject();
         try {
             manager = getEntityManager();
             manager.getTransaction().begin();
             Object objeto = manager.merge(obj);
             manager.remove(objeto);
             manager.getTransaction().commit();
-            return true;
+            objRespuesta.put("Resultado", true);
+            return Herramientas.construirResponse(objRespuesta.toString());
         } catch (Exception e) {
             System.err.println(e);
         } finally {
@@ -139,6 +150,7 @@ public class DAOoracle implements IDAO{
                 manager.close();
             }
         }
-        return false;
+        objRespuesta.put("Resultado", false);
+        return Herramientas.construirResponse(objRespuesta.toString());
     }
 }

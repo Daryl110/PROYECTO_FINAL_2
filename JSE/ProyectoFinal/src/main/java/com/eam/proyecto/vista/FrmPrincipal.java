@@ -3,6 +3,7 @@ package com.eam.proyecto.vista;
 import com.eam.proyecto.controlador.CtlUsuario;
 import com.placeholder.PlaceHolder;
 import java.awt.Color;
+import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
 
@@ -10,15 +11,15 @@ import org.json.simple.JSONObject;
  * @author Daryl Ospina
  */
 public class FrmPrincipal extends javax.swing.JFrame {
-    
+
     private final CtlUsuario controladorUsuario;
-    
+
     public FrmPrincipal() {
         this.initComponents();
         this.ponerPlaceHolders();
         this.controladorUsuario = new CtlUsuario();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -370,21 +371,28 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
-        if (txtNombreUsuario.getText().isEmpty() ||  txtNombreUsuario.getText().equals("Nombre de usuario")
+        if (txtNombreUsuario.getText().isEmpty() || txtNombreUsuario.getText().equals("Nombre de usuario")
                 || txtContrasenia.getText().isEmpty() || txtContrasenia.getText().equals("Contrasenia")) {
             JOptionPane.showMessageDialog(this, "Por favor no deje los campos vacios");
-        }else{
-            String nombreUsuario,contrasenia;
-            
+        } else {
+            String nombreUsuario, contrasenia;
+
             nombreUsuario = txtNombreUsuario.getText().trim();
             contrasenia = txtContrasenia.getText().trim();
-            
+
             JSONObject respuesta = this.controladorUsuario.iniciarSesion(nombreUsuario, contrasenia);
-            
-            if ((boolean)respuesta.get("Acceso")) {
-                this.controladorUsuario.iniciarVentana(this,respuesta.get("Rol").toString());
-            }else{
-                JOptionPane.showMessageDialog(this, "La contraseña y el nombre de usuario no coinciden con ningun usuario registrado");
+
+            try {
+                if ((boolean) respuesta.get("Acceso")) {
+                    this.controladorUsuario.iniciarVentana(this, respuesta.get("Rol").toString());
+                } else {
+                    JOptionPane.showMessageDialog(this, "La contraseña y el "
+                            + "nombre de usuario no coinciden con ningun usuario registrado");
+                }
+            } catch (HeadlessException | NullPointerException e) {
+                JOptionPane.showMessageDialog(this, "Es posible que no se "
+                        + "realizara la iniciación del web service. contacte con el administrador");
+                System.out.println("[Error] : "+e);
             }
         }
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
@@ -415,11 +423,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombreUsuario;
     // End of variables declaration//GEN-END:variables
 
-    private void ponerPlaceHolders(){
-        new PlaceHolder(txtNombreUsuario,new Color(117, 117, 117), Color.BLACK,
+    private void ponerPlaceHolders() {
+        new PlaceHolder(txtNombreUsuario, new Color(117, 117, 117), Color.BLACK,
                 "Nombre de usuario", false, txtNombreUsuario.getFont().toString(), 12);
-        
-        new PlaceHolder(txtContrasenia,new Color(117, 117, 117), Color.BLACK,
+
+        new PlaceHolder(txtContrasenia, new Color(117, 117, 117), Color.BLACK,
                 "Contrasenia", false, txtContrasenia.getFont().toString(), 12);
     }
 }

@@ -18,6 +18,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /**
  *
@@ -33,21 +34,24 @@ public class ServicioExamen extends EstructuraRestFul<Examen> {
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_JSON})
-    public void create(Examen entity) {
-        super.create(entity);
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response create(Examen entity) {
+        return super.create(entity);
     }
 
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") BigDecimal id, Examen entity) {
-        super.edit(entity);
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response edit(@PathParam("id") BigDecimal id, Examen entity) {
+        return super.edit(entity);
     }
 
     @DELETE
     @Path("{id}")
-    public void remove(@PathParam("id") BigDecimal id) {
-        super.remove(super.find(id));
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response remove(@PathParam("id") BigDecimal id) {
+        return super.remove(super.find(id));
     }
 
     @GET

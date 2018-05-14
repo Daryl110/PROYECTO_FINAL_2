@@ -6,6 +6,7 @@
 package com.eam.proyecto.DAO;
 
 import javax.persistence.EntityManagerFactory;
+import javax.ws.rs.core.Response;
 
 /**
  *
@@ -15,10 +16,10 @@ public interface IDAO<T> {
     
     public abstract Object cargar(String nombreClase,String campos);
     public abstract Object cargar(String nombreClase);
-    public abstract boolean guardar(Object objeto);
-    public abstract boolean modificar(Object objeto);
+    public abstract Response guardar(Object objeto);
+    public abstract Response modificar(Object objeto);
     public abstract Object buscar(Object valorId,Class<T> clase);
-    public abstract boolean eliminar(Object valorId,Class<T> clase);
+    public abstract Response eliminar(Object valorId,Class<T> clase);
     public abstract EntityManagerFactory getEntityManagerFactory();
     public abstract void setEntityManager(EntityManagerFactory entityManager);
 }

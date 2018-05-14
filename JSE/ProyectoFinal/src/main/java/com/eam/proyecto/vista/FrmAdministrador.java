@@ -14,9 +14,7 @@ import java.awt.BorderLayout;
  */
 public class FrmAdministrador extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrmAdministrador
-     */
+    
     public FrmAdministrador() {
         initComponents();
         PnlCrudUsuPerson panelUsuPerson = new PnlCrudUsuPerson();
@@ -69,7 +67,7 @@ public class FrmAdministrador extends javax.swing.JFrame {
         );
         pnlPerUsuLayout.setVerticalGroup(
             pnlPerUsuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 606, Short.MAX_VALUE)
+            .addGap(0, 640, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Personas y Usuarios", pnlPerUsu);
@@ -82,7 +80,7 @@ public class FrmAdministrador extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -121,4 +119,5 @@ public class FrmAdministrador extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPanel pnlPerUsu;
     // End of variables declaration//GEN-END:variables
+ 
 }
