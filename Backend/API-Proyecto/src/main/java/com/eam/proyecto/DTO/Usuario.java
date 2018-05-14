@@ -17,7 +17,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -26,8 +25,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "USUARIO")
 @NamedQueries({
-    @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u")})
-@XmlRootElement
+    @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u")
+    , @NamedQuery(name = "Usuario.findByNombreUsuario", query = "SELECT u FROM Usuario u WHERE u.nombreUsuario = :nombreUsuario")
+    , @NamedQuery(name = "Usuario.findByPassword", query = "SELECT u FROM Usuario u WHERE u.password = :password")
+    , @NamedQuery(name = "Usuario.findByEmail", query = "SELECT u FROM Usuario u WHERE u.email = :email")
+    , @NamedQuery(name = "Usuario.findByRespuestaSeguridad", query = "SELECT u FROM Usuario u WHERE u.respuestaSeguridad = :respuestaSeguridad")
+    , @NamedQuery(name = "Usuario.findByTipoUsuario", query = "SELECT u FROM Usuario u WHERE u.tipoUsuario = :tipoUsuario")})
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -54,9 +57,9 @@ public class Usuario implements Serializable {
     @Size(min = 1, max = 20)
     @Column(name = "TIPO_USUARIO")
     private String tipoUsuario;
-    @JoinColumn(name = "PERSONA_ID", referencedColumnName = "NIP")
+    @JoinColumn(name = "PERSONA_NIP", referencedColumnName = "NIP")
     @ManyToOne(optional = false)
-    private Persona personaId;
+    private Persona personaNip;
     @JoinColumn(name = "VALIDACION_ID", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private Validacion validacionId;
@@ -114,12 +117,12 @@ public class Usuario implements Serializable {
         this.tipoUsuario = tipoUsuario;
     }
 
-    public Persona getPersonaId() {
-        return personaId;
+    public Persona getPersonaNip() {
+        return personaNip;
     }
 
-    public void setPersonaId(Persona personaId) {
-        this.personaId = personaId;
+    public void setPersonaNip(Persona personaNip) {
+        this.personaNip = personaNip;
     }
 
     public Validacion getValidacionId() {

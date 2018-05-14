@@ -22,8 +22,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -32,8 +30,19 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "VEHICULO")
 @NamedQueries({
-    @NamedQuery(name = "Vehiculo.findAll", query = "SELECT v FROM Vehiculo v")})
-@XmlRootElement
+    @NamedQuery(name = "Vehiculo.findAll", query = "SELECT v FROM Vehiculo v")
+    , @NamedQuery(name = "Vehiculo.findByPlaca", query = "SELECT v FROM Vehiculo v WHERE v.placa = :placa")
+    , @NamedQuery(name = "Vehiculo.findByModelo", query = "SELECT v FROM Vehiculo v WHERE v.modelo = :modelo")
+    , @NamedQuery(name = "Vehiculo.findByLinea", query = "SELECT v FROM Vehiculo v WHERE v.linea = :linea")
+    , @NamedQuery(name = "Vehiculo.findByMarca", query = "SELECT v FROM Vehiculo v WHERE v.marca = :marca")
+    , @NamedQuery(name = "Vehiculo.findByLicenciaTransito", query = "SELECT v FROM Vehiculo v WHERE v.licenciaTransito = :licenciaTransito")
+    , @NamedQuery(name = "Vehiculo.findByClaseVehiculo", query = "SELECT v FROM Vehiculo v WHERE v.claseVehiculo = :claseVehiculo")
+    , @NamedQuery(name = "Vehiculo.findByTipoVehiculo", query = "SELECT v FROM Vehiculo v WHERE v.tipoVehiculo = :tipoVehiculo")
+    , @NamedQuery(name = "Vehiculo.findByLugarMatricula", query = "SELECT v FROM Vehiculo v WHERE v.lugarMatricula = :lugarMatricula")
+    , @NamedQuery(name = "Vehiculo.findByNacionalidad", query = "SELECT v FROM Vehiculo v WHERE v.nacionalidad = :nacionalidad")
+    , @NamedQuery(name = "Vehiculo.findByCapacidadCarga", query = "SELECT v FROM Vehiculo v WHERE v.capacidadCarga = :capacidadCarga")
+    , @NamedQuery(name = "Vehiculo.findByNumeroPasajeros", query = "SELECT v FROM Vehiculo v WHERE v.numeroPasajeros = :numeroPasajeros")
+    , @NamedQuery(name = "Vehiculo.findByNoTargetaOperacion", query = "SELECT v FROM Vehiculo v WHERE v.noTargetaOperacion = :noTargetaOperacion")})
 public class Vehiculo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -49,70 +58,51 @@ public class Vehiculo implements Serializable {
     @Size(max = 10)
     @Column(name = "LINEA")
     private String linea;
-    @Column(name = "CAPACIDAD_CARGA")
-    private BigInteger capacidadCarga;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 20)
-    @Column(name = "LICENCIA_TRANSITO")
-    private String licenciaTransito;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 20)
-    @Column(name = "CLASE_VEHICULO_ID")
-    private String claseVehiculoId;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 20)
-    @Column(name = "LUGAR_MATRICULA")
-    private String lugarMatricula;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 20)
-    @Column(name = "TIPO_VEHICULO_ID")
-    private String tipoVehiculoId;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 20)
-    @Column(name = "NACIONALIDAD")
-    private String nacionalidad;
     @Size(max = 20)
     @Column(name = "MARCA")
     private String marca;
+    @Size(max = 20)
+    @Column(name = "LICENCIA_TRANSITO")
+    private String licenciaTransito;
+    @Size(max = 20)
+    @Column(name = "CLASE_VEHICULO")
+    private String claseVehiculo;
+    @Size(max = 20)
+    @Column(name = "TIPO_VEHICULO")
+    private String tipoVehiculo;
+    @Size(max = 20)
+    @Column(name = "LUGAR_MATRICULA")
+    private String lugarMatricula;
+    @Size(max = 20)
+    @Column(name = "NACIONALIDAD")
+    private String nacionalidad;
+    @Column(name = "CAPACIDAD_CARGA")
+    private BigInteger capacidadCarga;
     @Column(name = "NUMERO_PASAJEROS")
     private BigInteger numeroPasajeros;
     @Column(name = "NO_TARGETA_OPERACION")
     private BigInteger noTargetaOperacion;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vehiculoPlaca")
-    private List<PolizaSeguro> polizaSeguroList;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "vehiculo")
+    private PolizaSeguro polizaSeguro;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "vehiculo")
     private VehiculoTramite vehiculoTramite;
     @JoinColumn(name = "EMPRESA_NIT", referencedColumnName = "NIT")
     @ManyToOne
     private Empresa empresaNit;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vehiculoPlaca")
-    private List<HistorialDuenio> historialDuenioList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vehiculoPlaca")
     private List<Colores> coloresList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vehiculoPlaca")
     private List<Comparendo> comparendoList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vehiculoPlaca")
     private List<VehiculosAfectados> vehiculosAfectadosList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vehiculoPlaca")
+    private List<HistorialDueno> historialDuenoList;
 
     public Vehiculo() {
     }
 
     public Vehiculo(String placa) {
         this.placa = placa;
-    }
-
-    public Vehiculo(String placa, String licenciaTransito, String claseVehiculoId, String lugarMatricula, String tipoVehiculoId, String nacionalidad) {
-        this.placa = placa;
-        this.licenciaTransito = licenciaTransito;
-        this.claseVehiculoId = claseVehiculoId;
-        this.lugarMatricula = lugarMatricula;
-        this.tipoVehiculoId = tipoVehiculoId;
-        this.nacionalidad = nacionalidad;
     }
 
     public String getPlaca() {
@@ -139,12 +129,12 @@ public class Vehiculo implements Serializable {
         this.linea = linea;
     }
 
-    public BigInteger getCapacidadCarga() {
-        return capacidadCarga;
+    public String getMarca() {
+        return marca;
     }
 
-    public void setCapacidadCarga(BigInteger capacidadCarga) {
-        this.capacidadCarga = capacidadCarga;
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 
     public String getLicenciaTransito() {
@@ -155,12 +145,20 @@ public class Vehiculo implements Serializable {
         this.licenciaTransito = licenciaTransito;
     }
 
-    public String getClaseVehiculoId() {
-        return claseVehiculoId;
+    public String getClaseVehiculo() {
+        return claseVehiculo;
     }
 
-    public void setClaseVehiculoId(String claseVehiculoId) {
-        this.claseVehiculoId = claseVehiculoId;
+    public void setClaseVehiculo(String claseVehiculo) {
+        this.claseVehiculo = claseVehiculo;
+    }
+
+    public String getTipoVehiculo() {
+        return tipoVehiculo;
+    }
+
+    public void setTipoVehiculo(String tipoVehiculo) {
+        this.tipoVehiculo = tipoVehiculo;
     }
 
     public String getLugarMatricula() {
@@ -171,14 +169,6 @@ public class Vehiculo implements Serializable {
         this.lugarMatricula = lugarMatricula;
     }
 
-    public String getTipoVehiculoId() {
-        return tipoVehiculoId;
-    }
-
-    public void setTipoVehiculoId(String tipoVehiculoId) {
-        this.tipoVehiculoId = tipoVehiculoId;
-    }
-
     public String getNacionalidad() {
         return nacionalidad;
     }
@@ -187,12 +177,12 @@ public class Vehiculo implements Serializable {
         this.nacionalidad = nacionalidad;
     }
 
-    public String getMarca() {
-        return marca;
+    public BigInteger getCapacidadCarga() {
+        return capacidadCarga;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public void setCapacidadCarga(BigInteger capacidadCarga) {
+        this.capacidadCarga = capacidadCarga;
     }
 
     public BigInteger getNumeroPasajeros() {
@@ -211,13 +201,12 @@ public class Vehiculo implements Serializable {
         this.noTargetaOperacion = noTargetaOperacion;
     }
 
-    @XmlTransient
-    public List<PolizaSeguro> getPolizaSeguroList() {
-        return polizaSeguroList;
+    public PolizaSeguro getPolizaSeguro() {
+        return polizaSeguro;
     }
 
-    public void setPolizaSeguroList(List<PolizaSeguro> polizaSeguroList) {
-        this.polizaSeguroList = polizaSeguroList;
+    public void setPolizaSeguro(PolizaSeguro polizaSeguro) {
+        this.polizaSeguro = polizaSeguro;
     }
 
     public VehiculoTramite getVehiculoTramite() {
@@ -236,16 +225,6 @@ public class Vehiculo implements Serializable {
         this.empresaNit = empresaNit;
     }
 
-    @XmlTransient
-    public List<HistorialDuenio> getHistorialDuenioList() {
-        return historialDuenioList;
-    }
-
-    public void setHistorialDuenioList(List<HistorialDuenio> historialDuenioList) {
-        this.historialDuenioList = historialDuenioList;
-    }
-
-    @XmlTransient
     public List<Colores> getColoresList() {
         return coloresList;
     }
@@ -254,7 +233,6 @@ public class Vehiculo implements Serializable {
         this.coloresList = coloresList;
     }
 
-    @XmlTransient
     public List<Comparendo> getComparendoList() {
         return comparendoList;
     }
@@ -263,13 +241,20 @@ public class Vehiculo implements Serializable {
         this.comparendoList = comparendoList;
     }
 
-    @XmlTransient
     public List<VehiculosAfectados> getVehiculosAfectadosList() {
         return vehiculosAfectadosList;
     }
 
     public void setVehiculosAfectadosList(List<VehiculosAfectados> vehiculosAfectadosList) {
         this.vehiculosAfectadosList = vehiculosAfectadosList;
+    }
+
+    public List<HistorialDueno> getHistorialDuenoList() {
+        return historialDuenoList;
+    }
+
+    public void setHistorialDuenoList(List<HistorialDueno> historialDuenoList) {
+        this.historialDuenoList = historialDuenoList;
     }
 
     @Override

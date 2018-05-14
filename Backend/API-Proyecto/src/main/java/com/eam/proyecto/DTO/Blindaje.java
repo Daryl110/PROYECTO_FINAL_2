@@ -20,8 +20,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -30,8 +28,9 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "BLINDAJE")
 @NamedQueries({
-    @NamedQuery(name = "Blindaje.findAll", query = "SELECT b FROM Blindaje b")})
-@XmlRootElement
+    @NamedQuery(name = "Blindaje.findAll", query = "SELECT b FROM Blindaje b")
+    , @NamedQuery(name = "Blindaje.findByNumeroResolucion", query = "SELECT b FROM Blindaje b WHERE b.numeroResolucion = :numeroResolucion")
+    , @NamedQuery(name = "Blindaje.findByFecha", query = "SELECT b FROM Blindaje b WHERE b.fecha = :fecha")})
 public class Blindaje implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -70,7 +69,6 @@ public class Blindaje implements Serializable {
         this.fecha = fecha;
     }
 
-    @XmlTransient
     public List<VehiculoTramite> getVehiculoTramiteList() {
         return vehiculoTramiteList;
     }

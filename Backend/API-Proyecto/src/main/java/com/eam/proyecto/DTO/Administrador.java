@@ -16,7 +16,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -25,8 +24,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "ADMINISTRADOR")
 @NamedQueries({
-    @NamedQuery(name = "Administrador.findAll", query = "SELECT a FROM Administrador a")})
-@XmlRootElement
+    @NamedQuery(name = "Administrador.findAll", query = "SELECT a FROM Administrador a")
+    , @NamedQuery(name = "Administrador.findById", query = "SELECT a FROM Administrador a WHERE a.id = :id")
+    , @NamedQuery(name = "Administrador.findByUsuario", query = "SELECT a FROM Administrador a WHERE a.usuario = :usuario")
+    , @NamedQuery(name = "Administrador.findByContrasena", query = "SELECT a FROM Administrador a WHERE a.contrasena = :contrasena")})
 public class Administrador implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -6,7 +6,6 @@
 package com.eam.proyecto.DTO;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 import javax.persistence.Basic;
@@ -20,8 +19,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -30,17 +27,15 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "TIPO_INFRACCION")
 @NamedQueries({
-    @NamedQuery(name = "TipoInfraccion.findAll", query = "SELECT t FROM TipoInfraccion t")})
-@XmlRootElement
+    @NamedQuery(name = "TipoInfraccion.findAll", query = "SELECT t FROM TipoInfraccion t")
+    , @NamedQuery(name = "TipoInfraccion.findByCodigo", query = "SELECT t FROM TipoInfraccion t WHERE t.codigo = :codigo")
+    , @NamedQuery(name = "TipoInfraccion.findByInmovilizacion", query = "SELECT t FROM TipoInfraccion t WHERE t.inmovilizacion = :inmovilizacion")
+    , @NamedQuery(name = "TipoInfraccion.findBySuspencionLicencia", query = "SELECT t FROM TipoInfraccion t WHERE t.suspencionLicencia = :suspencionLicencia")
+    , @NamedQuery(name = "TipoInfraccion.findBySalariosMinimos", query = "SELECT t FROM TipoInfraccion t WHERE t.salariosMinimos = :salariosMinimos")})
 public class TipoInfraccion implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "ID")
-    private BigDecimal id;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 10)
@@ -58,30 +53,21 @@ public class TipoInfraccion implements Serializable {
     @NotNull
     @Column(name = "SALARIOS_MINIMOS")
     private BigInteger salariosMinimos;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoInfraccion")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoInfraccionCodigo")
     private List<Comparendo> comparendoList;
 
     public TipoInfraccion() {
     }
 
-    public TipoInfraccion(BigDecimal id) {
-        this.id = id;
+    public TipoInfraccion(String codigo) {
+        this.codigo = codigo;
     }
 
-    public TipoInfraccion(BigDecimal id, String codigo, BigInteger inmovilizacion, BigInteger suspencionLicencia, BigInteger salariosMinimos) {
-        this.id = id;
+    public TipoInfraccion(String codigo, BigInteger inmovilizacion, BigInteger suspencionLicencia, BigInteger salariosMinimos) {
         this.codigo = codigo;
         this.inmovilizacion = inmovilizacion;
         this.suspencionLicencia = suspencionLicencia;
         this.salariosMinimos = salariosMinimos;
-    }
-
-    public BigDecimal getId() {
-        return id;
-    }
-
-    public void setId(BigDecimal id) {
-        this.id = id;
     }
 
     public String getCodigo() {
@@ -116,7 +102,6 @@ public class TipoInfraccion implements Serializable {
         this.salariosMinimos = salariosMinimos;
     }
 
-    @XmlTransient
     public List<Comparendo> getComparendoList() {
         return comparendoList;
     }
@@ -128,7 +113,7 @@ public class TipoInfraccion implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (codigo != null ? codigo.hashCode() : 0);
         return hash;
     }
 
@@ -139,7 +124,7 @@ public class TipoInfraccion implements Serializable {
             return false;
         }
         TipoInfraccion other = (TipoInfraccion) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.codigo == null && other.codigo != null) || (this.codigo != null && !this.codigo.equals(other.codigo))) {
             return false;
         }
         return true;
@@ -147,7 +132,7 @@ public class TipoInfraccion implements Serializable {
 
     @Override
     public String toString() {
-        return "com.eam.proyecto.DTO.TipoInfraccion[ id=" + id + " ]";
+        return "com.eam.proyecto.DTO.TipoInfraccion[ codigo=" + codigo + " ]";
     }
     
 }

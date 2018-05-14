@@ -18,7 +18,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -27,8 +26,22 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "CARACTERISTICA_VIA")
 @NamedQueries({
-    @NamedQuery(name = "CaracteristicaVia.findAll", query = "SELECT c FROM CaracteristicaVia c")})
-@XmlRootElement
+    @NamedQuery(name = "CaracteristicaVia.findAll", query = "SELECT c FROM CaracteristicaVia c")
+    , @NamedQuery(name = "CaracteristicaVia.findById", query = "SELECT c FROM CaracteristicaVia c WHERE c.id = :id")
+    , @NamedQuery(name = "CaracteristicaVia.findByCaracGeometricaVia1", query = "SELECT c FROM CaracteristicaVia c WHERE c.caracGeometricaVia1 = :caracGeometricaVia1")
+    , @NamedQuery(name = "CaracteristicaVia.findByCaracGeometricaVia2", query = "SELECT c FROM CaracteristicaVia c WHERE c.caracGeometricaVia2 = :caracGeometricaVia2")
+    , @NamedQuery(name = "CaracteristicaVia.findByCaracGeometricaVia3", query = "SELECT c FROM CaracteristicaVia c WHERE c.caracGeometricaVia3 = :caracGeometricaVia3")
+    , @NamedQuery(name = "CaracteristicaVia.findByUtilizacion", query = "SELECT c FROM CaracteristicaVia c WHERE c.utilizacion = :utilizacion")
+    , @NamedQuery(name = "CaracteristicaVia.findByCalzada", query = "SELECT c FROM CaracteristicaVia c WHERE c.calzada = :calzada")
+    , @NamedQuery(name = "CaracteristicaVia.findByCarril", query = "SELECT c FROM CaracteristicaVia c WHERE c.carril = :carril")
+    , @NamedQuery(name = "CaracteristicaVia.findByMaterial", query = "SELECT c FROM CaracteristicaVia c WHERE c.material = :material")
+    , @NamedQuery(name = "CaracteristicaVia.findByEstado", query = "SELECT c FROM CaracteristicaVia c WHERE c.estado = :estado")
+    , @NamedQuery(name = "CaracteristicaVia.findByCondicion", query = "SELECT c FROM CaracteristicaVia c WHERE c.condicion = :condicion")
+    , @NamedQuery(name = "CaracteristicaVia.findByIluminacion", query = "SELECT c FROM CaracteristicaVia c WHERE c.iluminacion = :iluminacion")
+    , @NamedQuery(name = "CaracteristicaVia.findByDisminucionVisual", query = "SELECT c FROM CaracteristicaVia c WHERE c.disminucionVisual = :disminucionVisual")
+    , @NamedQuery(name = "CaracteristicaVia.findByControlSemaforo", query = "SELECT c FROM CaracteristicaVia c WHERE c.controlSemaforo = :controlSemaforo")
+    , @NamedQuery(name = "CaracteristicaVia.findByControlSenales", query = "SELECT c FROM CaracteristicaVia c WHERE c.controlSenales = :controlSenales")
+    , @NamedQuery(name = "CaracteristicaVia.findByControlDemarcacion", query = "SELECT c FROM CaracteristicaVia c WHERE c.controlDemarcacion = :controlDemarcacion")})
 public class CaracteristicaVia implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -99,8 +112,8 @@ public class CaracteristicaVia implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 5)
-    @Column(name = "CONTROL_SENIALES")
-    private String controlSeniales;
+    @Column(name = "CONTROL_SENALES")
+    private String controlSenales;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
@@ -117,7 +130,7 @@ public class CaracteristicaVia implements Serializable {
         this.id = id;
     }
 
-    public CaracteristicaVia(BigDecimal id, String caracGeometricaVia1, String caracGeometricaVia2, String caracGeometricaVia3, String utilizacion, String calzada, String carril, String material, String estado, String iluminacion, String disminucionVisual, String controlSemaforo, String controlSeniales, String controlDemarcacion) {
+    public CaracteristicaVia(BigDecimal id, String caracGeometricaVia1, String caracGeometricaVia2, String caracGeometricaVia3, String utilizacion, String calzada, String carril, String material, String estado, String iluminacion, String disminucionVisual, String controlSemaforo, String controlSenales, String controlDemarcacion) {
         this.id = id;
         this.caracGeometricaVia1 = caracGeometricaVia1;
         this.caracGeometricaVia2 = caracGeometricaVia2;
@@ -130,7 +143,7 @@ public class CaracteristicaVia implements Serializable {
         this.iluminacion = iluminacion;
         this.disminucionVisual = disminucionVisual;
         this.controlSemaforo = controlSemaforo;
-        this.controlSeniales = controlSeniales;
+        this.controlSenales = controlSenales;
         this.controlDemarcacion = controlDemarcacion;
     }
 
@@ -238,12 +251,12 @@ public class CaracteristicaVia implements Serializable {
         this.controlSemaforo = controlSemaforo;
     }
 
-    public String getControlSeniales() {
-        return controlSeniales;
+    public String getControlSenales() {
+        return controlSenales;
     }
 
-    public void setControlSeniales(String controlSeniales) {
-        this.controlSeniales = controlSeniales;
+    public void setControlSenales(String controlSenales) {
+        this.controlSenales = controlSenales;
     }
 
     public String getControlDemarcacion() {

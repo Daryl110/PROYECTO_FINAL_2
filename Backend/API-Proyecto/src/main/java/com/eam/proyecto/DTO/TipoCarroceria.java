@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -19,8 +18,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -29,8 +26,9 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "TIPO_CARROCERIA")
 @NamedQueries({
-    @NamedQuery(name = "TipoCarroceria.findAll", query = "SELECT t FROM TipoCarroceria t")})
-@XmlRootElement
+    @NamedQuery(name = "TipoCarroceria.findAll", query = "SELECT t FROM TipoCarroceria t")
+    , @NamedQuery(name = "TipoCarroceria.findByCodigo", query = "SELECT t FROM TipoCarroceria t WHERE t.codigo = :codigo")
+    , @NamedQuery(name = "TipoCarroceria.findByTipo", query = "SELECT t FROM TipoCarroceria t WHERE t.tipo = :tipo")})
 public class TipoCarroceria implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -43,7 +41,7 @@ public class TipoCarroceria implements Serializable {
     @Size(max = 20)
     @Column(name = "TIPO")
     private String tipo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoCarroceriaCodigo")
+    @OneToMany(mappedBy = "tipoCarroceriaCodigo")
     private List<VehiculoTramite> vehiculoTramiteList;
 
     public TipoCarroceria() {
@@ -69,7 +67,6 @@ public class TipoCarroceria implements Serializable {
         this.tipo = tipo;
     }
 
-    @XmlTransient
     public List<VehiculoTramite> getVehiculoTramiteList() {
         return vehiculoTramiteList;
     }

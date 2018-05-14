@@ -19,13 +19,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -34,8 +33,14 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "PERSONA")
 @NamedQueries({
-    @NamedQuery(name = "Persona.findAll", query = "SELECT p FROM Persona p")})
-@XmlRootElement
+    @NamedQuery(name = "Persona.findAll", query = "SELECT p FROM Persona p")
+    , @NamedQuery(name = "Persona.findByNip", query = "SELECT p FROM Persona p WHERE p.nip = :nip")
+    , @NamedQuery(name = "Persona.findByNombreCompleto", query = "SELECT p FROM Persona p WHERE p.nombreCompleto = :nombreCompleto")
+    , @NamedQuery(name = "Persona.findByFechaNacimiento", query = "SELECT p FROM Persona p WHERE p.fechaNacimiento = :fechaNacimiento")
+    , @NamedQuery(name = "Persona.findByDireccion", query = "SELECT p FROM Persona p WHERE p.direccion = :direccion")
+    , @NamedQuery(name = "Persona.findByEps", query = "SELECT p FROM Persona p WHERE p.eps = :eps")
+    , @NamedQuery(name = "Persona.findByTelefono", query = "SELECT p FROM Persona p WHERE p.telefono = :telefono")
+    , @NamedQuery(name = "Persona.findByPlaca", query = "SELECT p FROM Persona p WHERE p.placa = :placa")})
 public class Persona implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,6 +55,8 @@ public class Persona implements Serializable {
     @Size(min = 1, max = 50)
     @Column(name = "NOMBRE_COMPLETO")
     private String nombreCompleto;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "FECHA_NACIMIENTO")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaNacimiento;
@@ -58,40 +65,44 @@ public class Persona implements Serializable {
     @Size(min = 1, max = 100)
     @Column(name = "DIRECCION")
     private String direccion;
-    @Size(max = 20)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 20)
     @Column(name = "EPS")
     private String eps;
-    @Column(name = "PLACA")
-    private BigInteger placa;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
     @Column(name = "TELEFONO")
     private String telefono;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "personaId")
+    @Column(name = "PLACA")
+    private BigInteger placa;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "personaNip")
     private List<Testigos> testigosList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "agente")
     private List<InformeAccidenteTransito> informeAccidenteTransitoList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "personaId")
-    private List<HistorialDuenio> historialDuenioList;
     @JoinColumn(name = "MUNICIPIO_ID", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private Municipio municipioId;
-    @JoinColumn(name = "TIPO_DOCUMENTO_ID", referencedColumnName = "ID")
+    @JoinColumn(name = "TIPO_DOCUMENTO", referencedColumnName = "ID")
     @ManyToOne(optional = false)
-    private TipoDocumento tipoDocumentoId;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "personaId")
+    private TipoDocumento tipoDocumento;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "personaNip")
     private List<Perjudicados> perjudicadosList;
-    @OneToMany(mappedBy = "personaId")
+    @OneToMany(mappedBy = "personaNip")
     private List<Tramite> tramiteList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cuidadano")
+    @OneToMany(mappedBy = "personaNip2")
     private List<Comparendo> comparendoList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "agente")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "personaNip")
     private List<Comparendo> comparendoList1;
-    @OneToMany(mappedBy = "testigo")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "personaNip1")
     private List<Comparendo> comparendoList2;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "personaId")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "persona1")
+    private Licencia licencia;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "personaNip")
     private List<Usuario> usuarioList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "personaNip")
+    private List<HistorialDueno> historialDuenoList;
 
     public Persona() {
     }
@@ -100,10 +111,12 @@ public class Persona implements Serializable {
         this.nip = nip;
     }
 
-    public Persona(String nip, String nombreCompleto, String direccion, String telefono) {
+    public Persona(String nip, String nombreCompleto, Date fechaNacimiento, String direccion, String eps, String telefono) {
         this.nip = nip;
         this.nombreCompleto = nombreCompleto;
+        this.fechaNacimiento = fechaNacimiento;
         this.direccion = direccion;
+        this.eps = eps;
         this.telefono = telefono;
     }
 
@@ -147,14 +160,6 @@ public class Persona implements Serializable {
         this.eps = eps;
     }
 
-    public BigInteger getPlaca() {
-        return placa;
-    }
-
-    public void setPlaca(BigInteger placa) {
-        this.placa = placa;
-    }
-
     public String getTelefono() {
         return telefono;
     }
@@ -163,7 +168,14 @@ public class Persona implements Serializable {
         this.telefono = telefono;
     }
 
-    @XmlTransient
+    public BigInteger getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(BigInteger placa) {
+        this.placa = placa;
+    }
+
     public List<Testigos> getTestigosList() {
         return testigosList;
     }
@@ -172,22 +184,12 @@ public class Persona implements Serializable {
         this.testigosList = testigosList;
     }
 
-    @XmlTransient
     public List<InformeAccidenteTransito> getInformeAccidenteTransitoList() {
         return informeAccidenteTransitoList;
     }
 
     public void setInformeAccidenteTransitoList(List<InformeAccidenteTransito> informeAccidenteTransitoList) {
         this.informeAccidenteTransitoList = informeAccidenteTransitoList;
-    }
-
-    @XmlTransient
-    public List<HistorialDuenio> getHistorialDuenioList() {
-        return historialDuenioList;
-    }
-
-    public void setHistorialDuenioList(List<HistorialDuenio> historialDuenioList) {
-        this.historialDuenioList = historialDuenioList;
     }
 
     public Municipio getMunicipioId() {
@@ -198,15 +200,14 @@ public class Persona implements Serializable {
         this.municipioId = municipioId;
     }
 
-    public TipoDocumento getTipoDocumentoId() {
-        return tipoDocumentoId;
+    public TipoDocumento getTipoDocumento() {
+        return tipoDocumento;
     }
 
-    public void setTipoDocumentoId(TipoDocumento tipoDocumentoId) {
-        this.tipoDocumentoId = tipoDocumentoId;
+    public void setTipoDocumento(TipoDocumento tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
     }
 
-    @XmlTransient
     public List<Perjudicados> getPerjudicadosList() {
         return perjudicadosList;
     }
@@ -215,7 +216,6 @@ public class Persona implements Serializable {
         this.perjudicadosList = perjudicadosList;
     }
 
-    @XmlTransient
     public List<Tramite> getTramiteList() {
         return tramiteList;
     }
@@ -224,7 +224,6 @@ public class Persona implements Serializable {
         this.tramiteList = tramiteList;
     }
 
-    @XmlTransient
     public List<Comparendo> getComparendoList() {
         return comparendoList;
     }
@@ -233,7 +232,6 @@ public class Persona implements Serializable {
         this.comparendoList = comparendoList;
     }
 
-    @XmlTransient
     public List<Comparendo> getComparendoList1() {
         return comparendoList1;
     }
@@ -242,7 +240,6 @@ public class Persona implements Serializable {
         this.comparendoList1 = comparendoList1;
     }
 
-    @XmlTransient
     public List<Comparendo> getComparendoList2() {
         return comparendoList2;
     }
@@ -251,13 +248,28 @@ public class Persona implements Serializable {
         this.comparendoList2 = comparendoList2;
     }
 
-    @XmlTransient
+    public Licencia getLicencia() {
+        return licencia;
+    }
+
+    public void setLicencia(Licencia licencia) {
+        this.licencia = licencia;
+    }
+
     public List<Usuario> getUsuarioList() {
         return usuarioList;
     }
 
     public void setUsuarioList(List<Usuario> usuarioList) {
         this.usuarioList = usuarioList;
+    }
+
+    public List<HistorialDueno> getHistorialDuenoList() {
+        return historialDuenoList;
+    }
+
+    public void setHistorialDuenoList(List<HistorialDueno> historialDuenoList) {
+        this.historialDuenoList = historialDuenoList;
     }
 
     @Override

@@ -20,18 +20,18 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Daryl Ospina
  */
 @Entity
-@Table(name = "HISTORIAL_DUENIO")
+@Table(name = "HISTORIAL_DUENO")
 @NamedQueries({
-    @NamedQuery(name = "HistorialDuenio.findAll", query = "SELECT h FROM HistorialDuenio h")})
-@XmlRootElement
-public class HistorialDuenio implements Serializable {
+    @NamedQuery(name = "HistorialDueno.findAll", query = "SELECT h FROM HistorialDueno h")
+    , @NamedQuery(name = "HistorialDueno.findById", query = "SELECT h FROM HistorialDueno h WHERE h.id = :id")
+    , @NamedQuery(name = "HistorialDueno.findByFecha", query = "SELECT h FROM HistorialDueno h WHERE h.fecha = :fecha")})
+public class HistorialDueno implements Serializable {
 
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
@@ -43,17 +43,17 @@ public class HistorialDuenio implements Serializable {
     @Column(name = "FECHA")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
-    @JoinColumn(name = "PERSONA_ID", referencedColumnName = "NIP")
+    @JoinColumn(name = "PERSONA_NIP", referencedColumnName = "NIP")
     @ManyToOne(optional = false)
-    private Persona personaId;
+    private Persona personaNip;
     @JoinColumn(name = "VEHICULO_PLACA", referencedColumnName = "PLACA")
     @ManyToOne(optional = false)
     private Vehiculo vehiculoPlaca;
 
-    public HistorialDuenio() {
+    public HistorialDueno() {
     }
 
-    public HistorialDuenio(BigDecimal id) {
+    public HistorialDueno(BigDecimal id) {
         this.id = id;
     }
 
@@ -73,12 +73,12 @@ public class HistorialDuenio implements Serializable {
         this.fecha = fecha;
     }
 
-    public Persona getPersonaId() {
-        return personaId;
+    public Persona getPersonaNip() {
+        return personaNip;
     }
 
-    public void setPersonaId(Persona personaId) {
-        this.personaId = personaId;
+    public void setPersonaNip(Persona personaNip) {
+        this.personaNip = personaNip;
     }
 
     public Vehiculo getVehiculoPlaca() {
@@ -99,10 +99,10 @@ public class HistorialDuenio implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof HistorialDuenio)) {
+        if (!(object instanceof HistorialDueno)) {
             return false;
         }
-        HistorialDuenio other = (HistorialDuenio) object;
+        HistorialDueno other = (HistorialDueno) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -111,7 +111,7 @@ public class HistorialDuenio implements Serializable {
 
     @Override
     public String toString() {
-        return "com.eam.proyecto.DTO.HistorialDuenio[ id=" + id + " ]";
+        return "com.eam.proyecto.DTO.HistorialDueno[ id=" + id + " ]";
     }
     
 }

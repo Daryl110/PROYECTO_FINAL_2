@@ -18,8 +18,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -28,8 +26,11 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "GRUA")
 @NamedQueries({
-    @NamedQuery(name = "Grua.findAll", query = "SELECT g FROM Grua g")})
-@XmlRootElement
+    @NamedQuery(name = "Grua.findAll", query = "SELECT g FROM Grua g")
+    , @NamedQuery(name = "Grua.findByNumeroGrua", query = "SELECT g FROM Grua g WHERE g.numeroGrua = :numeroGrua")
+    , @NamedQuery(name = "Grua.findByPlaca", query = "SELECT g FROM Grua g WHERE g.placa = :placa")
+    , @NamedQuery(name = "Grua.findByConsecutivo", query = "SELECT g FROM Grua g WHERE g.consecutivo = :consecutivo")
+    , @NamedQuery(name = "Grua.findByDireccionPatioAsignado", query = "SELECT g FROM Grua g WHERE g.direccionPatioAsignado = :direccionPatioAsignado")})
 public class Grua implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -100,7 +101,6 @@ public class Grua implements Serializable {
         this.direccionPatioAsignado = direccionPatioAsignado;
     }
 
-    @XmlTransient
     public List<Comparendo> getComparendoList() {
         return comparendoList;
     }

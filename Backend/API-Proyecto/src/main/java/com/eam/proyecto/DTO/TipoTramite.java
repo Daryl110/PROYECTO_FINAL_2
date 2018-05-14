@@ -19,8 +19,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -29,8 +27,9 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "TIPO_TRAMITE")
 @NamedQueries({
-    @NamedQuery(name = "TipoTramite.findAll", query = "SELECT t FROM TipoTramite t")})
-@XmlRootElement
+    @NamedQuery(name = "TipoTramite.findAll", query = "SELECT t FROM TipoTramite t")
+    , @NamedQuery(name = "TipoTramite.findById", query = "SELECT t FROM TipoTramite t WHERE t.id = :id")
+    , @NamedQuery(name = "TipoTramite.findByDescripcion", query = "SELECT t FROM TipoTramite t WHERE t.descripcion = :descripcion")})
 public class TipoTramite implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -42,7 +41,7 @@ public class TipoTramite implements Serializable {
     private BigDecimal id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 20)
+    @Size(min = 1, max = 50)
     @Column(name = "DESCRIPCION")
     private String descripcion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoTramiteId")
@@ -78,7 +77,6 @@ public class TipoTramite implements Serializable {
         this.descripcion = descripcion;
     }
 
-    @XmlTransient
     public List<Tramite> getTramiteList() {
         return tramiteList;
     }
@@ -87,7 +85,6 @@ public class TipoTramite implements Serializable {
         this.tramiteList = tramiteList;
     }
 
-    @XmlTransient
     public List<Requisitos> getRequisitosList() {
         return requisitosList;
     }

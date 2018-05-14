@@ -22,8 +22,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -32,8 +30,12 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "CURSO")
 @NamedQueries({
-    @NamedQuery(name = "Curso.findAll", query = "SELECT c FROM Curso c")})
-@XmlRootElement
+    @NamedQuery(name = "Curso.findAll", query = "SELECT c FROM Curso c")
+    , @NamedQuery(name = "Curso.findById", query = "SELECT c FROM Curso c WHERE c.id = :id")
+    , @NamedQuery(name = "Curso.findByDocente", query = "SELECT c FROM Curso c WHERE c.docente = :docente")
+    , @NamedQuery(name = "Curso.findByFecha", query = "SELECT c FROM Curso c WHERE c.fecha = :fecha")
+    , @NamedQuery(name = "Curso.findByHoraInicio", query = "SELECT c FROM Curso c WHERE c.horaInicio = :horaInicio")
+    , @NamedQuery(name = "Curso.findByHoraFinalizacion", query = "SELECT c FROM Curso c WHERE c.horaFinalizacion = :horaFinalizacion")})
 public class Curso implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -112,7 +114,6 @@ public class Curso implements Serializable {
         this.horaFinalizacion = horaFinalizacion;
     }
 
-    @XmlTransient
     public List<Asistencia> getAsistenciaList() {
         return asistenciaList;
     }

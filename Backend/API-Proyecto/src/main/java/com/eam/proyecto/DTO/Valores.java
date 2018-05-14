@@ -18,7 +18,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -27,8 +26,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "VALORES")
 @NamedQueries({
-    @NamedQuery(name = "Valores.findAll", query = "SELECT v FROM Valores v")})
-@XmlRootElement
+    @NamedQuery(name = "Valores.findAll", query = "SELECT v FROM Valores v")
+    , @NamedQuery(name = "Valores.findByFecha", query = "SELECT v FROM Valores v WHERE v.fecha = :fecha")
+    , @NamedQuery(name = "Valores.findByValorSalarioMinimo", query = "SELECT v FROM Valores v WHERE v.valorSalarioMinimo = :valorSalarioMinimo")
+    , @NamedQuery(name = "Valores.findByValorDiaMora", query = "SELECT v FROM Valores v WHERE v.valorDiaMora = :valorDiaMora")
+    , @NamedQuery(name = "Valores.findByDescuentoComparendo", query = "SELECT v FROM Valores v WHERE v.descuentoComparendo = :descuentoComparendo")
+    , @NamedQuery(name = "Valores.findByDiasHabiles", query = "SELECT v FROM Valores v WHERE v.diasHabiles = :diasHabiles")})
 public class Valores implements Serializable {
 
     private static final long serialVersionUID = 1L;

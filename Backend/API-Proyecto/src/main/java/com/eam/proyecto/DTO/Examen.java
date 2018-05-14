@@ -18,7 +18,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -27,8 +26,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "EXAMEN")
 @NamedQueries({
-    @NamedQuery(name = "Examen.findAll", query = "SELECT e FROM Examen e")})
-@XmlRootElement
+    @NamedQuery(name = "Examen.findAll", query = "SELECT e FROM Examen e")
+    , @NamedQuery(name = "Examen.findById", query = "SELECT e FROM Examen e WHERE e.id = :id")
+    , @NamedQuery(name = "Examen.findByExamenEmbriaguez", query = "SELECT e FROM Examen e WHERE e.examenEmbriaguez = :examenEmbriaguez")
+    , @NamedQuery(name = "Examen.findByExamenDroga", query = "SELECT e FROM Examen e WHERE e.examenDroga = :examenDroga")
+    , @NamedQuery(name = "Examen.findByGradoExamenDroga", query = "SELECT e FROM Examen e WHERE e.gradoExamenDroga = :gradoExamenDroga")
+    , @NamedQuery(name = "Examen.findByGradoExamenAlcohol", query = "SELECT e FROM Examen e WHERE e.gradoExamenAlcohol = :gradoExamenAlcohol")})
 public class Examen implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -45,8 +48,11 @@ public class Examen implements Serializable {
     @Column(name = "EXAMEN_DROGA")
     private String examenDroga;
     @Size(max = 10)
-    @Column(name = "GRADO")
-    private String grado;
+    @Column(name = "GRADO_EXAMEN_DROGA")
+    private String gradoExamenDroga;
+    @Size(max = 10)
+    @Column(name = "GRADO_EXAMEN_ALCOHOL")
+    private String gradoExamenAlcohol;
     @JoinColumn(name = "ID", referencedColumnName = "ID", insertable = false, updatable = false)
     @OneToOne(optional = false)
     private Perjudicados perjudicados;
@@ -82,12 +88,20 @@ public class Examen implements Serializable {
         this.examenDroga = examenDroga;
     }
 
-    public String getGrado() {
-        return grado;
+    public String getGradoExamenDroga() {
+        return gradoExamenDroga;
     }
 
-    public void setGrado(String grado) {
-        this.grado = grado;
+    public void setGradoExamenDroga(String gradoExamenDroga) {
+        this.gradoExamenDroga = gradoExamenDroga;
+    }
+
+    public String getGradoExamenAlcohol() {
+        return gradoExamenAlcohol;
+    }
+
+    public void setGradoExamenAlcohol(String gradoExamenAlcohol) {
+        this.gradoExamenAlcohol = gradoExamenAlcohol;
     }
 
     public Perjudicados getPerjudicados() {

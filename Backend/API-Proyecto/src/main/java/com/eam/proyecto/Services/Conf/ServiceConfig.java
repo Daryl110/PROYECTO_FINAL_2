@@ -46,7 +46,6 @@ public class ServiceConfig extends Application {
         resources.add(com.eam.proyecto.Services.service.ServicioIniciarSesion.class);
         resources.add(com.eam.proyecto.Services.service.ServicioLicencia.class);
         resources.add(com.eam.proyecto.Services.service.ServicioLugar.class);
-        resources.add(com.eam.proyecto.Services.service.ServicioModalidadTransporte.class);
         resources.add(com.eam.proyecto.Services.service.ServicioMunicipio.class);
         resources.add(com.eam.proyecto.Services.service.ServicioPagoComparendo.class);
         resources.add(com.eam.proyecto.Services.service.ServicioPerjudicados.class);
@@ -65,7 +64,6 @@ public class ServiceConfig extends Application {
         resources.add(com.eam.proyecto.Services.service.ServicioVehiculo.class);
         resources.add(com.eam.proyecto.Services.service.ServicioVehiculoTramite.class);
         resources.add(com.eam.proyecto.Services.service.ServicioVehiculosAfectados.class);
-        resources.add(com.eam.proyecto.Services.service.ServicioVia.class);
     }
     
 }

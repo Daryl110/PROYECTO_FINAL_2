@@ -18,7 +18,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -27,8 +26,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "CARACTERISTICA_LUGAR")
 @NamedQueries({
-    @NamedQuery(name = "CaracteristicaLugar.findAll", query = "SELECT c FROM CaracteristicaLugar c")})
-@XmlRootElement
+    @NamedQuery(name = "CaracteristicaLugar.findAll", query = "SELECT c FROM CaracteristicaLugar c")
+    , @NamedQuery(name = "CaracteristicaLugar.findById", query = "SELECT c FROM CaracteristicaLugar c WHERE c.id = :id")
+    , @NamedQuery(name = "CaracteristicaLugar.findByAreaId", query = "SELECT c FROM CaracteristicaLugar c WHERE c.areaId = :areaId")
+    , @NamedQuery(name = "CaracteristicaLugar.findBySectorId", query = "SELECT c FROM CaracteristicaLugar c WHERE c.sectorId = :sectorId")
+    , @NamedQuery(name = "CaracteristicaLugar.findByZonaId", query = "SELECT c FROM CaracteristicaLugar c WHERE c.zonaId = :zonaId")
+    , @NamedQuery(name = "CaracteristicaLugar.findByDisenioId", query = "SELECT c FROM CaracteristicaLugar c WHERE c.disenioId = :disenioId")
+    , @NamedQuery(name = "CaracteristicaLugar.findByTiempoId", query = "SELECT c FROM CaracteristicaLugar c WHERE c.tiempoId = :tiempoId")})
 public class CaracteristicaLugar implements Serializable {
 
     private static final long serialVersionUID = 1L;

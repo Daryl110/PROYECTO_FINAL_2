@@ -6,23 +6,20 @@
 package com.eam.proyecto.DTO;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -31,17 +28,22 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "LICENCIA")
 @NamedQueries({
-    @NamedQuery(name = "Licencia.findAll", query = "SELECT l FROM Licencia l")})
-@XmlRootElement
+    @NamedQuery(name = "Licencia.findAll", query = "SELECT l FROM Licencia l")
+    , @NamedQuery(name = "Licencia.findByPersona", query = "SELECT l FROM Licencia l WHERE l.persona = :persona")
+    , @NamedQuery(name = "Licencia.findByNumeroLicencia", query = "SELECT l FROM Licencia l WHERE l.numeroLicencia = :numeroLicencia")
+    , @NamedQuery(name = "Licencia.findByFechaExpedicion", query = "SELECT l FROM Licencia l WHERE l.fechaExpedicion = :fechaExpedicion")
+    , @NamedQuery(name = "Licencia.findByFechaVencimiento", query = "SELECT l FROM Licencia l WHERE l.fechaVencimiento = :fechaVencimiento")
+    , @NamedQuery(name = "Licencia.findByOficinaTransito", query = "SELECT l FROM Licencia l WHERE l.oficinaTransito = :oficinaTransito")
+    , @NamedQuery(name = "Licencia.findByCategoriaLicencia", query = "SELECT l FROM Licencia l WHERE l.categoriaLicencia = :categoriaLicencia")})
 public class Licencia implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "ID")
-    private BigDecimal id;
+    @Size(min = 1, max = 20)
+    @Column(name = "PERSONA")
+    private String persona;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
@@ -59,27 +61,28 @@ public class Licencia implements Serializable {
     @Size(max = 10)
     @Column(name = "CATEGORIA_LICENCIA")
     private String categoriaLicencia;
-    @OneToMany(mappedBy = "licenciaId")
-    private List<Perjudicados> perjudicadosList;
+    @JoinColumn(name = "PERSONA", referencedColumnName = "NIP", insertable = false, updatable = false)
+    @OneToOne(optional = false)
+    private Persona persona1;
 
     public Licencia() {
     }
 
-    public Licencia(BigDecimal id) {
-        this.id = id;
+    public Licencia(String persona) {
+        this.persona = persona;
     }
 
-    public Licencia(BigDecimal id, String numeroLicencia) {
-        this.id = id;
+    public Licencia(String persona, String numeroLicencia) {
+        this.persona = persona;
         this.numeroLicencia = numeroLicencia;
     }
 
-    public BigDecimal getId() {
-        return id;
+    public String getPersona() {
+        return persona;
     }
 
-    public void setId(BigDecimal id) {
-        this.id = id;
+    public void setPersona(String persona) {
+        this.persona = persona;
     }
 
     public String getNumeroLicencia() {
@@ -122,19 +125,18 @@ public class Licencia implements Serializable {
         this.categoriaLicencia = categoriaLicencia;
     }
 
-    @XmlTransient
-    public List<Perjudicados> getPerjudicadosList() {
-        return perjudicadosList;
+    public Persona getPersona1() {
+        return persona1;
     }
 
-    public void setPerjudicadosList(List<Perjudicados> perjudicadosList) {
-        this.perjudicadosList = perjudicadosList;
+    public void setPersona1(Persona persona1) {
+        this.persona1 = persona1;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (persona != null ? persona.hashCode() : 0);
         return hash;
     }
 
@@ -145,7 +147,7 @@ public class Licencia implements Serializable {
             return false;
         }
         Licencia other = (Licencia) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.persona == null && other.persona != null) || (this.persona != null && !this.persona.equals(other.persona))) {
             return false;
         }
         return true;
@@ -153,7 +155,7 @@ public class Licencia implements Serializable {
 
     @Override
     public String toString() {
-        return "com.eam.proyecto.DTO.Licencia[ id=" + id + " ]";
+        return "com.eam.proyecto.DTO.Licencia[ persona=" + persona + " ]";
     }
     
 }

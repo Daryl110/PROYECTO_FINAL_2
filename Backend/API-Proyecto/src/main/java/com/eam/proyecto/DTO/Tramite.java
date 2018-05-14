@@ -22,7 +22,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -31,8 +30,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "TRAMITE")
 @NamedQueries({
-    @NamedQuery(name = "Tramite.findAll", query = "SELECT t FROM Tramite t")})
-@XmlRootElement
+    @NamedQuery(name = "Tramite.findAll", query = "SELECT t FROM Tramite t")
+    , @NamedQuery(name = "Tramite.findById", query = "SELECT t FROM Tramite t WHERE t.id = :id")
+    , @NamedQuery(name = "Tramite.findByFecha", query = "SELECT t FROM Tramite t WHERE t.fecha = :fecha")
+    , @NamedQuery(name = "Tramite.findByDescripcion", query = "SELECT t FROM Tramite t WHERE t.descripcion = :descripcion")
+    , @NamedQuery(name = "Tramite.findByValor", query = "SELECT t FROM Tramite t WHERE t.valor = :valor")})
 public class Tramite implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -52,9 +54,9 @@ public class Tramite implements Serializable {
     @NotNull
     @Column(name = "VALOR")
     private BigInteger valor;
-    @JoinColumn(name = "PERSONA_ID", referencedColumnName = "NIP")
+    @JoinColumn(name = "PERSONA_NIP", referencedColumnName = "NIP")
     @ManyToOne
-    private Persona personaId;
+    private Persona personaNip;
     @JoinColumn(name = "TIPO_TRAMITE_ID", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private TipoTramite tipoTramiteId;
@@ -106,12 +108,12 @@ public class Tramite implements Serializable {
         this.valor = valor;
     }
 
-    public Persona getPersonaId() {
-        return personaId;
+    public Persona getPersonaNip() {
+        return personaNip;
     }
 
-    public void setPersonaId(Persona personaId) {
-        this.personaId = personaId;
+    public void setPersonaNip(Persona personaNip) {
+        this.personaNip = personaNip;
     }
 
     public TipoTramite getTipoTramiteId() {

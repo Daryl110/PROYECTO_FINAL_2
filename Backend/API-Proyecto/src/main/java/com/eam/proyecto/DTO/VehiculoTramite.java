@@ -22,8 +22,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -32,8 +30,14 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "VEHICULO_TRAMITE")
 @NamedQueries({
-    @NamedQuery(name = "VehiculoTramite.findAll", query = "SELECT v FROM VehiculoTramite v")})
-@XmlRootElement
+    @NamedQuery(name = "VehiculoTramite.findAll", query = "SELECT v FROM VehiculoTramite v")
+    , @NamedQuery(name = "VehiculoTramite.findByPlaca", query = "SELECT v FROM VehiculoTramite v WHERE v.placa = :placa")
+    , @NamedQuery(name = "VehiculoTramite.findByCombustible", query = "SELECT v FROM VehiculoTramite v WHERE v.combustible = :combustible")
+    , @NamedQuery(name = "VehiculoTramite.findByClindrada", query = "SELECT v FROM VehiculoTramite v WHERE v.clindrada = :clindrada")
+    , @NamedQuery(name = "VehiculoTramite.findByNoMotor", query = "SELECT v FROM VehiculoTramite v WHERE v.noMotor = :noMotor")
+    , @NamedQuery(name = "VehiculoTramite.findByNoChasis", query = "SELECT v FROM VehiculoTramite v WHERE v.noChasis = :noChasis")
+    , @NamedQuery(name = "VehiculoTramite.findByNoSerie", query = "SELECT v FROM VehiculoTramite v WHERE v.noSerie = :noSerie")
+    , @NamedQuery(name = "VehiculoTramite.findByNoVin", query = "SELECT v FROM VehiculoTramite v WHERE v.noVin = :noVin")})
 public class VehiculoTramite implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -61,7 +65,7 @@ public class VehiculoTramite implements Serializable {
     @ManyToOne
     private Blindaje blindajeNumeroResolucion;
     @JoinColumn(name = "TIPO_CARROCERIA_CODIGO", referencedColumnName = "CODIGO")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private TipoCarroceria tipoCarroceriaCodigo;
     @JoinColumn(name = "PLACA", referencedColumnName = "PLACA", insertable = false, updatable = false)
     @OneToOne(optional = false)
@@ -156,7 +160,6 @@ public class VehiculoTramite implements Serializable {
         this.vehiculo = vehiculo;
     }
 
-    @XmlTransient
     public List<Tramite> getTramiteList() {
         return tramiteList;
     }

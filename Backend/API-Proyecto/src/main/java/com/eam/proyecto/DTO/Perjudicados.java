@@ -20,7 +20,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -29,8 +28,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "PERJUDICADOS")
 @NamedQueries({
-    @NamedQuery(name = "Perjudicados.findAll", query = "SELECT p FROM Perjudicados p")})
-@XmlRootElement
+    @NamedQuery(name = "Perjudicados.findAll", query = "SELECT p FROM Perjudicados p")
+    , @NamedQuery(name = "Perjudicados.findById", query = "SELECT p FROM Perjudicados p WHERE p.id = :id")
+    , @NamedQuery(name = "Perjudicados.findByTipoPerjudicado", query = "SELECT p FROM Perjudicados p WHERE p.tipoPerjudicado = :tipoPerjudicado")
+    , @NamedQuery(name = "Perjudicados.findByCinturon", query = "SELECT p FROM Perjudicados p WHERE p.cinturon = :cinturon")
+    , @NamedQuery(name = "Perjudicados.findByCasco", query = "SELECT p FROM Perjudicados p WHERE p.casco = :casco")
+    , @NamedQuery(name = "Perjudicados.findBySexo", query = "SELECT p FROM Perjudicados p WHERE p.sexo = :sexo")
+    , @NamedQuery(name = "Perjudicados.findByGravedad", query = "SELECT p FROM Perjudicados p WHERE p.gravedad = :gravedad")
+    , @NamedQuery(name = "Perjudicados.findByCondicion", query = "SELECT p FROM Perjudicados p WHERE p.condicion = :condicion")})
 public class Perjudicados implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -56,12 +61,9 @@ public class Perjudicados implements Serializable {
     @Size(max = 10)
     @Column(name = "CONDICION")
     private String condicion;
-    @JoinColumn(name = "LICENCIA_ID", referencedColumnName = "ID")
-    @ManyToOne
-    private Licencia licenciaId;
-    @JoinColumn(name = "PERSONA_ID", referencedColumnName = "NIP")
+    @JoinColumn(name = "PERSONA_NIP", referencedColumnName = "NIP")
     @ManyToOne(optional = false)
-    private Persona personaId;
+    private Persona personaNip;
     @JoinColumn(name = "VEHICULOS_AFECTADOS_ID", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private VehiculosAfectados vehiculosAfectadosId;
@@ -131,20 +133,12 @@ public class Perjudicados implements Serializable {
         this.condicion = condicion;
     }
 
-    public Licencia getLicenciaId() {
-        return licenciaId;
+    public Persona getPersonaNip() {
+        return personaNip;
     }
 
-    public void setLicenciaId(Licencia licenciaId) {
-        this.licenciaId = licenciaId;
-    }
-
-    public Persona getPersonaId() {
-        return personaId;
-    }
-
-    public void setPersonaId(Persona personaId) {
-        this.personaId = personaId;
+    public void setPersonaNip(Persona personaNip) {
+        this.personaNip = personaNip;
     }
 
     public VehiculosAfectados getVehiculosAfectadosId() {

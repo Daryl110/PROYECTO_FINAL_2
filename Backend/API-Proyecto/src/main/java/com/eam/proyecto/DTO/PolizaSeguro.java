@@ -6,22 +6,20 @@
 package com.eam.proyecto.DTO;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -30,17 +28,19 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "POLIZA_SEGURO")
 @NamedQueries({
-    @NamedQuery(name = "PolizaSeguro.findAll", query = "SELECT p FROM PolizaSeguro p")})
-@XmlRootElement
+    @NamedQuery(name = "PolizaSeguro.findAll", query = "SELECT p FROM PolizaSeguro p")
+    , @NamedQuery(name = "PolizaSeguro.findByNPoliza", query = "SELECT p FROM PolizaSeguro p WHERE p.nPoliza = :nPoliza")
+    , @NamedQuery(name = "PolizaSeguro.findByFechaVencimiento", query = "SELECT p FROM PolizaSeguro p WHERE p.fechaVencimiento = :fechaVencimiento")
+    , @NamedQuery(name = "PolizaSeguro.findByCompaniaAseguradora", query = "SELECT p FROM PolizaSeguro p WHERE p.companiaAseguradora = :companiaAseguradora")})
 public class PolizaSeguro implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 20)
     @Column(name = "N_POLIZA")
-    private BigDecimal nPoliza;
+    private String nPoliza;
     @Basic(optional = false)
     @NotNull
     @Column(name = "FECHA_VENCIMIENTO")
@@ -49,27 +49,27 @@ public class PolizaSeguro implements Serializable {
     @Size(max = 20)
     @Column(name = "COMPANIA_ASEGURADORA")
     private String companiaAseguradora;
-    @JoinColumn(name = "VEHICULO_PLACA", referencedColumnName = "PLACA")
-    @ManyToOne(optional = false)
-    private Vehiculo vehiculoPlaca;
+    @JoinColumn(name = "N_POLIZA", referencedColumnName = "PLACA", insertable = false, updatable = false)
+    @OneToOne(optional = false)
+    private Vehiculo vehiculo;
 
     public PolizaSeguro() {
     }
 
-    public PolizaSeguro(BigDecimal nPoliza) {
+    public PolizaSeguro(String nPoliza) {
         this.nPoliza = nPoliza;
     }
 
-    public PolizaSeguro(BigDecimal nPoliza, Date fechaVencimiento) {
+    public PolizaSeguro(String nPoliza, Date fechaVencimiento) {
         this.nPoliza = nPoliza;
         this.fechaVencimiento = fechaVencimiento;
     }
 
-    public BigDecimal getNPoliza() {
+    public String getNPoliza() {
         return nPoliza;
     }
 
-    public void setNPoliza(BigDecimal nPoliza) {
+    public void setNPoliza(String nPoliza) {
         this.nPoliza = nPoliza;
     }
 
@@ -89,12 +89,12 @@ public class PolizaSeguro implements Serializable {
         this.companiaAseguradora = companiaAseguradora;
     }
 
-    public Vehiculo getVehiculoPlaca() {
-        return vehiculoPlaca;
+    public Vehiculo getVehiculo() {
+        return vehiculo;
     }
 
-    public void setVehiculoPlaca(Vehiculo vehiculoPlaca) {
-        this.vehiculoPlaca = vehiculoPlaca;
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
     }
 
     @Override

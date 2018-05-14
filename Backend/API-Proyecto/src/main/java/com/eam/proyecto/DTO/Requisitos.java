@@ -18,7 +18,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -27,8 +26,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "REQUISITOS")
 @NamedQueries({
-    @NamedQuery(name = "Requisitos.findAll", query = "SELECT r FROM Requisitos r")})
-@XmlRootElement
+    @NamedQuery(name = "Requisitos.findAll", query = "SELECT r FROM Requisitos r")
+    , @NamedQuery(name = "Requisitos.findById", query = "SELECT r FROM Requisitos r WHERE r.id = :id")
+    , @NamedQuery(name = "Requisitos.findByDescripcion", query = "SELECT r FROM Requisitos r WHERE r.descripcion = :descripcion")})
 public class Requisitos implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -38,7 +38,7 @@ public class Requisitos implements Serializable {
     @NotNull
     @Column(name = "ID")
     private BigDecimal id;
-    @Size(max = 20)
+    @Size(max = 100)
     @Column(name = "DESCRIPCION")
     private String descripcion;
     @JoinColumn(name = "TIPO_TRAMITE_ID", referencedColumnName = "ID")

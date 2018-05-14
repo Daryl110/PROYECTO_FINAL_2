@@ -21,8 +21,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -31,8 +29,14 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "VEHICULOS_AFECTADOS")
 @NamedQueries({
-    @NamedQuery(name = "VehiculosAfectados.findAll", query = "SELECT v FROM VehiculosAfectados v")})
-@XmlRootElement
+    @NamedQuery(name = "VehiculosAfectados.findAll", query = "SELECT v FROM VehiculosAfectados v")
+    , @NamedQuery(name = "VehiculosAfectados.findById", query = "SELECT v FROM VehiculosAfectados v WHERE v.id = :id")
+    , @NamedQuery(name = "VehiculosAfectados.findByInmovilizacion", query = "SELECT v FROM VehiculosAfectados v WHERE v.inmovilizacion = :inmovilizacion")
+    , @NamedQuery(name = "VehiculosAfectados.findByDisposicion", query = "SELECT v FROM VehiculosAfectados v WHERE v.disposicion = :disposicion")
+    , @NamedQuery(name = "VehiculosAfectados.findByPrpietarioMismoConductor", query = "SELECT v FROM VehiculosAfectados v WHERE v.prpietarioMismoConductor = :prpietarioMismoConductor")
+    , @NamedQuery(name = "VehiculosAfectados.findByFallaEn", query = "SELECT v FROM VehiculosAfectados v WHERE v.fallaEn = :fallaEn")
+    , @NamedQuery(name = "VehiculosAfectados.findByLugarImpacto", query = "SELECT v FROM VehiculosAfectados v WHERE v.lugarImpacto = :lugarImpacto")
+    , @NamedQuery(name = "VehiculosAfectados.findByVersion", query = "SELECT v FROM VehiculosAfectados v WHERE v.version = :version")})
 public class VehiculosAfectados implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -131,7 +135,6 @@ public class VehiculosAfectados implements Serializable {
         this.version = version;
     }
 
-    @XmlTransient
     public List<Perjudicados> getPerjudicadosList() {
         return perjudicadosList;
     }

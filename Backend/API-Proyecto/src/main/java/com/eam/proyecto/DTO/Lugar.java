@@ -18,7 +18,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -27,8 +26,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "LUGAR")
 @NamedQueries({
-    @NamedQuery(name = "Lugar.findAll", query = "SELECT l FROM Lugar l")})
-@XmlRootElement
+    @NamedQuery(name = "Lugar.findAll", query = "SELECT l FROM Lugar l")
+    , @NamedQuery(name = "Lugar.findById", query = "SELECT l FROM Lugar l WHERE l.id = :id")
+    , @NamedQuery(name = "Lugar.findByCoordenandaX", query = "SELECT l FROM Lugar l WHERE l.coordenandaX = :coordenandaX")
+    , @NamedQuery(name = "Lugar.findByCoordenadaY", query = "SELECT l FROM Lugar l WHERE l.coordenadaY = :coordenadaY")
+    , @NamedQuery(name = "Lugar.findByDireccion", query = "SELECT l FROM Lugar l WHERE l.direccion = :direccion")
+    , @NamedQuery(name = "Lugar.findByLocalidadComuna", query = "SELECT l FROM Lugar l WHERE l.localidadComuna = :localidadComuna")})
 public class Lugar implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -23,7 +23,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -32,8 +31,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "COMPARENDO")
 @NamedQueries({
-    @NamedQuery(name = "Comparendo.findAll", query = "SELECT c FROM Comparendo c")})
-@XmlRootElement
+    @NamedQuery(name = "Comparendo.findAll", query = "SELECT c FROM Comparendo c")
+    , @NamedQuery(name = "Comparendo.findById", query = "SELECT c FROM Comparendo c WHERE c.id = :id")
+    , @NamedQuery(name = "Comparendo.findByFecha", query = "SELECT c FROM Comparendo c WHERE c.fecha = :fecha")
+    , @NamedQuery(name = "Comparendo.findByLocalidadComuna", query = "SELECT c FROM Comparendo c WHERE c.localidadComuna = :localidadComuna")
+    , @NamedQuery(name = "Comparendo.findByViaPrincipal", query = "SELECT c FROM Comparendo c WHERE c.viaPrincipal = :viaPrincipal")
+    , @NamedQuery(name = "Comparendo.findByViaSecundaria", query = "SELECT c FROM Comparendo c WHERE c.viaSecundaria = :viaSecundaria")
+    , @NamedQuery(name = "Comparendo.findByModalidadTransporte", query = "SELECT c FROM Comparendo c WHERE c.modalidadTransporte = :modalidadTransporte")
+    , @NamedQuery(name = "Comparendo.findByRadioAccion", query = "SELECT c FROM Comparendo c WHERE c.radioAccion = :radioAccion")
+    , @NamedQuery(name = "Comparendo.findByTipoInfractor", query = "SELECT c FROM Comparendo c WHERE c.tipoInfractor = :tipoInfractor")
+    , @NamedQuery(name = "Comparendo.findByDescripcion", query = "SELECT c FROM Comparendo c WHERE c.descripcion = :descripcion")})
 public class Comparendo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -53,9 +60,24 @@ public class Comparendo implements Serializable {
     private String localidadComuna;
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "VIA_PRINCIPAL")
+    private String viaPrincipal;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "VIA_SECUNDARIA")
+    private String viaSecundaria;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "MODALIDAD_TRANSPORTE")
+    private String modalidadTransporte;
+    @Basic(optional = false)
+    @NotNull
     @Size(min = 1, max = 20)
-    @Column(name = "RADIO_ACCION_ID")
-    private String radioAccionId;
+    @Column(name = "RADIO_ACCION")
+    private String radioAccion;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
@@ -66,41 +88,27 @@ public class Comparendo implements Serializable {
     @Size(min = 1, max = 100)
     @Column(name = "DESCRIPCION")
     private String descripcion;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 10)
-    @Column(name = "ESTADO")
-    private String estado;
     @JoinColumn(name = "GRUA_ID", referencedColumnName = "NUMERO_GRUA")
     @ManyToOne
     private Grua gruaId;
-    @JoinColumn(name = "MODALIDAD_TRANSPORTE_ID", referencedColumnName = "ID")
-    @ManyToOne(optional = false)
-    private ModalidadTransporte modalidadTransporteId;
     @JoinColumn(name = "MUNICIPIO_ID", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private Municipio municipioId;
-    @JoinColumn(name = "CUIDADANO", referencedColumnName = "NIP")
-    @ManyToOne(optional = false)
-    private Persona cuidadano;
-    @JoinColumn(name = "AGENTE", referencedColumnName = "NIP")
-    @ManyToOne(optional = false)
-    private Persona agente;
-    @JoinColumn(name = "TESTIGO", referencedColumnName = "NIP")
+    @JoinColumn(name = "PERSONA_NIP2", referencedColumnName = "NIP")
     @ManyToOne
-    private Persona testigo;
-    @JoinColumn(name = "TIPO_INFRACCION", referencedColumnName = "ID")
+    private Persona personaNip2;
+    @JoinColumn(name = "PERSONA_NIP", referencedColumnName = "NIP")
     @ManyToOne(optional = false)
-    private TipoInfraccion tipoInfraccion;
+    private Persona personaNip;
+    @JoinColumn(name = "PERSONA_NIP1", referencedColumnName = "NIP")
+    @ManyToOne(optional = false)
+    private Persona personaNip1;
+    @JoinColumn(name = "TIPO_INFRACCION_CODIGO", referencedColumnName = "CODIGO")
+    @ManyToOne(optional = false)
+    private TipoInfraccion tipoInfraccionCodigo;
     @JoinColumn(name = "VEHICULO_PLACA", referencedColumnName = "PLACA")
     @ManyToOne(optional = false)
     private Vehiculo vehiculoPlaca;
-    @JoinColumn(name = "VIA_PRINCIPAL", referencedColumnName = "ID")
-    @ManyToOne(optional = false)
-    private Via viaPrincipal;
-    @JoinColumn(name = "VIA_SECUNDARIA", referencedColumnName = "ID")
-    @ManyToOne(optional = false)
-    private Via viaSecundaria;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "comparendo")
     private DetalleComparendo detalleComparendo;
 
@@ -111,13 +119,15 @@ public class Comparendo implements Serializable {
         this.id = id;
     }
 
-    public Comparendo(BigDecimal id, Date fecha, String radioAccionId, String tipoInfractor, String descripcion, String estado) {
+    public Comparendo(BigDecimal id, Date fecha, String viaPrincipal, String viaSecundaria, String modalidadTransporte, String radioAccion, String tipoInfractor, String descripcion) {
         this.id = id;
         this.fecha = fecha;
-        this.radioAccionId = radioAccionId;
+        this.viaPrincipal = viaPrincipal;
+        this.viaSecundaria = viaSecundaria;
+        this.modalidadTransporte = modalidadTransporte;
+        this.radioAccion = radioAccion;
         this.tipoInfractor = tipoInfractor;
         this.descripcion = descripcion;
-        this.estado = estado;
     }
 
     public BigDecimal getId() {
@@ -144,12 +154,36 @@ public class Comparendo implements Serializable {
         this.localidadComuna = localidadComuna;
     }
 
-    public String getRadioAccionId() {
-        return radioAccionId;
+    public String getViaPrincipal() {
+        return viaPrincipal;
     }
 
-    public void setRadioAccionId(String radioAccionId) {
-        this.radioAccionId = radioAccionId;
+    public void setViaPrincipal(String viaPrincipal) {
+        this.viaPrincipal = viaPrincipal;
+    }
+
+    public String getViaSecundaria() {
+        return viaSecundaria;
+    }
+
+    public void setViaSecundaria(String viaSecundaria) {
+        this.viaSecundaria = viaSecundaria;
+    }
+
+    public String getModalidadTransporte() {
+        return modalidadTransporte;
+    }
+
+    public void setModalidadTransporte(String modalidadTransporte) {
+        this.modalidadTransporte = modalidadTransporte;
+    }
+
+    public String getRadioAccion() {
+        return radioAccion;
+    }
+
+    public void setRadioAccion(String radioAccion) {
+        this.radioAccion = radioAccion;
     }
 
     public String getTipoInfractor() {
@@ -168,28 +202,12 @@ public class Comparendo implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
     public Grua getGruaId() {
         return gruaId;
     }
 
     public void setGruaId(Grua gruaId) {
         this.gruaId = gruaId;
-    }
-
-    public ModalidadTransporte getModalidadTransporteId() {
-        return modalidadTransporteId;
-    }
-
-    public void setModalidadTransporteId(ModalidadTransporte modalidadTransporteId) {
-        this.modalidadTransporteId = modalidadTransporteId;
     }
 
     public Municipio getMunicipioId() {
@@ -200,36 +218,36 @@ public class Comparendo implements Serializable {
         this.municipioId = municipioId;
     }
 
-    public Persona getCuidadano() {
-        return cuidadano;
+    public Persona getPersonaNip2() {
+        return personaNip2;
     }
 
-    public void setCuidadano(Persona cuidadano) {
-        this.cuidadano = cuidadano;
+    public void setPersonaNip2(Persona personaNip2) {
+        this.personaNip2 = personaNip2;
     }
 
-    public Persona getAgente() {
-        return agente;
+    public Persona getPersonaNip() {
+        return personaNip;
     }
 
-    public void setAgente(Persona agente) {
-        this.agente = agente;
+    public void setPersonaNip(Persona personaNip) {
+        this.personaNip = personaNip;
     }
 
-    public Persona getTestigo() {
-        return testigo;
+    public Persona getPersonaNip1() {
+        return personaNip1;
     }
 
-    public void setTestigo(Persona testigo) {
-        this.testigo = testigo;
+    public void setPersonaNip1(Persona personaNip1) {
+        this.personaNip1 = personaNip1;
     }
 
-    public TipoInfraccion getTipoInfraccion() {
-        return tipoInfraccion;
+    public TipoInfraccion getTipoInfraccionCodigo() {
+        return tipoInfraccionCodigo;
     }
 
-    public void setTipoInfraccion(TipoInfraccion tipoInfraccion) {
-        this.tipoInfraccion = tipoInfraccion;
+    public void setTipoInfraccionCodigo(TipoInfraccion tipoInfraccionCodigo) {
+        this.tipoInfraccionCodigo = tipoInfraccionCodigo;
     }
 
     public Vehiculo getVehiculoPlaca() {
@@ -238,22 +256,6 @@ public class Comparendo implements Serializable {
 
     public void setVehiculoPlaca(Vehiculo vehiculoPlaca) {
         this.vehiculoPlaca = vehiculoPlaca;
-    }
-
-    public Via getViaPrincipal() {
-        return viaPrincipal;
-    }
-
-    public void setViaPrincipal(Via viaPrincipal) {
-        this.viaPrincipal = viaPrincipal;
-    }
-
-    public Via getViaSecundaria() {
-        return viaSecundaria;
-    }
-
-    public void setViaSecundaria(Via viaSecundaria) {
-        this.viaSecundaria = viaSecundaria;
     }
 
     public DetalleComparendo getDetalleComparendo() {

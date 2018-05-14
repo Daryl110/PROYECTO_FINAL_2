@@ -18,7 +18,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -27,8 +26,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "TESTIGOS")
 @NamedQueries({
-    @NamedQuery(name = "Testigos.findAll", query = "SELECT t FROM Testigos t")})
-@XmlRootElement
+    @NamedQuery(name = "Testigos.findAll", query = "SELECT t FROM Testigos t")
+    , @NamedQuery(name = "Testigos.findById", query = "SELECT t FROM Testigos t WHERE t.id = :id")
+    , @NamedQuery(name = "Testigos.findByTestimonio", query = "SELECT t FROM Testigos t WHERE t.testimonio = :testimonio")})
 public class Testigos implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,9 +44,9 @@ public class Testigos implements Serializable {
     @JoinColumn(name = "INFORME_ACCIDENTE_TRANSITO_ID", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private InformeAccidenteTransito informeAccidenteTransitoId;
-    @JoinColumn(name = "PERSONA_ID", referencedColumnName = "NIP")
+    @JoinColumn(name = "PERSONA_NIP", referencedColumnName = "NIP")
     @ManyToOne(optional = false)
-    private Persona personaId;
+    private Persona personaNip;
 
     public Testigos() {
     }
@@ -79,12 +79,12 @@ public class Testigos implements Serializable {
         this.informeAccidenteTransitoId = informeAccidenteTransitoId;
     }
 
-    public Persona getPersonaId() {
-        return personaId;
+    public Persona getPersonaNip() {
+        return personaNip;
     }
 
-    public void setPersonaId(Persona personaId) {
-        this.personaId = personaId;
+    public void setPersonaNip(Persona personaNip) {
+        this.personaNip = personaNip;
     }
 
     @Override

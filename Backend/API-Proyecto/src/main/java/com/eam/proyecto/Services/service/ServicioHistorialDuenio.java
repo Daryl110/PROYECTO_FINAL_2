@@ -5,8 +5,8 @@
  */
 package com.eam.proyecto.Services.service;
 
+import com.eam.proyecto.DTO.HistorialDueno;
 import com.eam.proyecto.Services.Estructura.EstructuraRestFul;
-import com.eam.proyecto.DTO.HistorialDuenio;
 import java.math.BigDecimal;
 import java.util.List;
 import javax.ws.rs.Consumes;
@@ -25,17 +25,17 @@ import javax.ws.rs.core.Response;
  * @author Daryl Ospina
  */
 @Path("HistorialDuenio")
-public class ServicioHistorialDuenio extends EstructuraRestFul<HistorialDuenio> {
+public class ServicioHistorialDuenio extends EstructuraRestFul<HistorialDueno> {
     
     public ServicioHistorialDuenio() {
-        super(HistorialDuenio.class);
+        super(HistorialDueno.class);
     }
 
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response create(HistorialDuenio entity) {
+    public Response create(HistorialDueno entity) {
         return super.create(entity);
     }
 
@@ -43,7 +43,7 @@ public class ServicioHistorialDuenio extends EstructuraRestFul<HistorialDuenio> 
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response edit(@PathParam("id") BigDecimal id, HistorialDuenio entity) {
+    public Response edit(@PathParam("id") BigDecimal id, HistorialDueno entity) {
         return super.edit(entity);
     }
 
@@ -57,21 +57,21 @@ public class ServicioHistorialDuenio extends EstructuraRestFul<HistorialDuenio> 
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
-    public HistorialDuenio find(@PathParam("id") BigDecimal id) {
+    public HistorialDueno find(@PathParam("id") BigDecimal id) {
         return super.find(id);
     }
 
     @GET
     @Override
     @Produces({MediaType.APPLICATION_JSON})
-    public List<HistorialDuenio> findAll() {
+    public List<HistorialDueno> findAll() {
         return super.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_JSON})
-    public List<HistorialDuenio> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<HistorialDueno> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
 

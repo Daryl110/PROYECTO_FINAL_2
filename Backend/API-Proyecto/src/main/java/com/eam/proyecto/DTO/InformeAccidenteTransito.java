@@ -27,8 +27,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -37,8 +35,15 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "INFORME_ACCIDENTE_TRANSITO")
 @NamedQueries({
-    @NamedQuery(name = "InformeAccidenteTransito.findAll", query = "SELECT i FROM InformeAccidenteTransito i")})
-@XmlRootElement
+    @NamedQuery(name = "InformeAccidenteTransito.findAll", query = "SELECT i FROM InformeAccidenteTransito i")
+    , @NamedQuery(name = "InformeAccidenteTransito.findById", query = "SELECT i FROM InformeAccidenteTransito i WHERE i.id = :id")
+    , @NamedQuery(name = "InformeAccidenteTransito.findByTipoGravedad", query = "SELECT i FROM InformeAccidenteTransito i WHERE i.tipoGravedad = :tipoGravedad")
+    , @NamedQuery(name = "InformeAccidenteTransito.findByFechaHora", query = "SELECT i FROM InformeAccidenteTransito i WHERE i.fechaHora = :fechaHora")
+    , @NamedQuery(name = "InformeAccidenteTransito.findByClaseAccidente", query = "SELECT i FROM InformeAccidenteTransito i WHERE i.claseAccidente = :claseAccidente")
+    , @NamedQuery(name = "InformeAccidenteTransito.findByChoqueCon", query = "SELECT i FROM InformeAccidenteTransito i WHERE i.choqueCon = :choqueCon")
+    , @NamedQuery(name = "InformeAccidenteTransito.findByObjetoFijo", query = "SELECT i FROM InformeAccidenteTransito i WHERE i.objetoFijo = :objetoFijo")
+    , @NamedQuery(name = "InformeAccidenteTransito.findByNumeroMuertos", query = "SELECT i FROM InformeAccidenteTransito i WHERE i.numeroMuertos = :numeroMuertos")
+    , @NamedQuery(name = "InformeAccidenteTransito.findByNumeroHeridos", query = "SELECT i FROM InformeAccidenteTransito i WHERE i.numeroHeridos = :numeroHeridos")})
 public class InformeAccidenteTransito implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -62,8 +67,8 @@ public class InformeAccidenteTransito implements Serializable {
     @Column(name = "CLASE_ACCIDENTE")
     private String claseAccidente;
     @Size(max = 20)
-    @Column(name = "COQUES_CON")
-    private String coquesCon;
+    @Column(name = "CHOQUE_CON")
+    private String choqueCon;
     @Size(max = 20)
     @Column(name = "OBJETO_FIJO")
     private String objetoFijo;
@@ -133,12 +138,12 @@ public class InformeAccidenteTransito implements Serializable {
         this.claseAccidente = claseAccidente;
     }
 
-    public String getCoquesCon() {
-        return coquesCon;
+    public String getChoqueCon() {
+        return choqueCon;
     }
 
-    public void setCoquesCon(String coquesCon) {
-        this.coquesCon = coquesCon;
+    public void setChoqueCon(String choqueCon) {
+        this.choqueCon = choqueCon;
     }
 
     public String getObjetoFijo() {
@@ -173,7 +178,6 @@ public class InformeAccidenteTransito implements Serializable {
         this.numeroHeridos = numeroHeridos;
     }
 
-    @XmlTransient
     public List<Testigos> getTestigosList() {
         return testigosList;
     }
@@ -206,7 +210,6 @@ public class InformeAccidenteTransito implements Serializable {
         this.caracteristicaLugar = caracteristicaLugar;
     }
 
-    @XmlTransient
     public List<VehiculosAfectados> getVehiculosAfectadosList() {
         return vehiculosAfectadosList;
     }
