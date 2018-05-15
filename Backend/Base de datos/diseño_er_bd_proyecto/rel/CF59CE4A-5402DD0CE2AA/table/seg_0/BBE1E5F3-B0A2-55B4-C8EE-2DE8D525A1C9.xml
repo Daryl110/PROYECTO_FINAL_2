@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BBE1E5F3-B0A2-55B4-C8EE-2DE8D525A1C9" name="VALIDACION">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-14 14:29:36 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<ordsAlias>table_69</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="908B40B8-0524-D0B3-B47D-BBD7C37714E7">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-14 14:30:19 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCRIPCION" id="126E1B48-DC6A-B6E6-1A9B-E84B5248CC58">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-14 14:30:19 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="14567BCD-AAE0-B17D-EF84-9F771BF2C467" name="VALIDACION_PK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-14 14:30:19 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="908B40B8-0524-D0B3-B47D-BBD7C37714E7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

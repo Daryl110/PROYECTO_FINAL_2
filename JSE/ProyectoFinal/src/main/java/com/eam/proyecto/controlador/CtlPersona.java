@@ -1,5 +1,6 @@
 package com.eam.proyecto.controlador;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 import org.json.simple.JSONArray;
@@ -19,18 +20,18 @@ public class CtlPersona extends ControladorAbstracto {
         try {
             String response = this.traerlistar(entidad + "/");
             JSONArray personas = ((JSONArray) (new JSONParser().parse(response)));
-            personas.forEach((obj) -> {
-                JSONObject persona = (JSONObject) obj;
+            for (int i = 0; i < personas.size(); i++) {
+                JSONObject persona = (JSONObject) personas.get(i);
                 modelo.addRow(new Object[]{
                     persona.get("nombreCompleto").toString(),
-                    ((JSONObject) (persona.get("tipoDocumentoId"))).get("nombre").toString(),
+                    ((JSONObject) (persona.get("tipoDocumento"))).get("nombre").toString(),
                     persona.get("nip").toString(),
                     ((JSONObject) (persona.get("municipioId"))).get("nombre").toString(),
                     persona.get("direccion").toString(),
                     persona.get("eps").toString(),
                     persona.get("telefono")
                 });
-            });
+            }
         } catch (ParseException ex) {
             System.out.println("[Error] : " + ex);
         }
@@ -64,28 +65,9 @@ public class CtlPersona extends ControladorAbstracto {
                     (new JSONParser().parse(
                             modificar(this.crearJson(nombreCompleto, direccion,
                                     fechaN, numeroPlaca, eps, tipoDocId, numeroDoc,
-                                    telefono, municipioId), "Persona",numeroDoc).readEntity(String.class)))).get("Resultado");
+                                    telefono, municipioId), "Persona" ,numeroDoc).readEntity(String.class)))).get("Resultado");
 
         }catch (ParseException e) {
-            return false;
-        }
-    }
-
-    @Override
-    public JSONObject buscar(Object id, String entidad) {
-        try {
-            String response = this.traerlistar(entidad + "/" + id);
-            return ((JSONObject) (new JSONParser().parse(response)));
-        } catch (ParseException ex) {
-            return null;
-        }
-    }
-
-    @Override
-    public boolean eliminar(Object id, String entidad) {
-        try {
-            return (boolean) ((JSONObject) (new JSONParser().parse(this.conectarConAPI(entidad + "/" + id, "DELETE", "application/json", null)))).get("Resultado");
-        } catch (ParseException ex) {
             return false;
         }
     }
@@ -97,17 +79,17 @@ public class CtlPersona extends ControladorAbstracto {
             JSONObject request = new JSONObject(), tipoDocumento, municipio;
             request.put("direccion", direccion);
             request.put("eps", eps);
-            if (fechaN != null) {
-                request.put("fechaNacimiento", fechaN.toString());
-            }   if (numeroPlaca != null) {
+                request.put("fechaNacimiento", (new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(fechaN)));
+            if (numeroPlaca != null) {
                 request.put("placa", Integer.parseInt(numeroPlaca));
-            }   municipio = ((JSONObject) (new JSONParser().parse(traerlistar("Municipio/" + municipioId))));
+            }   
+            municipio = ((JSONObject) (new JSONParser().parse(traerlistar("Municipio/" + municipioId))));
             request.put("municipioId", municipio);
             request.put("nip", numeroDoc);
             request.put("nombreCompleto", nombreCompleto);
             request.put("telefono", telefono);
             tipoDocumento = ((JSONObject) (new JSONParser().parse(traerlistar("TipoDocumento/" + tipoDocId))));
-            request.put("tipoDocumentoId", tipoDocumento);
+            request.put("tipoDocumento", tipoDocumento);
             
             return request.toString();
         } catch (ParseException ex) {

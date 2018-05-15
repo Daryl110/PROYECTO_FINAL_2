@@ -22,6 +22,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -34,6 +35,7 @@ import javax.validation.constraints.NotNull;
     , @NamedQuery(name = "DetalleComparendo.findById", query = "SELECT d FROM DetalleComparendo d WHERE d.id = :id")
     , @NamedQuery(name = "DetalleComparendo.findByAceptacionCompatrendo", query = "SELECT d FROM DetalleComparendo d WHERE d.aceptacionCompatrendo = :aceptacionCompatrendo")
     , @NamedQuery(name = "DetalleComparendo.findByFechaAsistencia", query = "SELECT d FROM DetalleComparendo d WHERE d.fechaAsistencia = :fechaAsistencia")})
+@XmlRootElement
 public class DetalleComparendo implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="439834EF-B7E9-D20D-FD49-8A54FAA97906" name="ADMINISTRADOR">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-05-14 12:20:00 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<ordsAlias>table_36</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="DE37B7FC-E56F-732E-C814-7EB8A312A6AD">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-05-14 12:21:40 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USUARIO" id="7B833695-A5DD-1567-E0FE-12E74FB51267">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-05-14 12:21:40 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CONTRASENA" id="1AEBDB01-F2A7-F55D-4778-7275BA5B09F7">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-05-14 12:21:40 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D6C8A54E-8764-442C-B507-D719E9BFFEEF" name="ADMINISTRADOR_PK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-05-14 12:21:40 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DE37B7FC-E56F-732E-C814-7EB8A312A6AD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

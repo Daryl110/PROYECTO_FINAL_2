@@ -13,6 +13,8 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -77,6 +79,8 @@ public class Herramientas {
         }
     }
     
+    // de centencia json a jsonObject
+    
     public JSONObject jsonStringToObject(String json){
         try {
             return (JSONObject)(new JSONParser().parse(json));
@@ -84,5 +88,17 @@ public class Herramientas {
             System.out.println("[Error] : "+ex);
         }
         return null;
+    }
+    
+    //Validar Email
+    public boolean validarEmail(String email){
+        
+        Pattern pattern = Pattern
+                .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+        
+        Matcher mather = pattern.matcher(email);
+ 
+        return mather.find();
     }
 }

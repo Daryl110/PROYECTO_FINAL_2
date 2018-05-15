@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="FB22BC48-6202-6281-E180-EA22131D4CD3" containerWithKeyObject="C4480487-919D-A30A-CEA1-28DA550000B1" localFKIndex="62EA9146-8717-CFCE-67C0-39ECC20CF410" name="EXAMEN_PERJUDICADOS_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:44:33 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<referredTableLongName>PERJUDICADOS</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>D2A74778-2665-B56A-1101-B970DB27EB62</referredTableID>
+<keyObject>0DBDA1BB-41B3-5EF7-2E3E-6796AAD62D16</keyObject>
+<referredKeyID>0DBDA1BB-41B3-5EF7-2E3E-6796AAD62D16</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

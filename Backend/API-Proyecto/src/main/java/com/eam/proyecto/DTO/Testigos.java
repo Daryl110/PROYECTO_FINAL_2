@@ -18,6 +18,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -29,6 +30,7 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Testigos.findAll", query = "SELECT t FROM Testigos t")
     , @NamedQuery(name = "Testigos.findById", query = "SELECT t FROM Testigos t WHERE t.id = :id")
     , @NamedQuery(name = "Testigos.findByTestimonio", query = "SELECT t FROM Testigos t WHERE t.testimonio = :testimonio")})
+@XmlRootElement
 public class Testigos implements Serializable {
 
     private static final long serialVersionUID = 1L;

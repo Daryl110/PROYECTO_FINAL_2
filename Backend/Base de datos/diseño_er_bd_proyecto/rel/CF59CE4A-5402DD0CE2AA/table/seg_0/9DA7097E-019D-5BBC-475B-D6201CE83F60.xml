@@ -1,0 +1,142 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9DA7097E-019D-5BBC-475B-D6201CE83F60" name="USUARIO">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 17:46:36 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NOMBRE_USUARIO" id="8FA34308-1E0B-9C98-579F-84E6E160BDE9">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 17:46:36 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PASSWORD" id="FCD08CD2-C4A8-6DCD-3D00-9A333780F6C7">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 17:46:36 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EMAIL" id="22EF8989-F855-0A52-9243-9109EBEE4A9A">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 17:46:36 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RESPUESTA_SEGURIDAD" id="B79EAD3E-E391-F58D-19E7-820AA3D89A29">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 17:46:36 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIPO_USUARIO" id="EA9518D7-C1B3-63F2-88DC-2B8E852E3366">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-14 13:48:45 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VALIDACION_ID" id="9E3CAD4A-AEAE-0135-F9F4-F305E4AADF93">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 17:46:36 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="561EC196-1511-4F9E-6F3E-51FF41367766" referredColumn="908B40B8-0524-D0B3-B47D-BBD7C37714E7"/>
+</associations>
+</Column>
+<Column name="PERSONA_NIP" id="60F809E9-4BC9-CA46-0999-E8D2AFA55605">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-05-14 12:15:00 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DF6AF056-BA60-A64E-C11F-CB910047608E" referredColumn="DEC739FA-8EC6-4523-DA23-42A2AA13364C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="33DF71E0-BB5F-0B67-64C2-8EB38472AD46" name="Usuario_PK">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 17:46:36 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8FA34308-1E0B-9C98-579F-84E6E160BDE9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4800BB98-7C66-F3BC-5B6B-C6D70B925605" name="tipo_usuario_nip__un">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-05-14 12:19:28 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EA9518D7-C1B3-63F2-88DC-2B8E852E3366"/>
+<colUsage columnID="60F809E9-4BC9-CA46-0999-E8D2AFA55605"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="14390D15-3CBF-8743-6333-1A6A8213D66B" name="USUARIO_PERSONA_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-14 14:21:27 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="60F809E9-4BC9-CA46-0999-E8D2AFA55605"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D0241A9E-33C0-D81A-67F5-7BDD121BC4FB" name="USUARIO_VALIDACION_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-14 14:30:24 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9E3CAD4A-AEAE-0135-F9F4-F305E4AADF93"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

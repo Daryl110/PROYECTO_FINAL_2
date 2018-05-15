@@ -22,6 +22,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -36,6 +38,7 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Curso.findByFecha", query = "SELECT c FROM Curso c WHERE c.fecha = :fecha")
     , @NamedQuery(name = "Curso.findByHoraInicio", query = "SELECT c FROM Curso c WHERE c.horaInicio = :horaInicio")
     , @NamedQuery(name = "Curso.findByHoraFinalizacion", query = "SELECT c FROM Curso c WHERE c.horaFinalizacion = :horaFinalizacion")})
+@XmlRootElement
 public class Curso implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -114,6 +117,7 @@ public class Curso implements Serializable {
         this.horaFinalizacion = horaFinalizacion;
     }
 
+    @XmlTransient
     public List<Asistencia> getAsistenciaList() {
         return asistenciaList;
     }

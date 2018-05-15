@@ -379,7 +379,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
             nombreUsuario = txtNombreUsuario.getText().trim();
             contrasenia = txtContrasenia.getText().trim();
-
+            
             JSONObject respuesta = this.controladorUsuario.iniciarSesion(nombreUsuario, contrasenia);
 
             try {
@@ -392,7 +392,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
             } catch (HeadlessException | NullPointerException e) {
                 JOptionPane.showMessageDialog(this, "Es posible que no se "
                         + "realizara la iniciación del web service. contacte con el administrador");
-                System.out.println("[Error] : "+e);
+                System.out.println("[Error] : " + e);
             }
         }
     }//GEN-LAST:event_btnIniciarSesionActionPerformed

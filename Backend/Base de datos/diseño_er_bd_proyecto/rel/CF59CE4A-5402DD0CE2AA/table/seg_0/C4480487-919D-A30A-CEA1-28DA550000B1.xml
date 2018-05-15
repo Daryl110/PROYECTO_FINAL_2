@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C4480487-919D-A30A-CEA1-28DA550000B1" name="EXAMEN">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:23:21 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<ordsAlias>table_74</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="9F9B82F8-73C7-A4A5-794E-4D28D56A0717">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:26:05 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FB22BC48-6202-6281-E180-EA22131D4CD3" referredColumn="D2ECD561-D92A-3ECB-B003-A43555820801"/>
+</associations>
+</Column>
+<Column name="EXAMEN_EMBRIAGUEZ" id="2CDC0A56-34BC-08BB-0FD7-D18E9178A05B">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:26:05 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EXAMEN_DROGA" id="BDE49D6C-EB33-25DC-9E6F-CCD3BAC60D0D">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:26:05 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="GRADO_EXAMEN_DROGA" id="11774F99-CC58-8D03-45C1-75433AB3706F">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:26:05 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="GRADO_EXAMEN_ALCOHOL" id="86B42502-C314-962D-5B00-E0247481156E">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-05-14 12:48:07 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="781B07AD-7A83-AF10-A05A-F4CB713D5A2B" name="EXAMEN_PK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:26:05 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9F9B82F8-73C7-A4A5-794E-4D28D56A0717"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="62EA9146-8717-CFCE-67C0-39ECC20CF410" name="EXAMEN_PERJUDICADOS_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:44:33 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9F9B82F8-73C7-A4A5-794E-4D28D56A0717"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

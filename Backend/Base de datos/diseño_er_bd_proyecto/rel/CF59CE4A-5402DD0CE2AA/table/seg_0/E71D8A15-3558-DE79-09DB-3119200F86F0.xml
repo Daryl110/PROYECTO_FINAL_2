@@ -1,0 +1,204 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E71D8A15-3558-DE79-09DB-3119200F86F0" name="VEHICULO">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 18:34:30 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<ordsAlias>table_13</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PLACA" id="1E955E21-4B2F-FB2B-7792-DD4B2E984110">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 18:34:30 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MODELO" id="0D1F74CA-E611-C4B8-4B24-9289CD756B49">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:06:00 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LINEA" id="EAD16717-B6AF-4386-6A7B-66FDF3544E69">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-04-01 00:27:35 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MARCA" id="9B90ED54-CCFA-8570-303D-F16FDCE08067">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-10 12:35:43 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LICENCIA_TRANSITO" id="97EC3E18-E464-BA0B-2D3E-3FF10F86F570">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 19:51:53 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CLASE_VEHICULO" id="C306954B-8834-9AFB-6DDA-DB683794CEF6">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 19:03:35 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIPO_VEHICULO" id="1F9E67E3-CED5-F874-3D0F-3D9B60E193E1">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 19:44:46 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LUGAR_MATRICULA" id="1F769339-7ACC-B56C-DC69-D00512B9DC58">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 19:17:55 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NACIONALIDAD" id="76E8BC63-A5BC-B65F-6607-E2E0A64BD734">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 19:48:18 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EMPRESA_NIT" id="D76B19B8-25F9-C189-2B30-F72DD6DB5B2B">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-10 01:51:46 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="514C2424-71C1-CC07-F31F-2EB4E77E86BE" referredColumn="EE18B56A-8E49-8E25-97CB-04CB5B8D0EA3"/>
+</associations>
+</Column>
+<Column name="CAPACIDAD_CARGA" id="06A354BA-62E3-246E-FB4C-0A9998CB80CB">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:06:00 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NUMERO_PASAJEROS" id="02B8B0D3-1DD4-70A1-1561-BCEB26D2A919">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 00:43:29 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NO_TARGETA_OPERACION" id="DAF2E8B0-5070-72E4-5442-1C8BFCF15B64">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 00:54:21 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A5E29DF8-1C2D-1487-5762-4F3FC0F5CE38" name="Vehiculov1_PK">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 18:34:30 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1E955E21-4B2F-FB2B-7792-DD4B2E984110"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="646B504C-9777-7F6E-4DC1-7D108CEC3BB9" name="Vehiculo__UN">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 19:03:54 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1E955E21-4B2F-FB2B-7792-DD4B2E984110"/>
+<colUsage columnID="97EC3E18-E464-BA0B-2D3E-3FF10F86F570"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4C7063F4-A94C-9A65-20AA-F1054A3A667E" name="VEHICULO_EMPRESA_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-10 01:51:46 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D76B19B8-25F9-C189-2B30-F72DD6DB5B2B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

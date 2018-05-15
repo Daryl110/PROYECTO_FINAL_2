@@ -22,6 +22,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -38,6 +40,7 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "VehiculoTramite.findByNoChasis", query = "SELECT v FROM VehiculoTramite v WHERE v.noChasis = :noChasis")
     , @NamedQuery(name = "VehiculoTramite.findByNoSerie", query = "SELECT v FROM VehiculoTramite v WHERE v.noSerie = :noSerie")
     , @NamedQuery(name = "VehiculoTramite.findByNoVin", query = "SELECT v FROM VehiculoTramite v WHERE v.noVin = :noVin")})
+@XmlRootElement
 public class VehiculoTramite implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -160,6 +163,7 @@ public class VehiculoTramite implements Serializable {
         this.vehiculo = vehiculo;
     }
 
+    @XmlTransient
     public List<Tramite> getTramiteList() {
         return tramiteList;
     }

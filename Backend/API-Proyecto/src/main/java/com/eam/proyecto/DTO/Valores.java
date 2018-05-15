@@ -18,6 +18,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -32,6 +33,7 @@ import javax.validation.constraints.NotNull;
     , @NamedQuery(name = "Valores.findByValorDiaMora", query = "SELECT v FROM Valores v WHERE v.valorDiaMora = :valorDiaMora")
     , @NamedQuery(name = "Valores.findByDescuentoComparendo", query = "SELECT v FROM Valores v WHERE v.descuentoComparendo = :descuentoComparendo")
     , @NamedQuery(name = "Valores.findByDiasHabiles", query = "SELECT v FROM Valores v WHERE v.diasHabiles = :diasHabiles")})
+@XmlRootElement
 public class Valores implements Serializable {
 
     private static final long serialVersionUID = 1L;

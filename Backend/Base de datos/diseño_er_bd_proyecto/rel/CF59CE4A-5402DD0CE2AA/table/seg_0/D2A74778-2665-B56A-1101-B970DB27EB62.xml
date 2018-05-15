@@ -1,0 +1,156 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D2A74778-2665-B56A-1101-B970DB27EB62" name="PERJUDICADOS">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:37:37 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<ordsAlias>table_76</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="D2ECD561-D92A-3ECB-B003-A43555820801">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:43:21 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIPO_PERJUDICADO" id="9F2B7A1D-5BAB-271B-E0AE-682EE380A0ED">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:43:21 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VEHICULOS_AFECTADOS_ID" id="C8D59E62-1B27-E97E-2779-D60B5C6D2A2D">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:47:09 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="387D6B38-C9FD-95CB-BA6E-748AF84A171E" referredColumn="070770CC-8337-093A-2C1C-31E741214789"/>
+</associations>
+</Column>
+<Column name="CINTURON" id="24F9AEC2-528E-F516-FEAF-770A9FC10C93">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:46:33 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CASCO" id="9F472C99-CC15-EF23-73ED-98E9555533FD">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:51:32 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SEXO" id="86B5DBC7-FBB4-2801-291F-BA9D5048C44D">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:51:32 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="GRAVEDAD" id="CF0345A5-59E2-28AC-48F2-BB4CAFC91A03">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:51:32 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CONDICION" id="B6AA44C1-BB5D-C45B-ED1D-C53EBF94EBE1">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:51:32 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PERSONA_NIP" id="B65E46BD-F1A4-9B5F-7D24-70F10AEF98FF">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-05-14 12:15:00 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3A74079D-0F5B-83BC-4EAD-075824E95806" referredColumn="DEC739FA-8EC6-4523-DA23-42A2AA13364C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0DBDA1BB-41B3-5EF7-2E3E-6796AAD62D16" name="PERJUDICADOS_PK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:44:30 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D2ECD561-D92A-3ECB-B003-A43555820801"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A58008AA-0544-150D-6581-6133CCCE2A69" name="PERJUDICADOS_P_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:44:45 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B65E46BD-F1A4-9B5F-7D24-70F10AEF98FF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="55F5868C-6086-DA07-F3A0-967BEDE7F842" name="PE_V_A_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:47:09 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C8D59E62-1B27-E97E-2779-D60B5C6D2A2D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

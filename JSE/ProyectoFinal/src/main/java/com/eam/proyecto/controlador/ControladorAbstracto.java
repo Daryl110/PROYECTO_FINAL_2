@@ -19,6 +19,8 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -69,7 +71,20 @@ public abstract class ControladorAbstracto {
          return cliente.target(this.url + entidad+"/"+id).request(MediaType.APPLICATION_JSON).put(Entity.json(json));
     }
     
-    public abstract JSONObject buscar(Object id,String entidad);
+    public boolean eliminar(Object id, String entidad) {
+        try {
+            return (boolean) ((JSONObject) (new JSONParser().parse(this.conectarConAPI(entidad + "/" + id, "DELETE", "application/json", null)))).get("Resultado");
+        } catch (ParseException ex) {
+            return false;
+        }
+    }
     
-    public abstract boolean eliminar(Object id,String entidad);
+    public JSONObject buscar(Object id, String entidad) {
+        try {
+            String response = this.traerlistar(entidad + "/" + id);
+            return ((JSONObject) (new JSONParser().parse(response)));
+        } catch (ParseException ex) {
+            return null;
+        }
+    }
 }

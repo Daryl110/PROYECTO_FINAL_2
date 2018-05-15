@@ -27,6 +27,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -44,6 +46,7 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "InformeAccidenteTransito.findByObjetoFijo", query = "SELECT i FROM InformeAccidenteTransito i WHERE i.objetoFijo = :objetoFijo")
     , @NamedQuery(name = "InformeAccidenteTransito.findByNumeroMuertos", query = "SELECT i FROM InformeAccidenteTransito i WHERE i.numeroMuertos = :numeroMuertos")
     , @NamedQuery(name = "InformeAccidenteTransito.findByNumeroHeridos", query = "SELECT i FROM InformeAccidenteTransito i WHERE i.numeroHeridos = :numeroHeridos")})
+@XmlRootElement
 public class InformeAccidenteTransito implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -178,6 +181,7 @@ public class InformeAccidenteTransito implements Serializable {
         this.numeroHeridos = numeroHeridos;
     }
 
+    @XmlTransient
     public List<Testigos> getTestigosList() {
         return testigosList;
     }
@@ -210,6 +214,7 @@ public class InformeAccidenteTransito implements Serializable {
         this.caracteristicaLugar = caracteristicaLugar;
     }
 
+    @XmlTransient
     public List<VehiculosAfectados> getVehiculosAfectadosList() {
         return vehiculosAfectadosList;
     }

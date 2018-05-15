@@ -18,6 +18,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -42,6 +43,7 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "CaracteristicaVia.findByControlSemaforo", query = "SELECT c FROM CaracteristicaVia c WHERE c.controlSemaforo = :controlSemaforo")
     , @NamedQuery(name = "CaracteristicaVia.findByControlSenales", query = "SELECT c FROM CaracteristicaVia c WHERE c.controlSenales = :controlSenales")
     , @NamedQuery(name = "CaracteristicaVia.findByControlDemarcacion", query = "SELECT c FROM CaracteristicaVia c WHERE c.controlDemarcacion = :controlDemarcacion")})
+@XmlRootElement
 public class CaracteristicaVia implements Serializable {
 
     private static final long serialVersionUID = 1L;

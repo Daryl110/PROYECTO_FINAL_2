@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="35518C9A-083E-CF98-4A17-B6091BC7026E" name="LICENCIA">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 17:46:36 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<ordsAlias>table_20</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PERSONA" id="4E751BAE-8878-5A2A-D8BD-4EFB5A16CCC6">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 17:46:36 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D5F65A28-AC0F-48BA-B401-3FD289E73A5F" referredColumn="DEC739FA-8EC6-4523-DA23-42A2AA13364C"/>
+</associations>
+</Column>
+<Column name="NUMERO_LICENCIA" id="DE6A6F2A-D0B6-FE91-A411-965A46B1B0BA">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 17:46:36 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FECHA_EXPEDICION" id="B3FF508B-0B3A-E4F2-5FC1-1764FDDA8DEF">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 17:46:36 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FECHA_VENCIMIENTO" id="9CC605EA-5322-78B4-ED63-EBA0CB68E119">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 17:46:36 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="OFICINA_TRANSITO" id="0E4707FE-1A5B-A6E4-5C38-D3A68097B0C0">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 17:46:36 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CATEGORIA_LICENCIA" id="E094BF5A-0504-2449-FD32-4AC75D768584">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 17:46:36 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9226B913-E20F-59D1-1FFA-0C63857063A2" name="LICENCIA_PK">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 17:46:36 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4E751BAE-8878-5A2A-D8BD-4EFB5A16CCC6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="39E845DD-81EC-DFCE-7AFF-3E11C84F5B29" name="LICENCIA_PERSONA_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-05-14 12:46:36 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4E751BAE-8878-5A2A-D8BD-4EFB5A16CCC6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

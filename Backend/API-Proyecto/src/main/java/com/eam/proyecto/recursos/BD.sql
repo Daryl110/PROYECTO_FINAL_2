@@ -39,6 +39,8 @@ DROP TABLE pago_comparendo CASCADE CONSTRAINTS;
 
 DROP TABLE perjudicados CASCADE CONSTRAINTS;
 
+DROP TABLE usuario CASCADE CONSTRAINTS;
+
 DROP TABLE persona CASCADE CONSTRAINTS;
 
 DROP TABLE poliza_seguro CASCADE CONSTRAINTS;
@@ -54,8 +56,6 @@ DROP TABLE tipo_infraccion CASCADE CONSTRAINTS;
 DROP TABLE tipo_tramite CASCADE CONSTRAINTS;
 
 DROP TABLE tramite CASCADE CONSTRAINTS;
-
-DROP TABLE usuario CASCADE CONSTRAINTS;
 
 DROP TABLE validacion CASCADE CONSTRAINTS;
 
@@ -369,8 +369,8 @@ ALTER TABLE persona ADD CONSTRAINT persona__un UNIQUE ( placa );
 CREATE TABLE usuario (
     nombre_usuario        VARCHAR2(20 CHAR) NOT NULL,
     password              VARCHAR2(20 CHAR) NOT NULL,
-    email                 VARCHAR2(20 CHAR),
-    respuesta_seguridad   VARCHAR2(50 CHAR),
+    email                 VARCHAR2(30 CHAR) DEFAULT 'No se especifico E-Mail',
+    respuesta_seguridad   VARCHAR2(50 CHAR) NOT NULL,
     tipo_usuario          VARCHAR2(20 CHAR) NOT NULL,
     validacion_id         INTEGER NOT NULL,
     persona_nip           VARCHAR2(20 CHAR) NOT NULL

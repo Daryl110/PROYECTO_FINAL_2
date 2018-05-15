@@ -7,9 +7,13 @@ package com.eam.proyecto.vista.paneles;
 
 import com.eam.proyecto.controlador.CtlComboBox;
 import com.eam.proyecto.controlador.CtlPersona;
+import com.eam.proyecto.controlador.CtlUsuario;
+import com.eam.proyecto.util.Herramientas;
 import com.placeholder.PlaceHolder;
 import java.awt.Color;
 import java.awt.HeadlessException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONObject;
@@ -21,17 +25,24 @@ import org.json.simple.JSONObject;
 public class PnlCrudUsuPerson extends javax.swing.JPanel {
 
     private final CtlPersona controladorPersona;
-    private String cedulaModificar;
+    private String nipModificar;
+    private String nombreUsuModificar;
+    private final CtlUsuario controladorUsuario;
 
     public PnlCrudUsuPerson() {
         this.initComponents();
         this.ponerDisenios();
         this.cargarCombos();
         this.controladorPersona = new CtlPersona();
+        this.controladorUsuario = new CtlUsuario();
         this.listarPersonas();
-        this.cedulaModificar = null;
+        this.listarUsuarios();
+        this.nipModificar = null;
+        this.nombreUsuModificar = null;
         this.btnModificar.setEnabled(false);
         this.btnActualizar.setEnabled(false);
+        this.btnModificarUsuario.setEnabled(false);
+        this.btnListarUsuario.setEnabled(false);
     }
 
     /**
@@ -64,6 +75,7 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         cbTipoDocumento = new javax.swing.JComboBox<>();
@@ -84,6 +96,35 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
         btnActualizar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblUsuarios = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        btnGuardarUsuario = new javax.swing.JButton();
+        btnModificarUsuario = new javax.swing.JButton();
+        btnBuscarUsuario = new javax.swing.JButton();
+        btnEliminarUsuario = new javax.swing.JButton();
+        btnListarUsuario = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        txtNombreUsuario = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JTextField();
+        cbValidacion = new javax.swing.JComboBox<>();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        txtRespuesta = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        cbPersona = new javax.swing.JComboBox<>();
+        cbTipoUsuario = new javax.swing.JComboBox<>();
+        txtContrasena = new javax.swing.JPasswordField();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(1, 20, 30));
 
@@ -142,6 +183,10 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
         jLabel13.setForeground(new java.awt.Color(255, 0, 0));
         jLabel13.setText("*");
 
+        jLabel18.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel18.setText("*");
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -164,7 +209,10 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel12))
-                            .addComponent(jLabel3)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -192,7 +240,9 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtFechaN, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -415,15 +465,250 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
 
         jPanel6.setBackground(new java.awt.Color(5, 117, 154));
 
+        tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tblUsuarios);
+
+        jPanel2.setBackground(new java.awt.Color(5, 117, 154));
+
+        btnGuardarUsuario.setText("Guardar");
+        btnGuardarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarUsuarioActionPerformed(evt);
+            }
+        });
+
+        btnModificarUsuario.setText("Modificar");
+        btnModificarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarUsuarioActionPerformed(evt);
+            }
+        });
+
+        btnBuscarUsuario.setText("Buscar");
+        btnBuscarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarUsuarioActionPerformed(evt);
+            }
+        });
+
+        btnEliminarUsuario.setText("Eliminar");
+        btnEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarUsuarioActionPerformed(evt);
+            }
+        });
+
+        btnListarUsuario.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        btnListarUsuario.setText("Actualizar Lista");
+        btnListarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarUsuarioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnGuardarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnModificarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBuscarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEliminarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnListarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnGuardarUsuario)
+                .addGap(18, 18, 18)
+                .addComponent(btnModificarUsuario)
+                .addGap(18, 18, 18)
+                .addComponent(btnBuscarUsuario)
+                .addGap(18, 18, 18)
+                .addComponent(btnEliminarUsuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnListarUsuario)
+                .addContainerGap())
+        );
+
+        jPanel3.setBackground(new java.awt.Color(5, 117, 154));
+
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("Nombre de usuario:");
+
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("Contraseña:");
+
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("E-Mail:");
+
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("Pregunta de seguridad:");
+
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setText("Respuesta de seguridad:");
+
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("Tipo de usuario:");
+
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setText("Persona dueña de la cuenta:");
+
+        jLabel26.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel26.setText("*");
+
+        jLabel28.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel28.setText("*");
+
+        jLabel29.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel29.setText("*");
+
+        jLabel30.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel30.setText("*");
+
+        jLabel31.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel31.setText("*");
+
+        jLabel27.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel27.setText("*");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(txtNombreUsuario)
+                        .addGap(3, 3, 3))
+                    .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtEmail)
+                    .addComponent(cbValidacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtRespuesta)
+                    .addComponent(cbPersona, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbTipoUsuario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtContrasena)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel20)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel23)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel24)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel25)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 202, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbValidacion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(7, 7, 7)
+                .addComponent(cbTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 528, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 607, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Usuarios", jPanel6);
@@ -436,9 +721,7 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -471,7 +754,7 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         if (txtNombreCompleto.getText().isEmpty() || txtNombreCompleto.getText().equalsIgnoreCase("Nombre completo")
                 || txtDireccion.getText().equalsIgnoreCase("Direccion de residencia") || txtDireccion.getText().isEmpty()
-                || cbEps.getSelectedIndex() == 0 || cbMunicipio.getSelectedIndex() == 0
+                || cbEps.getSelectedIndex() == 0 || cbMunicipio.getSelectedIndex() == 0 || txtFechaN.getDate() == null
                 || cbTipoDocumento.getSelectedIndex() == 0 || txtNumeroDocumento.getText().isEmpty() || txtTelefono.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Por favor llene los campos obligatorios");
         } else {
@@ -479,25 +762,25 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
             int tipoDocumento, municipio;
             Date fechaN = null;
 
-            nombreCompleto = txtNombreCompleto.getText().trim();
-            direccion = txtDireccion.getText().trim();
+            nombreCompleto = txtNombreCompleto.getText().trim().trim();
+            direccion = txtDireccion.getText().trim().trim();
             if (txtFechaN.getDate() != null) {
                 fechaN = txtFechaN.getDate();
             }
-            if (!txtNumeroPlaca.getText().isEmpty() && !txtNumeroPlaca.getText().equalsIgnoreCase("Numero de placa")) {
-                numeroPlaca = txtNumeroPlaca.getText().trim();
+            if (!txtNumeroPlaca.getText().trim().isEmpty() && !txtNumeroPlaca.getText().trim().equalsIgnoreCase("Numero de placa")) {
+                numeroPlaca = txtNumeroPlaca.getText().trim().trim();
             }
             eps = cbEps.getSelectedItem().toString();
             tipoDocumento = cbTipoDocumento.getSelectedIndex();
-            numeroDocumento = txtNumeroDocumento.getText().trim();
-            telefono = txtTelefono.getText().trim();
+            numeroDocumento = txtNumeroDocumento.getText().trim().trim();
+            telefono = txtTelefono.getText().trim().trim();
             municipio = cbMunicipio.getSelectedIndex();
 
             if (this.controladorPersona.guardar(nombreCompleto, direccion, fechaN,
                     numeroPlaca, eps, tipoDocumento, numeroDocumento, telefono, municipio)) {
                 JOptionPane.showMessageDialog(this, "Persona registrada con exito");
-                this.vaciarCampos();
                 this.listarPersonas();
+                this.cargarCombos();
             } else {
                 JOptionPane.showMessageDialog(this, "No se pudo registrar la persona");
             }
@@ -505,53 +788,54 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        String cedula = null;
+        String nip = null;
         if (tblPersonas.getSelectedRow() < 0) {
             try {
-                cedula = JOptionPane.showInputDialog("Ingrese la cedula del usuario que desea buscar");
+                nip = JOptionPane.showInputDialog("Ingrese el nip del usuario que desea buscar");
             } catch (HeadlessException e) {
-                JOptionPane.showMessageDialog(this, "Debe ingresar una cedula valida");
+                JOptionPane.showMessageDialog(this, "Debe ingresar un nip valido");
                 return;
             }
         } else {
-            cedula = tblPersonas.getValueAt(tblPersonas.getSelectedRow(), 2).toString();
+            nip = tblPersonas.getValueAt(tblPersonas.getSelectedRow(), 2).toString();
         }
-        if (cedula != null) {
-            this.llenarCamposPersona(this.controladorPersona.buscar(cedula, "Persona"));
+        if (nip != null) {
+            this.llenarCamposPersona(this.controladorPersona.buscar(nip, "Persona"));
         } else {
-            JOptionPane.showMessageDialog(this, "Debe ingresar una cedula valida");
+            JOptionPane.showMessageDialog(this, "Debe ingresar un nip valido");
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        String cedula = null;
+        String nip = null;
         if (tblPersonas.getSelectedRow() < 0) {
             try {
-                cedula = JOptionPane.showInputDialog("Ingrese la cedula del usuario que desea buscar");
+                nip = JOptionPane.showInputDialog("Ingrese el nip del usuario que desea buscar");
             } catch (HeadlessException e) {
-                JOptionPane.showMessageDialog(this, "Debe ingresar una cedula valida");
+                JOptionPane.showMessageDialog(this, "Debe ingresar un nip valido");
                 return;
             }
         } else {
-            cedula = tblPersonas.getValueAt(tblPersonas.getSelectedRow(), 2).toString();
+            nip = tblPersonas.getValueAt(tblPersonas.getSelectedRow(), 2).toString();
         }
-        if (cedula != null) {
-            if (this.controladorPersona.eliminar(cedula, "Persona")) {
+        if (nip != null) {
+            if (this.controladorPersona.eliminar(nip, "Persona")) {
                 this.listarPersonas();
-                JOptionPane.showMessageDialog(this, "La persona con la cedula: "+cedula+" fue eliminada");
+                JOptionPane.showMessageDialog(this, "La persona con el nip: " + nip + " fue eliminada");
+                this.cargarCombos();
             } else {
                 JOptionPane.showMessageDialog(this, "No se pudo eliminar la persona");
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Debe ingresar una cedula valida");
+            JOptionPane.showMessageDialog(this, "Debe ingresar un nip valido");
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        if (this.cedulaModificar != null) {
+        if (this.nipModificar != null) {
             if (txtNombreCompleto.getText().isEmpty() || txtNombreCompleto.getText().equalsIgnoreCase("Nombre completo")
                     || txtDireccion.getText().equalsIgnoreCase("Direccion de residencia") || txtDireccion.getText().isEmpty()
-                    || cbEps.getSelectedIndex() == 0 || cbMunicipio.getSelectedIndex() == 0
+                    || cbEps.getSelectedIndex() == 0 || cbMunicipio.getSelectedIndex() == 0 || txtFechaN.getDate() == null
                     || cbTipoDocumento.getSelectedIndex() == 0 || txtNumeroDocumento.getText().isEmpty() || txtTelefono.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Por favor llene los campos obligatorios");
             } else {
@@ -559,25 +843,25 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
                 int tipoDocumento, municipio;
                 Date fechaN = null;
 
-                nombreCompleto = txtNombreCompleto.getText().trim();
-                direccion = txtDireccion.getText().trim();
+                nombreCompleto = txtNombreCompleto.getText().trim().trim();
+                direccion = txtDireccion.getText().trim().trim();
                 if (txtFechaN.getDate() != null) {
                     fechaN = txtFechaN.getDate();
                 }
-                if (!txtNumeroPlaca.getText().isEmpty() && !txtNumeroPlaca.getText().equalsIgnoreCase("Numero de placa")) {
-                    numeroPlaca = txtNumeroPlaca.getText().trim();
+                if (!txtNumeroPlaca.getText().trim().isEmpty() && !txtNumeroPlaca.getText().trim().equalsIgnoreCase("Numero de placa")) {
+                    numeroPlaca = txtNumeroPlaca.getText().trim().trim();
                 }
                 eps = cbEps.getSelectedItem().toString();
                 tipoDocumento = cbTipoDocumento.getSelectedIndex();
-                numeroDocumento = txtNumeroDocumento.getText().trim();
-                telefono = txtTelefono.getText().trim();
+                numeroDocumento = txtNumeroDocumento.getText().trim().trim();
+                telefono = txtTelefono.getText().trim().trim();
                 municipio = cbMunicipio.getSelectedIndex();
 
                 if (this.controladorPersona.modificar(nombreCompleto, direccion, fechaN,
                         numeroPlaca, eps, tipoDocumento, numeroDocumento, telefono, municipio)) {
                     JOptionPane.showMessageDialog(this, "Persona modificada con exito");
-                    this.vaciarCampos();
                     this.listarPersonas();
+                    this.cargarCombos();
                 } else {
                     JOptionPane.showMessageDialog(this, "No se pudo modificar la persona");
                 }
@@ -587,16 +871,148 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnModificarActionPerformed
 
+    private void btnGuardarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarUsuarioActionPerformed
+        if (txtNombreUsuario.getText().isEmpty() || txtNombreUsuario.getText().equals("Nombre de usuario")
+                || txtContrasena.getText().isEmpty() || txtContrasena.getText().equals("Contraseña")
+                || txtRespuesta.getText().isEmpty() || txtRespuesta.getText().equals("Respuesta de seguridad")
+                || cbTipoUsuario.getSelectedIndex() == 0 || cbValidacion.getSelectedIndex() == 0 || cbPersona.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(this, "Por favor llene los campos requeridos");
+        } else {
+            try {
+                String nombreUsuario, contrasena, email = null, respuestaS, nipPersona, tipoUsuario;
+                int preguntaS;
+
+                nombreUsuario = txtNombreUsuario.getText().trim();
+                contrasena = txtContrasena.getText().trim();
+                if (!txtEmail.getText().trim().equals("Correo electronico")) {
+                    if (new Herramientas().validarEmail(txtEmail.getText().trim())) {
+                        email = txtEmail.getText().trim();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "El email no cumple las caracteristicas de un correo electronico");
+                    }
+                }
+                preguntaS = cbValidacion.getSelectedIndex();
+                respuestaS = txtRespuesta.getText().trim();
+                tipoUsuario = cbTipoUsuario.getSelectedItem().toString();
+                nipPersona = CtlComboBox.nipPersonas.get(cbPersona.getSelectedIndex() - 1);
+
+                if (this.controladorUsuario.guardar(nombreUsuario, contrasena, email, respuestaS, nipPersona, preguntaS, tipoUsuario)) {
+                    JOptionPane.showMessageDialog(this, "Usuario registrado con exito");
+                    this.listarUsuarios();
+                    this.cargarCombos();
+                } else {
+                    JOptionPane.showMessageDialog(this, "No se pudo registrar el usuario");
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "No se ha podido registrar el usuario");
+            }
+        }
+    }//GEN-LAST:event_btnGuardarUsuarioActionPerformed
+
+    private void btnBuscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarUsuarioActionPerformed
+        String username = null;
+        if (tblUsuarios.getSelectedRow() < 0) {
+            try {
+                username = JOptionPane.showInputDialog("Ingrese el nombre de usuario que desea buscar");
+            } catch (HeadlessException e) {
+                JOptionPane.showMessageDialog(this, "Debe ingresar un nombre de usuario valido");
+                return;
+            }
+        } else {
+            username = tblUsuarios.getValueAt(tblUsuarios.getSelectedRow(), 0).toString();
+        }
+        if (username != null) {
+            this.llenarCampoUsuario(this.controladorUsuario.buscar(username, "Usuario"));
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe ingresar un nombre de usuario valido");
+        }
+    }//GEN-LAST:event_btnBuscarUsuarioActionPerformed
+
+    private void btnListarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarUsuarioActionPerformed
+        this.listarUsuarios();
+    }//GEN-LAST:event_btnListarUsuarioActionPerformed
+
+    private void btnEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioActionPerformed
+        String username = null;
+        if (tblUsuarios.getSelectedRow() < 0) {
+            try {
+                username = JOptionPane.showInputDialog("Ingrese el nombre de usuario que desea buscar");
+            } catch (HeadlessException e) {
+                JOptionPane.showMessageDialog(this, "Debe ingresar un nombre de usuario valido");
+                return;
+            }
+        } else {
+            username = tblUsuarios.getValueAt(tblUsuarios.getSelectedRow(), 0).toString();
+        }
+        if (username != null) {
+            if (this.controladorUsuario.eliminar(username, "Usuario")) {
+                this.listarUsuarios();
+                JOptionPane.showMessageDialog(this, "El usuario con el nombre de usuario: " + username + " fue eliminado");
+                this.cargarCombos();
+            } else {
+                JOptionPane.showMessageDialog(this, "No se pudo eliminar la usuario");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe ingresar un nombre de usuario valido");
+        }
+    }//GEN-LAST:event_btnEliminarUsuarioActionPerformed
+
+    private void btnModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarUsuarioActionPerformed
+        if (txtNombreUsuario.getText().isEmpty() || txtNombreUsuario.getText().equals("Nombre de usuario")
+                || txtContrasena.getText().isEmpty() || txtContrasena.getText().equals("Contraseña")
+                || txtRespuesta.getText().isEmpty() || txtRespuesta.getText().equals("Respuesta de seguridad")
+                || cbTipoUsuario.getSelectedIndex() == 0 || cbValidacion.getSelectedIndex() == 0 || cbPersona.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(this, "Por favor llene los campos requeridos");
+        } else {
+            try {
+                String nombreUsuario, contrasena, email = null, respuestaS, nipPersona, tipoUsuario;
+                int preguntaS;
+
+                nombreUsuario = txtNombreUsuario.getText().trim();
+                contrasena = txtContrasena.getText().trim();
+                if (!txtEmail.getText().trim().equals("Correo electronico") && !txtEmail.getText().trim().equals("No se especifico E-Mail")) {
+                    if (new Herramientas().validarEmail(txtEmail.getText().trim())) {
+                        email = txtEmail.getText().trim();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "El email no cumple las caracteristicas de un correo electronico");
+                    }
+                }
+                preguntaS = cbValidacion.getSelectedIndex();
+                respuestaS = txtRespuesta.getText().trim();
+                tipoUsuario = cbTipoUsuario.getSelectedItem().toString();
+                nipPersona = CtlComboBox.nipPersonas.get(cbPersona.getSelectedIndex() - 1);
+
+                if (this.controladorUsuario.modificar(nombreUsuario, contrasena, email, respuestaS, nipPersona, preguntaS, tipoUsuario)) {
+                    JOptionPane.showMessageDialog(this, "Usuario modificado con exito");
+                    this.listarUsuarios();
+                    this.cargarCombos();
+                } else {
+                    JOptionPane.showMessageDialog(this, "No se pudo modificar el usuario");
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "No se ha podido modificar el usuario");
+            }
+        }
+    }//GEN-LAST:event_btnModificarUsuarioActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnBuscarUsuario;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnEliminarUsuario;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnGuardarUsuario;
+    private javax.swing.JButton btnListarUsuario;
     private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnModificarUsuario;
     private javax.swing.JComboBox<String> cbEps;
     private javax.swing.JComboBox<String> cbMunicipio;
+    private javax.swing.JComboBox<String> cbPersona;
     private javax.swing.JComboBox<String> cbTipoDocumento;
+    private javax.swing.JComboBox<String> cbTipoUsuario;
+    private javax.swing.JComboBox<String> cbValidacion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -606,8 +1022,22 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -615,6 +1045,8 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -622,13 +1054,19 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tblPersonas;
+    private javax.swing.JTable tblUsuarios;
+    private javax.swing.JPasswordField txtContrasena;
     private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtEmail;
     private com.toedter.calendar.JDateChooser txtFechaN;
     private javax.swing.JTextField txtNombreCompleto;
+    private javax.swing.JTextField txtNombreUsuario;
     private javax.swing.JFormattedTextField txtNumeroDocumento;
     private javax.swing.JTextField txtNumeroPlaca;
+    private javax.swing.JTextField txtRespuesta;
     private javax.swing.JFormattedTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 
@@ -639,6 +1077,14 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
                 "Direccion de residencia", false, txtDireccion.getFont().toString(), 12);
         new PlaceHolder(txtNumeroPlaca, new Color(117, 117, 117), Color.BLACK,
                 "Numero de placa", false, txtNumeroPlaca.getFont().toString(), 12);
+        new PlaceHolder(txtNombreUsuario, new Color(117, 117, 117), Color.BLACK,
+                "Nombre de usuario", false, txtNombreUsuario.getFont().toString(), 12);
+        new PlaceHolder(txtContrasena, new Color(117, 117, 117), Color.BLACK,
+                "Contraseña", false, txtContrasena.getFont().toString(), 12);
+        new PlaceHolder(txtEmail, new Color(117, 117, 117), Color.BLACK,
+                "Correo electronico", false, txtEmail.getFont().toString(), 12);
+        new PlaceHolder(txtRespuesta, new Color(117, 117, 117), Color.BLACK,
+                "Respuesta de seguridad", false, txtRespuesta.getFont().toString(), 12);
     }
 
     private void cargarCombos() {
@@ -646,6 +1092,9 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
         controladorComboBox.cargarTipoDocumeto(this.cbTipoDocumento);
         controladorComboBox.cargarMunicipio(this.cbMunicipio);
         controladorComboBox.cargarEps(this.cbEps);
+        controladorComboBox.cargarPersonas(cbPersona);
+        controladorComboBox.cargarTipoUsuario(cbTipoUsuario);
+        controladorComboBox.cargarPreguntasS(cbValidacion);
     }
 
     private void listarPersonas() {
@@ -654,15 +1103,25 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
         btnGuardar.setEnabled(true);
         btnActualizar.setEnabled(false);
         txtNumeroDocumento.setEditable(true);
-        this.cedulaModificar = null;
-        this.vaciarCampos();
+        this.nipModificar = null;
+        this.vaciarCamposPersonas();
+    }
+
+    private void listarUsuarios() {
+        this.tblUsuarios.setModel(this.controladorUsuario.listar("Usuario"));
+        btnModificarUsuario.setEnabled(false);
+        btnGuardarUsuario.setEnabled(true);
+        btnListarUsuario.setEnabled(false);
+        txtNombreUsuario.setEditable(true);
+        this.nipModificar = null;
+        this.vaciarCamposUsuario();
     }
 
     private void llenarCamposPersona(JSONObject persona) {
         try {
             txtNombreCompleto.setText(persona.get("nombreCompleto").toString());
             txtDireccion.setText(persona.get("direccion").toString());
-            cbTipoDocumento.setSelectedIndex(Integer.parseInt(((JSONObject) (persona.get("tipoDocumentoId"))).get("id").toString()));
+            cbTipoDocumento.setSelectedIndex(Integer.parseInt(((JSONObject) (persona.get("tipoDocumento"))).get("id").toString()));
             cbMunicipio.setSelectedIndex(Integer.parseInt(((JSONObject) (persona.get("municipioId"))).get("id").toString()));
             cbEps.setSelectedItem(persona.get("eps").toString());
             txtTelefono.setText(persona.get("telefono").toString());
@@ -670,18 +1129,44 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
             if (persona.get("placa") != null) {
                 txtNumeroPlaca.setText(persona.get("placa").toString());
             }
-            //falta fecha
+            txtFechaN.setDate((new SimpleDateFormat("yyyy-MM-dd")).parse(((persona.get("fechaNacimiento").toString()).split("T"))[0]));
             btnModificar.setEnabled(true);
             btnGuardar.setEnabled(false);
             btnActualizar.setEnabled(true);
             txtNumeroDocumento.setEditable(false);
-            this.cedulaModificar = persona.get("nip").toString();
+            this.nipModificar = persona.get("nip").toString();
+        } catch (NullPointerException | ParseException e) {
+            System.out.println(e);
+        }
+    }
+
+    private void llenarCampoUsuario(JSONObject usuario) {
+        try {
+            txtNombreUsuario.setText(usuario.get("nombreUsuario").toString());
+            txtContrasena.setText(usuario.get("password").toString());
+            txtRespuesta.setText(usuario.get("respuestaSeguridad").toString());
+            cbValidacion.setSelectedIndex(Integer.parseInt(((JSONObject) (usuario.get("validacionId"))).get("id").toString()));
+            cbTipoUsuario.setSelectedItem(usuario.get("tipoUsuario").toString());
+            for (int i = 0; i < CtlComboBox.nipPersonas.size(); i++) {
+                if (CtlComboBox.nipPersonas.get(i).equals(((JSONObject) (usuario.get("personaNip"))).get("nip").toString())) {
+                    cbPersona.setSelectedIndex(i + 1);
+                    break;
+                }
+            }
+            if (usuario.get("email") != null) {
+                txtEmail.setText(usuario.get("email").toString());
+            }
+            btnModificarUsuario.setEnabled(true);
+            btnGuardarUsuario.setEnabled(false);
+            btnListarUsuario.setEnabled(true);
+            txtNombreUsuario.setEditable(false);
+            this.nombreUsuModificar = usuario.get("nombreUsuario").toString();
         } catch (NullPointerException e) {
             System.out.println(e);
         }
     }
 
-    private void vaciarCampos() {
+    private void vaciarCamposPersonas() {
         txtNombreCompleto.setText("Nombre completo");
         txtDireccion.setText("Direccion de residencia");
         cbTipoDocumento.setSelectedIndex(0);
@@ -691,5 +1176,15 @@ public class PnlCrudUsuPerson extends javax.swing.JPanel {
         txtNumeroPlaca.setText("Numero de placa");
         txtNumeroDocumento.setText("");
         txtFechaN.setDate(null);
+    }
+
+    private void vaciarCamposUsuario() {
+        txtNombreUsuario.setText("Nombre de usuario");
+        txtContrasena.setText("Contraseña");
+        txtEmail.setText("Correo electronico");
+        txtRespuesta.setText("Respuesta de seguridad");
+        cbTipoUsuario.setSelectedIndex(0);
+        cbValidacion.setSelectedIndex(0);
+        cbPersona.setSelectedIndex(0);
     }
 }

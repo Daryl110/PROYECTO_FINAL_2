@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5ED89C16-5C93-FD7C-4E99-4213E09E2675" name="TIPO_INFRACCION">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<ordsAlias>table_18</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CODIGO" id="2F13FE93-6878-91A4-FE12-3EC63D1C3176">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="INMOVILIZACION" id="665D8654-DC30-47E9-BC58-3F6B3F4F6DE1">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SUSPENCION_LICENCIA" id="43D0FC8A-A45C-D68A-A092-2D8839101AEC">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SALARIOS_MINIMOS" id="CF447BD6-4160-7955-230A-ED654C516446">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="06C14571-A8B6-F57B-2507-3AB12FB8E3B2" name="Infraccion_PK">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2F13FE93-6878-91A4-FE12-3EC63D1C3176"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="882170E3-512B-05D3-E4E7-F70397B2EA06" name="Infraccion__UN">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2F13FE93-6878-91A4-FE12-3EC63D1C3176"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

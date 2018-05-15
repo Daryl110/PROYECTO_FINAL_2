@@ -20,6 +20,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -36,6 +37,7 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Perjudicados.findBySexo", query = "SELECT p FROM Perjudicados p WHERE p.sexo = :sexo")
     , @NamedQuery(name = "Perjudicados.findByGravedad", query = "SELECT p FROM Perjudicados p WHERE p.gravedad = :gravedad")
     , @NamedQuery(name = "Perjudicados.findByCondicion", query = "SELECT p FROM Perjudicados p WHERE p.condicion = :condicion")})
+@XmlRootElement
 public class Perjudicados implements Serializable {
 
     private static final long serialVersionUID = 1L;

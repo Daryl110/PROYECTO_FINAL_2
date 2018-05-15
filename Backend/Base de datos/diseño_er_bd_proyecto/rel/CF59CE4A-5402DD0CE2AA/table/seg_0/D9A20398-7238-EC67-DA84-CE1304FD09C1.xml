@@ -1,0 +1,167 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D9A20398-7238-EC67-DA84-CE1304FD09C1" name="VEHICULO_TRAMITE">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 00:45:28 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<ordsAlias>table_71</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PLACA" id="0296796E-6D11-6E2E-3739-817BC2222325">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 00:46:37 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="ADAABA8B-DBE3-F1FF-7C26-A2CF49E03987" referredColumn="1E955E21-4B2F-FB2B-7792-DD4B2E984110"/>
+</associations>
+</Column>
+<Column name="COMBUSTIBLE" id="DDCF75C7-B3E9-304B-20C2-7600CCC5CA87">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 00:46:37 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CLINDRADA" id="ECF821C0-F44B-DCD8-E77D-EEFD0A42D045">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 00:52:21 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NO_MOTOR" id="DF49E481-78CE-527D-8EE2-A64CA62A6E97">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 00:52:21 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NO_CHASIS" id="7D47AFEB-726B-3316-6E9A-EB073CC99D27">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 00:52:21 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NO_SERIE" id="2605E652-6313-85D2-55CC-494BA21B38C0">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 00:52:21 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NO_VIN" id="B50E1B44-B8E6-F2A1-19B0-1A1CF6941AE3">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 00:52:21 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BLINDAJE_NUMERO_RESOLUCION" id="49866E49-200B-3C63-854E-CCD47D1F5CEE">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 00:58:42 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3422B8A9-3025-17D7-79AE-CA478E1C9152" referredColumn="2EE78775-CC73-3918-33E0-7F52060BB0FD"/>
+</associations>
+</Column>
+<Column name="TIPO_CARROCERIA_CODIGO" id="5A807122-DABF-BCFC-99EB-9D7744BB21EE">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 00:58:50 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9CE7325C-2759-5AC0-4093-8F67CF28E594" referredColumn="45481E1C-82A3-2194-E20D-B8D093A749A4"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="79C462FF-98D1-624A-7726-488AAC99DDC5" name="VEHICULO_COMPARENDO_PK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 00:46:37 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0296796E-6D11-6E2E-3739-817BC2222325"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0BC54912-6A24-C595-9D95-768217CFE3F3" name="V_T_V_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 00:55:43 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0296796E-6D11-6E2E-3739-817BC2222325"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FE396731-8AD0-6A88-83AA-B126DA97473D" name="V_T_B_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 00:58:42 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="49866E49-200B-3C63-854E-CCD47D1F5CEE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F74A2375-60BC-0E1E-E89A-264B3702EC81" name="V_T_T_C_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 00:58:50 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5A807122-DABF-BCFC-99EB-9D7744BB21EE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

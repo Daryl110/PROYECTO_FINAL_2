@@ -1,0 +1,203 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6A7E2B82-9590-FC37-3DB2-5F6D0DB15A02" name="CARACTERISTICA_VIA">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 15:05:57 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<ordsAlias>table_23</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="4128738F-AC1C-1BCB-664C-6AF64C39FE2B">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 15:05:57 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="97BEFFF4-4AE3-2325-57E8-281637FF8790" referredColumn="99944CC3-79CC-3A61-5CDE-2A320FA94DC6"/>
+</associations>
+</Column>
+<Column name="CARAC_GEOMETRICA_VIA_1" id="C9A0D99E-9861-5A89-76E5-E58A78D4997A">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 15:05:57 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CARAC_GEOMETRICA_VIA_2" id="DB2AD542-2B44-C96A-C63A-34B19469863A">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 16:53:37 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CARAC_GEOMETRICA_VIA_3" id="16B686B7-C41F-7358-DA80-E31B1FF33CB8">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 16:53:37 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UTILIZACION" id="DE88F837-7748-A8F2-796E-C5B42FBD7EAD">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 15:05:57 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CALZADA" id="300CA9BF-FACF-4EE5-AFAB-026AAC7B4945">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 15:05:57 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CARRIL" id="EB47C2F1-0150-0691-6C2D-B43ABC0A4D8E">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 15:05:57 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MATERIAL" id="B530FDD6-9447-0800-9F1F-06C4CB1C6C9D">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 15:05:57 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ESTADO" id="3623847D-59C6-A7C7-E3C2-AD59CA3EFD28">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 15:05:57 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CONDICION" id="A4D3D6F0-2894-169B-A8B7-9BC803C7959E">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 15:05:57 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ILUMINACION" id="0139BA10-0EA3-176E-1664-E08A189C8147">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 15:05:57 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DISMINUCION_VISUAL" id="A5D7B663-0074-B79F-9BC2-B62192BC1F69">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 15:05:57 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CONTROL_SEMAFORO" id="F1912DC2-F11E-76E8-5743-3BD0C6937618">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 16:58:09 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CONTROL_SEÑALES" id="3A871499-7D6B-766A-7C85-51569C6A8C8F">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 16:58:09 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>5 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CONTROL_DEMARCACION" id="A1680A8E-6EC8-D35F-A80C-7BDE18BF68B8">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 16:58:09 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="12CCB716-D798-96A5-7085-84BEAE186454" name="CARACTERISTICAS_VIA_PK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 15:05:57 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4128738F-AC1C-1BCB-664C-6AF64C39FE2B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2D2D354A-ED74-FC2C-0319-72EF794F5F54" name="C_V_IN_A_T_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 16:27:09 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4128738F-AC1C-1BCB-664C-6AF64C39FE2B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

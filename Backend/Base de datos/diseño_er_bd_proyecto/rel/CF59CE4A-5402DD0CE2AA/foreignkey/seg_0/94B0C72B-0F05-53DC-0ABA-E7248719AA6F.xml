@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="94B0C72B-0F05-53DC-0ABA-E7248719AA6F" containerWithKeyObject="816EA897-5142-D839-1253-40645D260287" localFKIndex="AA89BFE9-74C7-5E0C-A70D-8D4371B97569" name="Comparendo_Infraccion_FK">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<referredTableLongName>TIPO_INFRACCION</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>5ED89C16-5C93-FD7C-4E99-4213E09E2675</referredTableID>
+<keyObject>06C14571-A8B6-F57B-2507-3AB12FB8E3B2</keyObject>
+<referredKeyID>06C14571-A8B6-F57B-2507-3AB12FB8E3B2</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>CODIGO</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

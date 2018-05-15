@@ -18,6 +18,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -32,6 +33,7 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Examen.findByExamenDroga", query = "SELECT e FROM Examen e WHERE e.examenDroga = :examenDroga")
     , @NamedQuery(name = "Examen.findByGradoExamenDroga", query = "SELECT e FROM Examen e WHERE e.gradoExamenDroga = :gradoExamenDroga")
     , @NamedQuery(name = "Examen.findByGradoExamenAlcohol", query = "SELECT e FROM Examen e WHERE e.gradoExamenAlcohol = :gradoExamenAlcohol")})
+@XmlRootElement
 public class Examen implements Serializable {
 
     private static final long serialVersionUID = 1L;

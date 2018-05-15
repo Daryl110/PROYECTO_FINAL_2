@@ -25,6 +25,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -41,6 +43,7 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Persona.findByEps", query = "SELECT p FROM Persona p WHERE p.eps = :eps")
     , @NamedQuery(name = "Persona.findByTelefono", query = "SELECT p FROM Persona p WHERE p.telefono = :telefono")
     , @NamedQuery(name = "Persona.findByPlaca", query = "SELECT p FROM Persona p WHERE p.placa = :placa")})
+@XmlRootElement
 public class Persona implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -176,6 +179,7 @@ public class Persona implements Serializable {
         this.placa = placa;
     }
 
+    @XmlTransient
     public List<Testigos> getTestigosList() {
         return testigosList;
     }
@@ -184,6 +188,7 @@ public class Persona implements Serializable {
         this.testigosList = testigosList;
     }
 
+    @XmlTransient
     public List<InformeAccidenteTransito> getInformeAccidenteTransitoList() {
         return informeAccidenteTransitoList;
     }
@@ -208,6 +213,7 @@ public class Persona implements Serializable {
         this.tipoDocumento = tipoDocumento;
     }
 
+    @XmlTransient
     public List<Perjudicados> getPerjudicadosList() {
         return perjudicadosList;
     }
@@ -216,6 +222,7 @@ public class Persona implements Serializable {
         this.perjudicadosList = perjudicadosList;
     }
 
+    @XmlTransient
     public List<Tramite> getTramiteList() {
         return tramiteList;
     }
@@ -224,6 +231,7 @@ public class Persona implements Serializable {
         this.tramiteList = tramiteList;
     }
 
+    @XmlTransient
     public List<Comparendo> getComparendoList() {
         return comparendoList;
     }
@@ -232,6 +240,7 @@ public class Persona implements Serializable {
         this.comparendoList = comparendoList;
     }
 
+    @XmlTransient
     public List<Comparendo> getComparendoList1() {
         return comparendoList1;
     }
@@ -240,6 +249,7 @@ public class Persona implements Serializable {
         this.comparendoList1 = comparendoList1;
     }
 
+    @XmlTransient
     public List<Comparendo> getComparendoList2() {
         return comparendoList2;
     }
@@ -256,6 +266,7 @@ public class Persona implements Serializable {
         this.licencia = licencia;
     }
 
+    @XmlTransient
     public List<Usuario> getUsuarioList() {
         return usuarioList;
     }
@@ -264,6 +275,7 @@ public class Persona implements Serializable {
         this.usuarioList = usuarioList;
     }
 
+    @XmlTransient
     public List<HistorialDueno> getHistorialDuenoList() {
         return historialDuenoList;
     }

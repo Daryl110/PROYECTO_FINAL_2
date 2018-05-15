@@ -18,6 +18,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -28,6 +29,7 @@ import javax.validation.constraints.NotNull;
 @NamedQueries({
     @NamedQuery(name = "Asistencia.findAll", query = "SELECT a FROM Asistencia a")
     , @NamedQuery(name = "Asistencia.findById", query = "SELECT a FROM Asistencia a WHERE a.id = :id")})
+@XmlRootElement
 public class Asistencia implements Serializable {
 
     private static final long serialVersionUID = 1L;

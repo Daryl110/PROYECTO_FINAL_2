@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="40AAD696-7A9C-BB23-F292-B6C9499674C8" containerWithKeyObject="4A4B7044-AAD7-15EE-D1D5-8EF03886BC21" localFKIndex="71957246-19DB-032E-5CA4-E28AF6DFF48D" name="L_I_AC_TR_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 16:49:44 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<referredTableLongName>INFORME_ACCIDENTE_TRANSITO</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>763F91C0-C825-6AEB-6C3A-3E0532D49497</referredTableID>
+<keyObject>C25D5157-7544-C0B6-8205-5CF0C50C27B3</keyObject>
+<referredKeyID>C25D5157-7544-C0B6-8205-5CF0C50C27B3</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -22,6 +22,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -43,6 +45,7 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Vehiculo.findByCapacidadCarga", query = "SELECT v FROM Vehiculo v WHERE v.capacidadCarga = :capacidadCarga")
     , @NamedQuery(name = "Vehiculo.findByNumeroPasajeros", query = "SELECT v FROM Vehiculo v WHERE v.numeroPasajeros = :numeroPasajeros")
     , @NamedQuery(name = "Vehiculo.findByNoTargetaOperacion", query = "SELECT v FROM Vehiculo v WHERE v.noTargetaOperacion = :noTargetaOperacion")})
+@XmlRootElement
 public class Vehiculo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -225,6 +228,7 @@ public class Vehiculo implements Serializable {
         this.empresaNit = empresaNit;
     }
 
+    @XmlTransient
     public List<Colores> getColoresList() {
         return coloresList;
     }
@@ -233,6 +237,7 @@ public class Vehiculo implements Serializable {
         this.coloresList = coloresList;
     }
 
+    @XmlTransient
     public List<Comparendo> getComparendoList() {
         return comparendoList;
     }
@@ -241,6 +246,7 @@ public class Vehiculo implements Serializable {
         this.comparendoList = comparendoList;
     }
 
+    @XmlTransient
     public List<VehiculosAfectados> getVehiculosAfectadosList() {
         return vehiculosAfectadosList;
     }
@@ -249,6 +255,7 @@ public class Vehiculo implements Serializable {
         this.vehiculosAfectadosList = vehiculosAfectadosList;
     }
 
+    @XmlTransient
     public List<HistorialDueno> getHistorialDuenoList() {
         return historialDuenoList;
     }

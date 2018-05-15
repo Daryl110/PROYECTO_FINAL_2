@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9297CF20-AB93-8EC5-AE8C-06673C7B9E75" name="POLIZA_SEGURO">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 19:57:50 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<ordsAlias>table_40</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="N_POLIZA" id="DFE016D7-1D55-9ED7-2B6B-4470649A29A8">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 19:59:00 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5C86B9C3-AABF-F131-B99E-BACE4891D381" referredColumn="1E955E21-4B2F-FB2B-7792-DD4B2E984110"/>
+</associations>
+</Column>
+<Column name="FECHA_VENCIMIENTO" id="489A4D77-9D04-EB04-61AF-DF0C4E8E616F">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 19:59:28 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="COMPANIA_ASEGURADORA" id="5930ED5D-224D-1C05-051E-E114D4F56869">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 13:43:22 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0C0EBC60-02E6-64AD-C8DD-DC9EC5EC5D55" name="POLIZA_SEGURO_PKv1">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 13:44:17 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DFE016D7-1D55-9ED7-2B6B-4470649A29A8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C78352E5-6DCD-9B10-F4A8-D08B9F6C5E7B" name="PO_SE_V_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-05-14 12:28:31 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DFE016D7-1D55-9ED7-2B6B-4470649A29A8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

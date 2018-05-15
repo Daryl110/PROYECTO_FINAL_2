@@ -21,6 +21,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -37,6 +39,7 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "VehiculosAfectados.findByFallaEn", query = "SELECT v FROM VehiculosAfectados v WHERE v.fallaEn = :fallaEn")
     , @NamedQuery(name = "VehiculosAfectados.findByLugarImpacto", query = "SELECT v FROM VehiculosAfectados v WHERE v.lugarImpacto = :lugarImpacto")
     , @NamedQuery(name = "VehiculosAfectados.findByVersion", query = "SELECT v FROM VehiculosAfectados v WHERE v.version = :version")})
+@XmlRootElement
 public class VehiculosAfectados implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -135,6 +138,7 @@ public class VehiculosAfectados implements Serializable {
         this.version = version;
     }
 
+    @XmlTransient
     public List<Perjudicados> getPerjudicadosList() {
         return perjudicadosList;
     }

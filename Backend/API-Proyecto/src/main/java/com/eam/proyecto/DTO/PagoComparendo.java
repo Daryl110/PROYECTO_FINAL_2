@@ -18,6 +18,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -30,6 +31,7 @@ import javax.validation.constraints.NotNull;
     , @NamedQuery(name = "PagoComparendo.findById", query = "SELECT p FROM PagoComparendo p WHERE p.id = :id")
     , @NamedQuery(name = "PagoComparendo.findByIntereseMora", query = "SELECT p FROM PagoComparendo p WHERE p.intereseMora = :intereseMora")
     , @NamedQuery(name = "PagoComparendo.findByMontoTotal", query = "SELECT p FROM PagoComparendo p WHERE p.montoTotal = :montoTotal")})
+@XmlRootElement
 public class PagoComparendo implements Serializable {
 
     private static final long serialVersionUID = 1L;

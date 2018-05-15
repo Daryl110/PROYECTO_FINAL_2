@@ -18,6 +18,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -31,6 +33,7 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Grua.findByPlaca", query = "SELECT g FROM Grua g WHERE g.placa = :placa")
     , @NamedQuery(name = "Grua.findByConsecutivo", query = "SELECT g FROM Grua g WHERE g.consecutivo = :consecutivo")
     , @NamedQuery(name = "Grua.findByDireccionPatioAsignado", query = "SELECT g FROM Grua g WHERE g.direccionPatioAsignado = :direccionPatioAsignado")})
+@XmlRootElement
 public class Grua implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -101,6 +104,7 @@ public class Grua implements Serializable {
         this.direccionPatioAsignado = direccionPatioAsignado;
     }
 
+    @XmlTransient
     public List<Comparendo> getComparendoList() {
         return comparendoList;
     }

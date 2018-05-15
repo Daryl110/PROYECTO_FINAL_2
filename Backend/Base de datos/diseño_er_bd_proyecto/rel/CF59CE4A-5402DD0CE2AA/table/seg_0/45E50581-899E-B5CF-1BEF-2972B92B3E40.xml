@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="45E50581-899E-B5CF-1BEF-2972B92B3E40" name="BLINDAJE">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 00:57:44 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<ordsAlias>table_73</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NUMERO_RESOLUCION" id="2EE78775-CC73-3918-33E0-7F52060BB0FD">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 00:58:23 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FECHA" id="70B51752-F653-339E-4678-775DF3BCA918">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 00:58:23 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="66AF73F3-BBEE-F672-3035-298442762BB3" name="BLINDAJE_PK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 00:58:36 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2EE78775-CC73-3918-33E0-7F52060BB0FD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

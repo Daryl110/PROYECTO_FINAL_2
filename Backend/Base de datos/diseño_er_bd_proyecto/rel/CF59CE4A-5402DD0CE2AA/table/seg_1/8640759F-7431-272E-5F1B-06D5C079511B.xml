@@ -1,0 +1,143 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_1" id="8640759F-7431-272E-5F1B-06D5C079511B" name="TRAMITE">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 03:14:46 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<ordsAlias>table_106</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="2D3E89B3-FF9C-21F5-52B0-06B40AD18409">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 03:14:46 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FECHA" id="F41BC297-F82D-65DE-CB02-FFFA468DA898">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 03:14:46 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCRIPCION" id="4B4D3AC9-4392-4BA4-457E-0A27F7BC0DB5">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 03:14:46 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VALOR" id="B7DA086A-D5EF-2B47-05C6-053E4D5D51CD">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-10 14:20:48 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VEHICULO_TRAMITE_ID" id="864170FB-8229-EE9F-9CFF-1E1BB63E0936">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 00:59:43 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A9EFC369-0383-85BE-206C-2F580B5F8DB9" referredColumn="0296796E-6D11-6E2E-3739-817BC2222325"/>
+</associations>
+</Column>
+<Column name="TIPO_TRAMITE_ID" id="622B57EB-6030-1AD2-8246-1D03349DDDDD">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 14:18:41 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BDD4F18C-7E71-D2BC-EA80-043D6723A171" referredColumn="4EE2E5A5-5FD1-B61E-FA3B-000E55611861"/>
+</associations>
+</Column>
+<Column name="PERSONA_NIP" id="D11F75F4-43FB-E703-7E83-974E7CB232D9">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-05-14 12:15:00 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E477482C-D38C-7442-C3CC-DEB681917215" referredColumn="DEC739FA-8EC6-4523-DA23-42A2AA13364C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FEC67A36-D32F-8CC8-3B54-77F7CA4110AF" name="TRAMITE_PK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 03:14:46 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2D3E89B3-FF9C-21F5-52B0-06B40AD18409"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4E2861BA-C37E-02AA-5A71-96CB8304F624" name="TRASPASO_PERSONA">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 00:27:54 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D11F75F4-43FB-E703-7E83-974E7CB232D9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CC9E3FC8-ABEE-D0D9-9B18-E42797829513" name="TRAMITE_VEHICULO_TRAMITE_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 00:59:43 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="864170FB-8229-EE9F-9CFF-1E1BB63E0936"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="53895B51-C438-2A62-9A67-AFE402E7CC60" name="TRAMITE_TIPO_TRAMITE_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 14:18:41 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="622B57EB-6030-1AD2-8246-1D03349DDDDD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

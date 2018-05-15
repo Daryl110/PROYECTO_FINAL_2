@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="0A24514A-7653-6668-8D8C-8FE55418F601" containerWithKeyObject="816EA897-5142-D839-1253-40645D260287" localFKIndex="640D88B3-9F94-DC2B-AA50-12096347D4AF" name="Comparendo_Grua_FK">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<referredTableLongName>GRUA</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>A730A4C7-6A09-85BA-988C-6B4FA32EA1A6</referredTableID>
+<keyObject>FE733959-9DD4-3847-41D3-CE8B5BEB9ABD</keyObject>
+<referredKeyID>FE733959-9DD4-3847-41D3-CE8B5BEB9ABD</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>NUMERO_GRUA</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

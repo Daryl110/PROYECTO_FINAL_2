@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CE52C523-5F63-6396-BF0F-DD75B78C9162" name="TESTIGOS">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:55:09 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<ordsAlias>table_77</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="0F518C06-2FAE-3820-DD6F-D7A3E4277C12">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:55:31 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="INFORME_ACCIDENTE_TRANSITO_ID" id="21CBF29F-C062-454E-0305-C171E656C462">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 18:49:18 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9CAE287E-60A4-07DA-2F9F-5FA55B209FDC" referredColumn="99944CC3-79CC-3A61-5CDE-2A320FA94DC6"/>
+</associations>
+</Column>
+<Column name="TESTIMONIO" id="6604E41F-1B9D-4A7B-7A57-EEE661046C79">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-24 12:49:55 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PERSONA_NIP" id="FA8C1A0E-BAC0-5B2F-FB6D-7617722447BE">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-05-14 12:15:00 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="29046923-FBF0-6149-83E3-A2CD652C37C9" referredColumn="DEC739FA-8EC6-4523-DA23-42A2AA13364C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="600B763C-B94F-4B5C-58A7-1655856DA371" name="TESTIGOS_PK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:55:31 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0F518C06-2FAE-3820-DD6F-D7A3E4277C12"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="83A1B68F-028E-57F6-EEF1-1F95D48D3C20" name="TESTIGOS_PERSONA_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:55:38 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FA8C1A0E-BAC0-5B2F-FB6D-7617722447BE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F503E932-764A-C54D-2FCC-6B014D85B6CA" name="T_IN_A_T_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 18:49:18 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="21CBF29F-C062-454E-0305-C171E656C462"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

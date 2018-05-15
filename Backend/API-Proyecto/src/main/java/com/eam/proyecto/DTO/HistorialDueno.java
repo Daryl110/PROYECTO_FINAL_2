@@ -20,6 +20,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -31,6 +32,7 @@ import javax.validation.constraints.NotNull;
     @NamedQuery(name = "HistorialDueno.findAll", query = "SELECT h FROM HistorialDueno h")
     , @NamedQuery(name = "HistorialDueno.findById", query = "SELECT h FROM HistorialDueno h WHERE h.id = :id")
     , @NamedQuery(name = "HistorialDueno.findByFecha", query = "SELECT h FROM HistorialDueno h WHERE h.fecha = :fecha")})
+@XmlRootElement
 public class HistorialDueno implements Serializable {
 
     private static final long serialVersionUID = 1L;

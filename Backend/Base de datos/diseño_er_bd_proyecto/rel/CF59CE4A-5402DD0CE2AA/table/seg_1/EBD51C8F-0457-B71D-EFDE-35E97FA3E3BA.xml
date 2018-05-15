@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_1" id="EBD51C8F-0457-B71D-EFDE-35E97FA3E3BA" name="EMPRESA">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 03:07:51 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<ordsAlias>table_37</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NIT" id="EE18B56A-8E49-8E25-97CB-04CB5B8D0EA3">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 03:07:51 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOMBRE" id="5AD7CB62-FAE1-71D3-7D60-7F35694750BA">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 03:07:51 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C43D2BF6-F795-B19D-1C6D-8CBF22125452" name="Empresav1_PKv1">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 03:07:51 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EE18B56A-8E49-8E25-97CB-04CB5B8D0EA3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -46,10 +46,12 @@ public class Usuario implements Serializable {
     @Column(name = "PASSWORD")
     private String password;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Correo electrónico no válido")//if the field contains email address consider using this annotation to enforce field validation
-    @Size(max = 20)
+    @Size(max = 30)
     @Column(name = "EMAIL")
     private String email;
-    @Size(max = 50)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
     @Column(name = "RESPUESTA_SEGURIDAD")
     private String respuestaSeguridad;
     @Basic(optional = false)
@@ -71,9 +73,10 @@ public class Usuario implements Serializable {
         this.nombreUsuario = nombreUsuario;
     }
 
-    public Usuario(String nombreUsuario, String password, String tipoUsuario) {
+    public Usuario(String nombreUsuario, String password, String respuestaSeguridad, String tipoUsuario) {
         this.nombreUsuario = nombreUsuario;
         this.password = password;
+        this.respuestaSeguridad = respuestaSeguridad;
         this.tipoUsuario = tipoUsuario;
     }
 

@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="3422B8A9-3025-17D7-79AE-CA478E1C9152" containerWithKeyObject="D9A20398-7238-EC67-DA84-CE1304FD09C1" localFKIndex="FE396731-8AD0-6A88-83AA-B126DA97473D" name="V_T_B_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 00:58:42 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<referredTableLongName>BLINDAJE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>45E50581-899E-B5CF-1BEF-2972B92B3E40</referredTableID>
+<keyObject>66AF73F3-BBEE-F672-3035-298442762BB3</keyObject>
+<referredKeyID>66AF73F3-BBEE-F672-3035-298442762BB3</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>NUMERO_RESOLUCION</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

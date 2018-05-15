@@ -20,6 +20,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -32,6 +33,7 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "PolizaSeguro.findByNPoliza", query = "SELECT p FROM PolizaSeguro p WHERE p.nPoliza = :nPoliza")
     , @NamedQuery(name = "PolizaSeguro.findByFechaVencimiento", query = "SELECT p FROM PolizaSeguro p WHERE p.fechaVencimiento = :fechaVencimiento")
     , @NamedQuery(name = "PolizaSeguro.findByCompaniaAseguradora", query = "SELECT p FROM PolizaSeguro p WHERE p.companiaAseguradora = :companiaAseguradora")})
+@XmlRootElement
 public class PolizaSeguro implements Serializable {
 
     private static final long serialVersionUID = 1L;

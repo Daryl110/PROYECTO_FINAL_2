@@ -23,6 +23,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -41,6 +42,7 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Comparendo.findByRadioAccion", query = "SELECT c FROM Comparendo c WHERE c.radioAccion = :radioAccion")
     , @NamedQuery(name = "Comparendo.findByTipoInfractor", query = "SELECT c FROM Comparendo c WHERE c.tipoInfractor = :tipoInfractor")
     , @NamedQuery(name = "Comparendo.findByDescripcion", query = "SELECT c FROM Comparendo c WHERE c.descripcion = :descripcion")})
+@XmlRootElement
 public class Comparendo implements Serializable {
 
     private static final long serialVersionUID = 1L;

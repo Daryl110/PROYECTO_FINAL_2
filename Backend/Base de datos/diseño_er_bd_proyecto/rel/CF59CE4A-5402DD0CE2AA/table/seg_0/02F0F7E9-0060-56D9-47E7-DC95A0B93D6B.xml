@@ -1,0 +1,159 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="02F0F7E9-0060-56D9-47E7-DC95A0B93D6B" name="PERSONA">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 17:46:37 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NIP" id="DEC739FA-8EC6-4523-DA23-42A2AA13364C">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 17:46:37 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOMBRE_COMPLETO" id="B0C147E1-0DD7-F590-0410-4DBA0125685B">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 17:46:37 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FECHA_NACIMIENTO" id="CFA089EA-4273-76C4-0567-22F94ED00CB1">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 17:46:37 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DIRECCION" id="4284CD85-43DE-2586-934C-976ADE51BAEE">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-04-01 00:41:57 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EPS" id="CD90BC7F-1D52-2973-C3ED-23DA3E9E02AE">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 19:50:45 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIPO_DOCUMENTO" id="28CC7128-1B2E-4FF3-C87A-1A2F929B5592">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 17:46:37 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="565A69BF-CF67-1A2B-1432-388246410A49" referredColumn="2390225A-7A3B-9A1B-8D24-0687BB1B68FB"/>
+</associations>
+</Column>
+<Column name="MUNICIPIO_ID" id="A75DFE87-4BEE-8336-5A25-3FBF2F5FAA78">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-09 17:55:28 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BC70CEFB-014D-C893-B871-C24EF5C08680" referredColumn="76CC157F-8DD4-9573-2EF2-EB99EBEB1611"/>
+</associations>
+</Column>
+<Column name="TELEFONO" id="4065D7F2-DF06-BFAD-C799-22DA77565D9C">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-10 01:28:02 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PLACA" id="D44EEC68-7B58-925D-9D1B-6362A97D7303">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 02:46:01 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1F211A1E-1B32-B763-E7A3-356828FBAEFF" name="PERSONA_PK">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 17:46:37 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DEC739FA-8EC6-4523-DA23-42A2AA13364C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CC273BA8-2470-79DC-94F7-EDC8731656E2" name="PERSONA__UN">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-04-01 03:16:56 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D44EEC68-7B58-925D-9D1B-6362A97D7303"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CEE8BC96-B9BE-D70D-08E9-58ADB4BB6180" name="PERSONA_MUNICIPIO_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-09 17:55:28 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A75DFE87-4BEE-8336-5A25-3FBF2F5FAA78"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="558AC5CE-A9BB-5FD8-8B4A-430D68A5761F" name="PERSONA_tipo_documento_FK">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-05-14 17:56:54 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="28CC7128-1B2E-4FF3-C87A-1A2F929B5592"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,151 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="763F91C0-C825-6AEB-6C3A-3E0532D49497" name="INFORME_ACCIDENTE_TRANSITO">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-04-01 00:47:05 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<ordsAlias>table_11</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="99944CC3-79CC-3A61-5CDE-2A320FA94DC6">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-04-01 00:47:05 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIPO_GRAVEDAD" id="C2A74353-7784-1746-5B7C-8598AA30EED2">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-04-01 00:47:05 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FECHA_HORA" id="DFB25AEF-9424-5737-D5DA-2742DEF972A7">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-04-01 00:47:05 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CLASE_ACCIDENTE" id="0B1FDFF1-506B-5CFB-5453-E98EE07B7884">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:11:56 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CHOQUE_CON" id="80478F2B-E26C-2017-104A-C97BD7237258">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:11:56 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="OBJETO_FIJO" id="94B82C66-716A-E0A7-41B8-CBC90121FEFE">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:11:56 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CROQUIS" id="0F948BAC-CCE1-8AFF-A062-7599FF20AC2D">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 17:38:53 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT010</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NUMERO_MUERTOS" id="28C49B84-DBF8-43D2-30A9-E41CB43C4F87">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 19:03:11 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NUMERO_HERIDOS" id="1A124C12-6727-E01A-D967-056CFBF7E9E3">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 19:03:11 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AGENTE" id="36034F04-EE77-F711-473D-D62037ACADC0">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-05-14 12:15:00 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="35C2B4D3-53B9-F4A4-AF40-C624BC5D7ED2" referredColumn="DEC739FA-8EC6-4523-DA23-42A2AA13364C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C25D5157-7544-C0B6-8205-5CF0C50C27B3" name="INFORME_ACCIDENTE_TRANSITO_PK">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-04-01 00:47:05 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="99944CC3-79CC-3A61-5CDE-2A320FA94DC6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EF646F50-E389-62DC-2DD7-44A73AAB1F1D" name="IN_A_T_P_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 02:49:06 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="36034F04-EE77-F711-473D-D62037ACADC0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

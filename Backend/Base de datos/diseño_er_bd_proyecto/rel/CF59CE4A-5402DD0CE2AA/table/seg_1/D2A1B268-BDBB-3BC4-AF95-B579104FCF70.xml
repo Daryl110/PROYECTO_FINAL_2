@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_1" id="D2A1B268-BDBB-3BC4-AF95-B579104FCF70" name="REQUISITOS">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 03:20:12 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<ordsAlias>table_99</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="CD9623FB-F5E9-71BA-07A7-75B9B26C2E19">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 03:20:54 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCRIPCION" id="21A04568-36B9-CE41-C73A-F1934265745F">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 03:20:54 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIPO_TRAMITE_ID" id="4E7CEEF9-5E64-5DF5-925D-B46E33758CF0">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 14:19:47 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="62A60D40-94FB-6B2E-11DE-09EDA8461CE6" referredColumn="4EE2E5A5-5FD1-B61E-FA3B-000E55611861"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A720F866-D655-DBF0-B5A1-AE1300757C7A" name="REQUISITOS_PK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 03:20:54 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CD9623FB-F5E9-71BA-07A7-75B9B26C2E19"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6E9E076C-2573-A5A0-2A54-9BB66CC6BDB7" name="R_T_T_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 14:19:47 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4E7CEEF9-5E64-5DF5-925D-B46E33758CF0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

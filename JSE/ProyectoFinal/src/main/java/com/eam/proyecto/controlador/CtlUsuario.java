@@ -16,6 +16,7 @@ import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -80,19 +81,100 @@ public class CtlUsuario extends ControladorAbstracto {
             return null;
         }
     }
+    
+    public boolean guardar(String nombreUsuario, String contrasena, 
+            String email, String respuestaS, String nipPersona,
+            int preguntaS, String tipoUsuario){
+        
+        try {
+
+            return (boolean) ((JSONObject) 
+                    (new JSONParser().parse(
+                            this.registrar(
+                                this.crearJson(nombreUsuario, 
+                                        contrasena, 
+                                        email, 
+                                        respuestaS, 
+                                        nipPersona, 
+                                        preguntaS, 
+                                        tipoUsuario), 
+                                    "Usuario").readEntity(String.class)))).get("Resultado");
+
+        }catch (ParseException e) {
+            return false;
+        }
+    }
+    
+    public boolean modificar(String nombreUsuario, String contrasena, 
+            String email, String respuestaS, String nipPersona,
+            int preguntaS, String tipoUsuario){
+        
+        try {
+
+            return (boolean) ((JSONObject) 
+                    (new JSONParser().parse(
+                            this.modificar(
+                                this.crearJson(nombreUsuario, 
+                                        contrasena, 
+                                        email, 
+                                        respuestaS, 
+                                        nipPersona, 
+                                        preguntaS, 
+                                        tipoUsuario), 
+                                    "Usuario",nipPersona).readEntity(String.class)))).get("Resultado");
+
+        }catch (ParseException e) {
+            return false;
+        }
+    }
 
     @Override
     public DefaultTableModel listar(String entidad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String[] lista = {"Nombre de usuario", "Email", "Tipo de usuario", "Nip de la persona", "Nombre de la persona"};
+        DefaultTableModel modelo = new DefaultTableModel(new Object[][]{}, lista);
+        try {
+            String response = this.traerlistar(entidad + "/");
+            JSONArray personas = ((JSONArray) (new JSONParser().parse(response)));
+            for (int i = 0; i < personas.size(); i++) {
+                JSONObject persona = (JSONObject) personas.get(i);
+                modelo.addRow(new Object[]{
+                    persona.get("nombreUsuario").toString(),
+                    persona.get("email").toString(),
+                    persona.get("tipoUsuario").toString(),
+                    ((JSONObject) (persona.get("personaNip"))).get("nip").toString(),
+                    ((JSONObject) (persona.get("personaNip"))).get("nombreCompleto").toString(),
+                });
+            }
+        } catch (ParseException ex) {
+            System.out.println("[Error] : " + ex);
+        }
+        return modelo;
     }
-
-    @Override
-    public JSONObject buscar(Object id, String entidad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean eliminar(Object id, String entidad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+     private String crearJson(String nombreUsuario, String contrasena, 
+            String email, String respuestaS, String nipPersona,
+            int preguntaS, String tipoUsuario) {
+        try {
+            JSONObject request = new JSONObject(), validacion, persona;
+            request.put("nombreUsuario", nombreUsuario);
+            request.put("password", contrasena);
+            if (email != null) {
+                request.put("email", email);
+            }else{
+                request.put("email", "No se especifico E-Mail");
+            }   
+            persona = ((JSONObject) (new JSONParser().parse(traerlistar("Persona/" + nipPersona))));
+            request.put("personaNip", persona);
+            request.put("respuestaSeguridad", respuestaS);
+            request.put("tipoUsuario", tipoUsuario);
+            validacion = ((JSONObject) (new JSONParser().parse(traerlistar("Validacion/" + preguntaS))));
+            request.put("validacionId", validacion);
+            
+            return request.toString();
+        } catch (ParseException ex) {
+            return null;
+        }catch(Exception ex){
+            return null;
+        }
     }
 }

@@ -20,6 +20,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -35,6 +36,7 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Licencia.findByFechaVencimiento", query = "SELECT l FROM Licencia l WHERE l.fechaVencimiento = :fechaVencimiento")
     , @NamedQuery(name = "Licencia.findByOficinaTransito", query = "SELECT l FROM Licencia l WHERE l.oficinaTransito = :oficinaTransito")
     , @NamedQuery(name = "Licencia.findByCategoriaLicencia", query = "SELECT l FROM Licencia l WHERE l.categoriaLicencia = :categoriaLicencia")})
+@XmlRootElement
 public class Licencia implements Serializable {
 
     private static final long serialVersionUID = 1L;

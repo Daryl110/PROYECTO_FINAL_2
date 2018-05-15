@@ -1,0 +1,69 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_1" id="8FC4E0A8-D0FB-AEED-E8DB-86104E6E6055" name="DETALLE_COMPARENDO">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 02:59:45 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<ordsAlias>table_100</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="0CB1003E-8E46-D9BA-5F87-45DCDB51856C">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 02:59:45 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="10B029A9-A558-7AB3-88CD-C7E3E1CE034E" referredColumn="FFC6ECAF-9543-F3FC-8C5E-840A285955E9"/>
+</associations>
+</Column>
+<Column name="ACEPTACION_COMPATRENDO" id="4B824B1F-CFB8-F26B-9A2D-443E864C44A9">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 02:59:45 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FECHA_ASISTENCIA" id="4BA8AB73-87F9-ECD5-062A-4683D4A56AB5">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 02:59:45 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EA7920AE-CD49-F7A1-D28E-6BC48EC5A240" name="DETALLE_COMPARENDO_PK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 02:59:45 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0CB1003E-8E46-D9BA-5F87-45DCDB51856C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="74939C3F-AFF3-137E-F6C6-4B1911DFDFB8" name="D_C_C_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 03:00:09 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0CB1003E-8E46-D9BA-5F87-45DCDB51856C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

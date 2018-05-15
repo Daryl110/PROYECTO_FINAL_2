@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BDD4F18C-7E71-D2BC-EA80-043D6723A171" containerWithKeyObject="8640759F-7431-272E-5F1B-06D5C079511B" localFKIndex="53895B51-C438-2A62-9A67-AFE402E7CC60" name="TRAMITE_TIPO_TRAMITE_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 14:18:41 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<referredTableLongName>TIPO_TRAMITE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>A7EC9605-DFA3-0E6A-8DC4-C788E1FB5326</referredTableID>
+<keyObject>7592D16B-09CA-5FF1-EF22-E1E4715C89DA</keyObject>
+<referredKeyID>7592D16B-09CA-5FF1-EF22-E1E4715C89DA</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

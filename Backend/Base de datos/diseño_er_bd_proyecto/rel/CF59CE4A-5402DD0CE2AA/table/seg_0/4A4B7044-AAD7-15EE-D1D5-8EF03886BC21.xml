@@ -1,0 +1,94 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4A4B7044-AAD7-15EE-D1D5-8EF03886BC21" name="LUGAR">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 16:47:57 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<ordsAlias>table_72</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="716861E4-08CB-8BA3-9E74-9CB024AA0DAB">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 16:49:40 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="40AAD696-7A9C-BB23-F292-B6C9499674C8" referredColumn="99944CC3-79CC-3A61-5CDE-2A320FA94DC6"/>
+</associations>
+</Column>
+<Column name="COORDENANDA_X" id="6BB17E8B-A44B-BCB0-6D62-E5B2E1843CCD">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 16:49:40 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>5 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="COORDENADA_Y" id="ED727031-3FBC-E338-1E05-DD1AFBFC1B6C">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 16:49:40 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>5 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DIRECCION" id="A948F625-9871-8DE8-E551-7E7C290613F9">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 16:49:40 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LOCALIDAD_COMUNA" id="010AA7CA-40C5-764B-4FF5-D23BBA8863CA">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 16:49:40 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B6AEA11B-2CE6-9A5E-8410-AC479BDDD771" name="LUGAR_PK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 16:49:40 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="716861E4-08CB-8BA3-9E74-9CB024AA0DAB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="71957246-19DB-032E-5CA4-E28AF6DFF48D" name="L_I_AC_TR_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 16:49:44 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="716861E4-08CB-8BA3-9E74-9CB024AA0DAB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

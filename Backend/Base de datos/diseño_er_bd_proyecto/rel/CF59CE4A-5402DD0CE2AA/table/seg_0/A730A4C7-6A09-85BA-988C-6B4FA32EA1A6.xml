@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A730A4C7-6A09-85BA-988C-6B4FA32EA1A6" name="GRUA">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<ordsAlias>table_44</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NUMERO_GRUA" id="5CC1B5D8-2659-2AC9-5B58-2F89473D835E">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PLACA" id="33A0E0DD-7FA7-EB87-6A94-83F62F0FB536">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CONSECUTIVO" id="FA362FF3-B6BA-E8D5-15C1-C24D7B110888">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DIRECCION_PATIO_ASIGNADO" id="72AF4DD6-2748-54B7-98D5-D6AC8C801F77">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-13 17:28:17 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FE733959-9DD4-3847-41D3-CE8B5BEB9ABD" name="Grua_PK">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5CC1B5D8-2659-2AC9-5B58-2F89473D835E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C3AA530C-7612-19C9-E550-98D67FB049AB" name="Grua__UN">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="33A0E0DD-7FA7-EB87-6A94-83F62F0FB536"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

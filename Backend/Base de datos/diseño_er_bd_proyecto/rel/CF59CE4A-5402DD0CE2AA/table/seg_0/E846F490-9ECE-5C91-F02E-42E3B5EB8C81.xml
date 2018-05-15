@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E846F490-9ECE-5C91-F02E-42E3B5EB8C81" name="tipo_documento">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-05-14 17:55:50 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<ordsAlias>table_34</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="2390225A-7A3B-9A1B-8D24-0687BB1B68FB">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-05-14 17:56:44 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="2CCB2C1C-784C-7E0D-5FD9-BB62FD4C9BFA">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-05-14 17:56:44 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7940F83B-FD39-0254-9C26-2DD97C5C5C52" name="tipo_documento_PK">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-05-14 17:56:44 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2390225A-7A3B-9A1B-8D24-0687BB1B68FB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

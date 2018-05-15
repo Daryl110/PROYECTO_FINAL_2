@@ -18,6 +18,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -29,6 +31,7 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "TipoCarroceria.findAll", query = "SELECT t FROM TipoCarroceria t")
     , @NamedQuery(name = "TipoCarroceria.findByCodigo", query = "SELECT t FROM TipoCarroceria t WHERE t.codigo = :codigo")
     , @NamedQuery(name = "TipoCarroceria.findByTipo", query = "SELECT t FROM TipoCarroceria t WHERE t.tipo = :tipo")})
+@XmlRootElement
 public class TipoCarroceria implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -67,6 +70,7 @@ public class TipoCarroceria implements Serializable {
         this.tipo = tipo;
     }
 
+    @XmlTransient
     public List<VehiculoTramite> getVehiculoTramiteList() {
         return vehiculoTramiteList;
     }

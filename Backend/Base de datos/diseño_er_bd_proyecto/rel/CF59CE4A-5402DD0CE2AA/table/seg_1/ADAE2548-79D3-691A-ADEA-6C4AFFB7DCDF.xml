@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_1" id="ADAE2548-79D3-691A-ADEA-6C4AFFB7DCDF" name="PAGO_COMPARENDO">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 02:59:45 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<ordsAlias>table_101</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="AEECB832-E2C2-4E7D-6D9B-71B0D8D87737">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 02:59:45 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C1074DCC-DF9A-BDB4-3F5D-C2B07E8ED351" referredColumn="0CB1003E-8E46-D9BA-5F87-45DCDB51856C"/>
+</associations>
+</Column>
+<Column name="INTERESE_MORA" id="EA9A5EEC-9778-9282-2B92-B79C6D73FAD4">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 02:59:45 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MONTO_TOTAL" id="DB98A516-4793-FEAB-2F13-94E52B6A13A3">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 02:59:45 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F97C86C7-8773-FAB6-8C59-C9D3EC07EB19" name="PAGO_COMPARENDO_PK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 02:59:45 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AEECB832-E2C2-4E7D-6D9B-71B0D8D87737"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F1ACA937-6DC2-5E3E-229D-546BAE9BB524" name="P_C_D_C_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 02:59:45 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AEECB832-E2C2-4E7D-6D9B-71B0D8D87737"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

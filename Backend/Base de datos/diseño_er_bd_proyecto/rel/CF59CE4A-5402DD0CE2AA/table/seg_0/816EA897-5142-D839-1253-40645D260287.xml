@@ -1,0 +1,303 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="816EA897-5142-D839-1253-40645D260287" name="COMPARENDO">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<ordsAlias>table_2</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="FFC6ECAF-9543-F3FC-8C5E-840A285955E9">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FECHA" id="A0AF80FD-346A-2969-06EF-E6481187798D">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LOCALIDAD_COMUNA" id="98396DF1-2A73-30DD-82B6-6388C7031254">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-10 01:18:24 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VIA_PRINCIPAL" id="1820F3AB-0DF6-AF89-C5BE-B879C7258D5A">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VIA_SECUNDARIA" id="0A66C93A-A4FC-30A6-F9BF-8DC79270069F">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MODALIDAD_TRANSPORTE" id="2B055E48-CA99-F6C8-A24A-A753AAE55425">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RADIO_ACCION" id="087A5461-00CE-E34B-6F47-42525011A42D">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIPO_INFRACTOR" id="63C85D1D-C5EC-E7F5-650D-7C9502B09990">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCRIPCION" id="CFF50AAD-7F3A-99D6-2DD1-3A0FE556CA14">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VEHICULO_PLACA" id="B6C157DC-4239-B56B-8433-D7C494806A81">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-15 13:20:57 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CA9E1F7D-7978-1703-1881-5D0E2442F818" referredColumn="1E955E21-4B2F-FB2B-7792-DD4B2E984110"/>
+</associations>
+</Column>
+<Column name="MUNICIPIO_ID" id="C35DAC14-C37D-4EC6-EA37-95FC69EEBDA7">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-10 01:16:42 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F43A5A59-CDFD-BC01-4A4A-8DF3AB7E98CC" referredColumn="76CC157F-8DD4-9573-2EF2-EB99EBEB1611"/>
+</associations>
+</Column>
+<Column name="GRUA_ID" id="2176A3AF-F55C-5C90-4649-4721EE5FC15C">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0A24514A-7653-6668-8D8C-8FE55418F601" referredColumn="5CC1B5D8-2659-2AC9-5B58-2F89473D835E"/>
+</associations>
+</Column>
+<Column name="TIPO_INFRACCION_CODIGO" id="847DE68A-F7A0-ADDC-5F56-16D740D9E81C">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-05-14 12:11:02 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="94B0C72B-0F05-53DC-0ABA-E7248719AA6F" referredColumn="2F13FE93-6878-91A4-FE12-3EC63D1C3176"/>
+</associations>
+</Column>
+<Column name="PERSONA_NIP" id="CB6F0D9D-3176-38D3-4E0D-5643B6C28C7F">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-05-14 12:15:00 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="40147903-1127-782D-3555-A432BD1BB473" referredColumn="DEC739FA-8EC6-4523-DA23-42A2AA13364C"/>
+</associations>
+</Column>
+<Column name="PERSONA_NIP1" id="1015AF86-BC2F-A1EC-B9C3-C7434CC55CDD">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-05-14 12:15:00 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AE753311-291C-34D2-4B3A-93C6B18E6B17" referredColumn="DEC739FA-8EC6-4523-DA23-42A2AA13364C"/>
+</associations>
+</Column>
+<Column name="PERSONA_NIP2" id="8A3A9BB0-9B59-A15D-57A4-F641AF1E5944">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-05-14 12:15:00 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3334356D-D3D3-FE7D-CAC9-EF44647C7E87" referredColumn="DEC739FA-8EC6-4523-DA23-42A2AA13364C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="533F5EAB-8231-52E7-42CE-6146E2C35E71" name="Comparendo_PK">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FFC6ECAF-9543-F3FC-8C5E-840A285955E9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="640D88B3-9F94-DC2B-AA50-12096347D4AF" name="Comparendo_Grua_FK">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2176A3AF-F55C-5C90-4649-4721EE5FC15C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AA89BFE9-74C7-5E0C-A70D-8D4371B97569" name="Comparendo_Infraccion_FK">
+<createdBy>Daryl Ospina</createdBy>
+<createdTime>2018-03-31 20:12:08 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="847DE68A-F7A0-ADDC-5F56-16D740D9E81C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5C90C353-15F0-9B24-5ECB-8D9B5684364E" name="AGENTE">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 02:46:52 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1015AF86-BC2F-A1EC-B9C3-C7434CC55CDD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="750E04FA-49BA-EEB2-C144-AB2E21D551A8" name="PERSONA">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-06 02:47:02 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CB6F0D9D-3176-38D3-4E0D-5643B6C28C7F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="41C3CA19-D6C1-2284-CC5F-A40E06421AED" name="Municipio">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-10 01:16:42 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C35DAC14-C37D-4EC6-EA37-95FC69EEBDA7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5123BF43-3067-54B2-A6F6-CEAF4183B4D3" name="TESTIGO">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-10 01:26:50 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8A3A9BB0-9B59-A15D-57A4-F641AF1E5944"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BCB73BA0-93D3-5593-37D8-EB27D63858F9" name="COMPARENDO_VEHICULO_FK">
+<createdBy>Fabian</createdBy>
+<createdTime>2018-04-11 01:02:16 UTC</createdTime>
+<ownerDesignName>diseño_er_bd_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B6C157DC-4239-B56B-8433-D7C494806A81"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
