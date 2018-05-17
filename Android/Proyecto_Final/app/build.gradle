@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "proyectofinal.proyecto_final"
-        minSdkVersion 27
+        minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -23,8 +23,6 @@ dependencies {
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:25.+'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
-    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
-    implementation 'org.glassfish.jersey.inject:jersey-hk2:2.27'
-    implementation 'org.glassfish.jersey.core:jersey-client:2.27'
-    implementation 'javax.ws.rs:javax.ws.rs-api:2.1'
+    compile project(":volley-master")
+    implementation 'com.google.code.gson:gson:2.8.4'
 }

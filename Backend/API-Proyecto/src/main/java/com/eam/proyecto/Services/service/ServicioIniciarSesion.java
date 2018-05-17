@@ -27,9 +27,13 @@ public class ServicioIniciarSesion {
     @Produces({MediaType.APPLICATION_JSON})
     public Response iniciarSesion(String json) {
         try {
-            String jsonDecodificada = URLDecoder.decode(json, "UTF-8");
+            String jsonDecodificada = URLDecoder.decode(json, "UTF-8"),jsonTransformado = jsonDecodificada;
 
-            JSONObject obj = (JSONObject) new JSONParser().parse(jsonDecodificada.split("=")[1]),
+            if (jsonTransformado.contains("=")) {
+                jsonTransformado = jsonDecodificada.split("=")[1];
+            }
+            
+            JSONObject obj = (JSONObject) new JSONParser().parse(jsonTransformado),
                     objRespuesta = new JSONObject();
 
             ServicioAdministrador serviceAdmin = new ServicioAdministrador();
