@@ -27,7 +27,8 @@ public class ServicioIniciarSesion {
     @Produces({MediaType.APPLICATION_JSON})
     public Response iniciarSesion(String json) {
         try {
-            String jsonDecodificada = URLDecoder.decode(json, "UTF-8"),jsonTransformado = jsonDecodificada;
+            String jsonDecodificada = URLDecoder.decode(json, "UTF-8"),jsonTransformado = jsonDecodificada,
+                    cedula = "";
 
             if (jsonTransformado.contains("=")) {
                 jsonTransformado = jsonDecodificada.split("=")[1];
@@ -50,6 +51,7 @@ public class ServicioIniciarSesion {
                         && admin.getContrasena().equals(obj.get("contrasenia"))) {
                     acceso = true;
                     rol = "Administrador";
+                    cedula = "No posee cedula";
                 }
             }
 
@@ -58,11 +60,13 @@ public class ServicioIniciarSesion {
                         && usu.getPassword().equals(obj.get("contrasenia"))) {
                     acceso = true;
                     rol = usu.getTipoUsuario();
+                    cedula = usu.getPersonaNip().getNip();
                 }
             }
 
             objRespuesta.put("Acceso", acceso);
             objRespuesta.put("Rol", rol);
+            objRespuesta.put("Cedula", cedula);
             return Herramientas.construirResponse(objRespuesta.toString());
 
         } catch (UnsupportedEncodingException | ParseException ex) {

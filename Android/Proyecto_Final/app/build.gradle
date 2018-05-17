@@ -23,6 +23,7 @@ dependencies {
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:25.+'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
-    compile project(":volley-master")
+    compile project(':volley-master')
     implementation 'com.google.code.gson:gson:2.8.4'
+    implementation files('libs/json-simple-1.1.1.jar')
 }

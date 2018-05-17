@@ -520,6 +520,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         return Priority.NORMAL;
     }
 
+
     /**
      * Returns the socket timeout in milliseconds per retry attempt. (This value can be changed per
      * retry attempt if a backoff is specified via backoffTimeout()). If there are no retry attempts

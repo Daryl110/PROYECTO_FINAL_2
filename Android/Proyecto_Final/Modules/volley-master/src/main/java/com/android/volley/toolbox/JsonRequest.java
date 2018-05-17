@@ -24,6 +24,9 @@ import com.android.volley.Response;
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 import com.android.volley.VolleyLog;
+
+import org.json.JSONObject;
+
 import java.io.UnsupportedEncodingException;
 
 /**
@@ -35,6 +38,7 @@ import java.io.UnsupportedEncodingException;
 public abstract class JsonRequest<T> extends Request<T> {
     /** Default charset for JSON request. */
     protected static final String PROTOCOL_CHARSET = "utf-8";
+    private JSONObject obj = new JSONObject();
 
     /** Content type for request. */
     private static final String PROTOCOL_CONTENT_TYPE =
@@ -87,7 +91,7 @@ public abstract class JsonRequest<T> extends Request<T> {
             listener = mListener;
         }
         if (listener != null) {
-            listener.onResponse(response);
+            obj = listener.onResponse(response);
         }
     }
 

@@ -16,6 +16,8 @@
 
 package com.android.volley;
 
+import org.json.JSONObject;
+
 /**
  * Encapsulates a parsed response for delivery.
  *
@@ -23,10 +25,11 @@ package com.android.volley;
  */
 public class Response<T> {
 
+    private JSONObject obj = new JSONObject();
     /** Callback interface for delivering parsed responses. */
     public interface Listener<T> {
         /** Called when a response is received. */
-        void onResponse(T response);
+        JSONObject onResponse(T response);
     }
 
     /** Callback interface for delivering error responses. */

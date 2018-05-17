@@ -26,6 +26,9 @@ import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 import com.android.volley.ResponseDelivery;
 import com.android.volley.VolleyError;
+
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -267,8 +270,9 @@ public class ImageLoader {
                 requestUrl,
                 new Listener<Bitmap>() {
                     @Override
-                    public void onResponse(Bitmap response) {
+                    public JSONObject onResponse(Bitmap response) {
                         onGetImageSuccess(cacheKey, response);
+                        return null;
                     }
                 },
                 maxWidth,

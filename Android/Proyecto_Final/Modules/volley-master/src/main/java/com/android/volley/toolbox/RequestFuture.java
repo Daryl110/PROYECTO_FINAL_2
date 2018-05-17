@@ -20,6 +20,9 @@ import android.os.SystemClock;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+
+import org.json.JSONObject;
+
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -145,10 +148,11 @@ public class RequestFuture<T> implements Future<T>, Response.Listener<T>, Respon
     }
 
     @Override
-    public synchronized void onResponse(T response) {
+    public synchronized JSONObject onResponse(T response) {
         mResultReceived = true;
         mResult = response;
         notifyAll();
+        return null;
     }
 
     @Override
