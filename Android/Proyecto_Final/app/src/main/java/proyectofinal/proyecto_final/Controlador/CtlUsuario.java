@@ -21,7 +21,7 @@ import java.util.Map;
 
 import proyectofinal.proyecto_final.Activities.Menu;
 
-public class CtlUsuario{
+public class CtlUsuario extends Cliente{
 
     public static JSONObject objResponse;
 
@@ -34,30 +34,10 @@ public class CtlUsuario{
         params.put("nombreUsuario",nombreUsuario);
         params.put("contrasenia",contrasenia);
 
-        JSONObject response = this.iniciarSesionPost("http://192.168.137.34:8080/API-Proyecto/Recursos/Sesion/",params,context);
-
-        if (response.length() != 0){
-            try {
-                boolean acceso = response.getBoolean("Acceso");
-
-                if (acceso){
-                    String rol = response.getString("Rol");
-                    if (rol.equals("Agente")){
-                        Intent intent = new Intent(context,Menu.class);
-                        intent.putExtra("cedula",response.getString("Cedula"));
-                        intent.putExtra("nombreUsuario",nombreUsuario);
-                        context.startActivity(intent);
-                    }
-                }else{
-                    Toast.makeText(context,"No se ha podido iniciar sesión",Toast.LENGTH_LONG).show();
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
+        this.iniciarSesionPost(this.urlPeticion+"Sesion/",params,context,nombreUsuario);
     }
 
-    public JSONObject iniciarSesionPost(String urlServidor, Map parametros, Activity context){
+    public void iniciarSesionPost(String urlServidor, Map parametros, final Activity context,final String nombreUsuario){
         JSONObject objRequest = new JSONObject();
         ArrayList<String> keys = new ArrayList<>(parametros.keySet());
 
@@ -66,7 +46,7 @@ public class CtlUsuario{
                 objRequest.put(keys.get(i),parametros.get(keys.get(i)));
             }
         }catch (JSONException je){
-            System.out.println(je);
+            Toast.makeText(context, "No se ha podido iniciar sesion", Toast.LENGTH_LONG).show();
         }
 
         JsonObjectRequest objectRequest = new JsonObjectRequest(
@@ -77,7 +57,29 @@ public class CtlUsuario{
                     @Override
                     public JSONObject onResponse(JSONObject response) {
                         Log.d("Response", response.toString());
-                        objResponse = response;
+                        if (response.length() != 0){
+                            try {
+                                boolean acceso = response.getBoolean("Acceso");
+
+                                if (acceso){
+                                    String rol = response.getString("Rol");
+                                    if (rol.equals("Agente")){
+                                        Intent intent = new Intent(context,Menu.class);
+                                        intent.putExtra("cedula",response.getString("Cedula"));
+                                        intent.putExtra("nombreUsuario",nombreUsuario);
+                                        context.startActivity(intent);
+                                    }else{
+                                        Toast.makeText(context, "Este rol no esta permitido en la aplicación", Toast.LENGTH_LONG).show();
+                                    }
+                                }else{
+                                    Toast.makeText(context,"No se ha podido iniciar sesión",Toast.LENGTH_LONG).show();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }else{
+                            Toast.makeText(context, "No se ha podido iniciar sesion", Toast.LENGTH_LONG).show();
+                        }
                         return response;
                     }
                 },
@@ -85,6 +87,8 @@ public class CtlUsuario{
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.d("Error",error.toString());
+                        Toast.makeText(context, "No se ha podido iniciar sesion", Toast.LENGTH_LONG).show();
+                        return;
                     }
                 }
         );
@@ -92,13 +96,5 @@ public class CtlUsuario{
         RequestQueue queue = Volley.newRequestQueue(context);
 
         queue.add(objectRequest);
-
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        return objResponse;
     }
 }

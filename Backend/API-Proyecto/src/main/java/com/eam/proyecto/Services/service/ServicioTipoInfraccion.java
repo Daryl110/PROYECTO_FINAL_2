@@ -43,21 +43,21 @@ public class ServicioTipoInfraccion extends EstructuraRestFul<TipoInfraccion> {
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response edit(@PathParam("id") BigDecimal id, TipoInfraccion entity) {
+    public Response edit(@PathParam("id") String id, TipoInfraccion entity) {
         return super.edit(entity);
     }
 
     @DELETE
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
-    public Response remove(@PathParam("id") BigDecimal id) {
+    public Response remove(@PathParam("id") String id) {
         return super.remove(super.find(id));
     }
 
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
-    public TipoInfraccion find(@PathParam("id") BigDecimal id) {
+    public TipoInfraccion find(@PathParam("id") String id) {
         return super.find(id);
     }
 

@@ -37,18 +37,18 @@ public class Menu extends AppCompatActivity {
 
 
     public void RCiudadano(View view){
-        startActivity(new Intent(this,RegistroPersona.class));
+        startActivity(new Intent(this,RegistrarPersonas.class));
     }
+
     public void RVehiculo(View view){
         startActivity(new Intent(this,RegistroVehiculo.class));
-
     }
     public void RComparendo(View view){
-        startActivity(new Intent(this,ComparendoFormulario1.class));
-
+        Intent intent = new Intent(this,RegistrarComparendo.class);
+        intent.putExtra("cedulaAgente",cedula);
+        startActivity(intent);
     }
     public void CComparendo(View view){
         startActivity(new Intent(this,ConsultaComparendo.class));
-
     }
 }

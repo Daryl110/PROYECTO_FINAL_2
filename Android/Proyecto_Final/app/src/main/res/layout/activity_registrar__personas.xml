@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.RegistroVehiculo">
+    tools:context=".Activities.RegistrarPersonas">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Vehiculo"
+                android:text="Persona"
                 android:textAlignment="center"
                 android:textSize="24sp" />
 
@@ -46,39 +46,35 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <EditText
-                        android:id="@+id/txtPlaca"
+                    <Spinner
+                        android:id="@+id/cbTipoDocumento_registro"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:fontFamily="sans-serif"
-                        android:hint="Placa del vehiculo"
-                        android:inputType="textPersonName" />
+                        android:layout_height="42dp" />
 
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="14dp" />
 
                     <EditText
-                        android:id="@+id/txtModelo"
+                        android:id="@+id/txtCedla_registro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:fontFamily="sans-serif"
-                        android:hint="Modelo del vehiculo"
-                        android:inputType="textPersonName" />
+                        android:hint="Numero de documento"
+                        android:inputType="numberPassword" />
 
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="14dp" />
 
                     <EditText
-                        android:id="@+id/txtLinea"
+                        android:id="@+id/txtNombreCompleto_registro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:fontFamily="sans-serif"
-                        android:hint="Linea del vehiculo"
+                        android:hint="Nombre completo"
                         android:inputType="textPersonName" />
 
                     <Space
@@ -86,20 +82,33 @@
                         android:layout_height="10dp" />
 
                     <EditText
-                        android:id="@+id/txtMarca"
+                        android:id="@+id/txtFechaNacimiento_registro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:fontFamily="sans-serif"
-                        android:hint="Marca del vehiculo"
-                        android:inputType="textPersonName" />
+                        android:hint="Fecha de nacimiento"
+                        android:inputType="date" />
 
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="11dp" />
 
+                    <EditText
+                        android:id="@+id/txtDireccion_registro"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:fontFamily="sans-serif"
+                        android:hint="Direccion de residencia"
+                        android:inputType="textPersonName" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="14dp" />
+
                     <Spinner
-                        android:id="@+id/cbClaseVehiculo"
+                        android:id="@+id/cbEps_registro"
                         android:layout_width="match_parent"
                         android:layout_height="42dp" />
 
@@ -108,7 +117,7 @@
                         android:layout_height="11dp" />
 
                     <Spinner
-                        android:id="@+id/cbTipoVehiculo"
+                        android:id="@+id/cbMunicipio_registro"
                         android:layout_width="match_parent"
                         android:layout_height="42dp" />
 
@@ -117,56 +126,14 @@
                         android:layout_height="wrap_content" />
 
                     <EditText
-                        android:id="@+id/txtLugarMatricula"
+                        android:id="@+id/txtTelefono_registro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:ems="10"
                         android:fontFamily="sans-serif"
-                        android:hint="Lugar de matricula "
-                        android:inputType="textPersonName" />
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                    <EditText
-                        android:id="@+id/txtNacionalidad"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:fontFamily="sans-serif"
-                        android:hint="Nacionalidad del vehiculo"
-                        android:inputType="textPersonName" />
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                    <EditText
-                        android:id="@+id/txtCapacidad"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:fontFamily="sans-serif"
-                        android:hint="Capacidad del vehiculo"
-                        android:inputType="textPersonName" />
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                    <EditText
-                        android:id="@+id/txtNumeroPasajeros"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:fontFamily="sans-serif"
-                        android:hint="Ingrese el numero de pasajeros"
-                        android:inputType="number" />
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:hint="Telefono"
+                        android:inputType="phone" />
 
                 </LinearLayout>
 
@@ -197,7 +164,7 @@
                     android:layout_width="159dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="registrar"
+                    android:onClick="registrarPersona"
                     android:text="Registrar" />
 
                 <Space
@@ -225,6 +192,5 @@
 
         </LinearLayout>
     </ScrollView>
-
 
 </android.support.constraint.ConstraintLayout>

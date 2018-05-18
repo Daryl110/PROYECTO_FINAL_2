@@ -18,12 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.ComparendoFormulario1" />
         <activity android:name=".Activities.Menu" />
-        <activity android:name=".Activities.RegistroPersona" />
-        <activity android:name=".Activities.RegistroVehiculo" />
         <activity android:name=".Activities.ConsultaComparendo" />
-        <activity android:name=".Activities.RegistroPersona"></activity>
+        <activity android:name=".Activities.RegistrarPersonas" />
+        <activity android:name=".Activities.RegistroVehiculo" />
+        <activity android:name=".Activities.RegistrarComparendo"></activity>
     </application>
 
 </manifest>
