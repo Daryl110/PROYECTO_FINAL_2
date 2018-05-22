@@ -1,5 +1,7 @@
-package proyectofinal.proyecto_final.Activities;
+package proyectofinal.proyecto_final.Activities.Persona;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,9 +21,10 @@ import proyectofinal.proyecto_final.R;
 public class RegistrarPersonas extends AppCompatActivity {
 
     private EditText txtNip,txtNombreCompleto,txtFecha,txtDireccion,txtTelefono;
-    private Spinner cbEps,cbTipoDocumento,cbMunicipio;
+    private Spinner cbEps,cbTipoDocumento,cbMunicipio,cbPersonas;
     private CtlCombo controladorCombo;
     private CtlPersona controladorPersona;
+    public static Activity registroPersonas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,8 @@ public class RegistrarPersonas extends AppCompatActivity {
 
         this.controladorCombo = new CtlCombo(this);
         this.controladorPersona = new CtlPersona(this);
+
+        this.registroPersonas = this;
 
         this.txtNip = (EditText) findViewById(R.id.txtCedla_registro);
         this.txtNombreCompleto = (EditText) findViewById(R.id.txtNombreCompleto_registro);
@@ -40,10 +45,23 @@ public class RegistrarPersonas extends AppCompatActivity {
         this.cbTipoDocumento = (Spinner) findViewById(R.id.cbTipoDocumento_registro);
         this.cbMunicipio = (Spinner) findViewById(R.id.cbMunicipio_registro);
         this.cbEps = (Spinner) findViewById(R.id.cbEps_registro);
+        this.cbPersonas = (Spinner) findViewById(R.id.cbPersona_persona);
 
         this.controladorCombo.cargar(this.cbTipoDocumento,"TipoDocumento","nombre","Seleccione un tipo documento");
         this.controladorCombo.cargar(this.cbMunicipio,"Municipio","nombre","Seleccione un municipio");
+        this.controladorCombo.cargar(this.cbPersonas,"Persona","nip","Seleccione una persona");
         this.controladorCombo.cargarEps(this.cbEps);
+    }
+
+    public void abrirVentanaAddLicencia(View view){
+        if (cbPersonas.getSelectedItemPosition() != 0){
+            Intent intent = new Intent(this,RegistrarLicencia.class);
+            intent.putExtra("nipPersona",cbPersonas.getSelectedItem().toString().trim());
+            this.startActivity(intent);
+        }else{
+            Toast.makeText(this,"Por favor seleccione numero de documento para" +
+                    " poder asignar una licencia a la persona",Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void cancelar(View view){
@@ -75,13 +93,18 @@ public class RegistrarPersonas extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            boolean boo = this.controladorPersona.registrar(nip,nombreCompleto,direccion,telefono,eps,tipoDocumento,municipio,fechaN);
+            this.controladorPersona.registrar(nip,nombreCompleto,direccion,telefono,eps,tipoDocumento,municipio,fechaN);
+            this.controladorCombo.cargar(this.cbPersonas,"Persona","nip","Seleccione una persona");
+        }
+    }
 
-            if (boo){
-                this.finish();
-            }else{
-                Toast.makeText(this,"Hubo un error guardando la persona",Toast.LENGTH_LONG).show();
-            }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        try {
+            //new CtlCombo(this).cargar(RegistrarLicencia.cbPersona, "Persona", "nip", "Seleccione una persona");
+        } catch (Exception e) {
+            System.out.println(e);
         }
     }
 }

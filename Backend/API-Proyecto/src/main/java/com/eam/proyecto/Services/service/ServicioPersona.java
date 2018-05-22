@@ -34,8 +34,8 @@ public class ServicioPersona extends EstructuraRestFul<Persona> {
     @Override
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response create(Persona entity) {
-        return super.create(entity);
+    public Response guardar(Persona entity) {
+        return super.guardar(entity);
     }
 
     @PUT
@@ -43,42 +43,42 @@ public class ServicioPersona extends EstructuraRestFul<Persona> {
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
     public Response edit(@PathParam("id") String id, Persona entity) {
-        return super.edit(entity);
+        return super.modificar(entity);
     }
 
     @DELETE
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
     public Response remove(@PathParam("id") String id) {
-        return super.remove(super.find(id));
+        return super.eliminar(super.buscar(id));
     }
 
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
     public Persona find(@PathParam("id") String id) {
-        return super.find(id);
+        return super.buscar(id);
     }
 
     @GET
     @Override
     @Produces({MediaType.APPLICATION_JSON})
-    public List<Persona> findAll() {
-        return super.findAll();
+    public List<Persona> listar() {
+        return super.listar();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_JSON})
     public List<Persona> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
-        return super.findRange(new int[]{from, to});
+        return super.buscarRango(new int[]{from, to});
     }
 
     @GET
     @Path("count")
     @Produces(MediaType.TEXT_PLAIN)
     public String countREST() {
-        return String.valueOf(super.count());
+        return String.valueOf(super.contar());
     }
     
 }

@@ -1,6 +1,7 @@
 package com.eam.proyecto.DAO;
 
 import com.eam.proyecto.util.Herramientas;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
@@ -53,14 +54,14 @@ public class DAOoracle implements IDAO {
     }
 
     @Override
-    public Object cargar(String nombreClase) {
+    public List cargar(String nombreClase) {
         EntityManager manager = null;
-        Object lista = null;
+        List lista = null;
 
         try {
             manager = getEntityManager();
             Query query = manager.createQuery("SELECT p FROM " + nombreClase + " p");
-            lista = (Object) query.getResultList();
+            lista = query.getResultList();
         } catch (Exception e) {
             System.out.println("[Error] - " + e);
         } finally {

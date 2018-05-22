@@ -35,8 +35,8 @@ public class ServicioTestigo extends EstructuraRestFul<Testigos> {
     @Override
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response create(Testigos entity) {
-        return super.create(entity);
+    public Response guardar(Testigos entity) {
+        return super.guardar(entity);
     }
 
     @PUT
@@ -44,42 +44,42 @@ public class ServicioTestigo extends EstructuraRestFul<Testigos> {
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
     public Response edit(@PathParam("id") BigDecimal id, Testigos entity) {
-        return super.edit(entity);
+        return super.modificar(entity);
     }
 
     @DELETE
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
     public Response remove(@PathParam("id") BigDecimal id) {
-        return super.remove(super.find(id));
+        return super.eliminar(super.buscar(id));
     }
 
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
     public Testigos find(@PathParam("id") BigDecimal id) {
-        return super.find(id);
+        return super.buscar(id);
     }
 
     @GET
     @Override
     @Produces({MediaType.APPLICATION_JSON})
-    public List<Testigos> findAll() {
-        return super.findAll();
+    public List<Testigos> listar() {
+        return super.listar();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_JSON})
     public List<Testigos> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
-        return super.findRange(new int[]{from, to});
+        return super.buscarRango(new int[]{from, to});
     }
 
     @GET
     @Path("count")
     @Produces(MediaType.TEXT_PLAIN)
     public String countREST() {
-        return String.valueOf(super.count());
+        return String.valueOf(super.contar());
     }
     
 }

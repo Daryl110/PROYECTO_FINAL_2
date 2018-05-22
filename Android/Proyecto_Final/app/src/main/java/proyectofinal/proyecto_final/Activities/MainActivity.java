@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
     public void ingresar(View view) {
         String nombreUsuario, contrasenia;
         try {
-            nombreUsuario = txtNombreUsu.getText().toString();
-            contrasenia = txtContrasenia.getText().toString();
+            nombreUsuario = txtNombreUsu.getText().toString().trim();
+            contrasenia = txtContrasenia.getText().toString().trim();
 
             this.controladorUsuario.iniciarSesion(nombreUsuario,contrasenia,this);
         } catch (Exception e) {

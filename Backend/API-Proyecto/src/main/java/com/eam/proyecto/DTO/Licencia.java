@@ -60,7 +60,7 @@ public class Licencia implements Serializable {
     @Size(max = 20)
     @Column(name = "OFICINA_TRANSITO")
     private String oficinaTransito;
-    @Size(max = 10)
+    @Size(max = 50)
     @Column(name = "CATEGORIA_LICENCIA")
     private String categoriaLicencia;
     @JoinColumn(name = "PERSONA", referencedColumnName = "NIP", insertable = false, updatable = false)

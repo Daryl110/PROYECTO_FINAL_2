@@ -35,50 +35,50 @@ public class ServicioGrua extends EstructuraRestFul<Grua> {
     @Override
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response create(Grua entity) {
-        return super.create(entity);
+    public Response guardar(Grua entity) {
+        return super.guardar(entity);
     }
 
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_JSON})
     public Response edit(@PathParam("id") BigDecimal id, Grua entity) {
-        return super.edit(entity);
+        return super.modificar(entity);
     }
 
     @DELETE
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
     public Response remove(@PathParam("id") BigDecimal id) {
-        return super.remove(super.find(id));
+        return super.eliminar(super.buscar(id));
     }
 
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
     public Grua find(@PathParam("id") BigDecimal id) {
-        return super.find(id);
+        return super.buscar(id);
     }
 
     @GET
     @Override
     @Produces({MediaType.APPLICATION_JSON})
-    public List<Grua> findAll() {
-        return super.findAll();
+    public List<Grua> listar() {
+        return super.listar();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_JSON})
     public List<Grua> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
-        return super.findRange(new int[]{from, to});
+        return super.buscarRango(new int[]{from, to});
     }
 
     @GET
     @Path("count")
     @Produces(MediaType.TEXT_PLAIN)
     public String countREST() {
-        return String.valueOf(super.count());
+        return String.valueOf(super.contar());
     }
     
 }

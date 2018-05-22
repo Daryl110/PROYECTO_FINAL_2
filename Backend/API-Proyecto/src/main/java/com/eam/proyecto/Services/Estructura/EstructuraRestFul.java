@@ -7,7 +7,9 @@ package com.eam.proyecto.Services.Estructura;
 
 import com.eam.proyecto.DAO.DAOoracle;
 import com.eam.proyecto.DAO.IDAO;
+import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.EntityManager;
 import javax.ws.rs.core.Response;
 
 /**
@@ -17,35 +19,41 @@ import javax.ws.rs.core.Response;
 public abstract class EstructuraRestFul<T> {
 
     private final Class<T> entityClass;
-    protected IDAO dao = new DAOoracle("ConexioonBD");
+    protected IDAO dao = new DAOoracle("ConexionBD");
 
     public EstructuraRestFul(Class<T> entityClass) {
         this.entityClass = entityClass;
     }
 
-    public Response create(T entity) {
+    public Response guardar(T entity) {
         return dao.guardar(entity);
     }
 
-    public Response edit(T entity) {
+    public Response modificar(T entity) {
         return dao.modificar(entity);
     }
 
-    public Response remove(T entity) {
-       return dao.eliminar(entity, entityClass);
+    public Response eliminar(T entity) {
+        return dao.eliminar(entity, entityClass);
     }
 
-    public T find(Object id) {
+    public T buscar(Object id) {
         return (T) dao.buscar(id, entityClass);
     }
 
-    public List<T> findAll() {
-        javax.persistence.criteria.CriteriaQuery cq = dao.getEntityManagerFactory().createEntityManager().getCriteriaBuilder().createQuery();
-        cq.select(cq.from(entityClass));
-        return dao.getEntityManagerFactory().createEntityManager().createQuery(cq).getResultList();
+    public List<T> listar() {
+        try {
+            EntityManager manager = dao.getEntityManagerFactory().createEntityManager();
+            javax.persistence.criteria.CriteriaQuery cq = manager.getCriteriaBuilder().createQuery();
+            cq.select(cq.from(entityClass));
+            return manager.createQuery(cq).getResultList();
+        } catch (Exception e) {
+            System.out.println("[Error] : " + e);
+            return new ArrayList<>();
+        }
     }
 
-    public List<T> findRange(int[] range) {
+    public List<T> buscarRango(int[] range) {
         javax.persistence.criteria.CriteriaQuery cq = dao.getEntityManagerFactory().createEntityManager().getCriteriaBuilder().createQuery();
         cq.select(cq.from(entityClass));
         javax.persistence.Query q = dao.getEntityManagerFactory().createEntityManager().createQuery(cq);
@@ -54,12 +62,12 @@ public abstract class EstructuraRestFul<T> {
         return q.getResultList();
     }
 
-    public int count() {
+    public int contar() {
         javax.persistence.criteria.CriteriaQuery cq = dao.getEntityManagerFactory().createEntityManager().getCriteriaBuilder().createQuery();
         javax.persistence.criteria.Root<T> rt = cq.from(entityClass);
         cq.select(dao.getEntityManagerFactory().createEntityManager().getCriteriaBuilder().count(rt));
         javax.persistence.Query q = dao.getEntityManagerFactory().createEntityManager().createQuery(cq);
         return ((Long) q.getSingleResult()).intValue();
     }
-    
+
 }

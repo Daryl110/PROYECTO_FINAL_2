@@ -42,7 +42,7 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Persona.findByDireccion", query = "SELECT p FROM Persona p WHERE p.direccion = :direccion")
     , @NamedQuery(name = "Persona.findByEps", query = "SELECT p FROM Persona p WHERE p.eps = :eps")
     , @NamedQuery(name = "Persona.findByTelefono", query = "SELECT p FROM Persona p WHERE p.telefono = :telefono")
-    , @NamedQuery(name = "Persona.findByPlaca", query = "SELECT p FROM Persona p WHERE p.placa = :placa")})
+    , @NamedQuery(name = "Persona.findByPlacaAgente", query = "SELECT p FROM Persona p WHERE p.placaAgente = :placaAgente")})
 @XmlRootElement
 public class Persona implements Serializable {
 
@@ -78,8 +78,8 @@ public class Persona implements Serializable {
     @Size(min = 1, max = 20)
     @Column(name = "TELEFONO")
     private String telefono;
-    @Column(name = "PLACA")
-    private BigInteger placa;
+    @Column(name = "PLACA_AGENTE")
+    private BigInteger placaAgente;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "personaNip")
     private List<Testigos> testigosList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "agente")
@@ -92,13 +92,15 @@ public class Persona implements Serializable {
     private TipoDocumento tipoDocumento;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "personaNip")
     private List<Perjudicados> perjudicadosList;
-    @OneToMany(mappedBy = "personaNip")
-    private List<Tramite> tramiteList;
-    @OneToMany(mappedBy = "personaNip2")
-    private List<Comparendo> comparendoList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "personaNip")
+    private List<Tramite> tramiteList;
+    @OneToMany(mappedBy = "receptor")
+    private List<Tramite> tramiteList1;
+    @OneToMany(mappedBy = "testigo")
+    private List<Comparendo> comparendoList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "infractor")
     private List<Comparendo> comparendoList1;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "personaNip1")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "agente")
     private List<Comparendo> comparendoList2;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "persona1")
     private Licencia licencia;
@@ -171,12 +173,12 @@ public class Persona implements Serializable {
         this.telefono = telefono;
     }
 
-    public BigInteger getPlaca() {
-        return placa;
+    public BigInteger getPlacaAgente() {
+        return placaAgente;
     }
 
-    public void setPlaca(BigInteger placa) {
-        this.placa = placa;
+    public void setPlacaAgente(BigInteger placaAgente) {
+        this.placaAgente = placaAgente;
     }
 
     @XmlTransient
@@ -232,6 +234,15 @@ public class Persona implements Serializable {
     }
 
     @XmlTransient
+    public List<Tramite> getTramiteList1() {
+        return tramiteList1;
+    }
+
+    public void setTramiteList1(List<Tramite> tramiteList1) {
+        this.tramiteList1 = tramiteList1;
+    }
+
+    @XmlTransient
     public List<Comparendo> getComparendoList() {
         return comparendoList;
     }
@@ -258,6 +269,7 @@ public class Persona implements Serializable {
         this.comparendoList2 = comparendoList2;
     }
 
+    @XmlTransient
     public Licencia getLicencia() {
         return licencia;
     }

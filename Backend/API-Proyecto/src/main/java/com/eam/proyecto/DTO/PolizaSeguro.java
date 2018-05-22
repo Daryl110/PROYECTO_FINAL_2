@@ -32,12 +32,12 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "PolizaSeguro.findAll", query = "SELECT p FROM PolizaSeguro p")
     , @NamedQuery(name = "PolizaSeguro.findByNPoliza", query = "SELECT p FROM PolizaSeguro p WHERE p.nPoliza = :nPoliza")
     , @NamedQuery(name = "PolizaSeguro.findByFechaVencimiento", query = "SELECT p FROM PolizaSeguro p WHERE p.fechaVencimiento = :fechaVencimiento")
-    , @NamedQuery(name = "PolizaSeguro.findByCompaniaAseguradora", query = "SELECT p FROM PolizaSeguro p WHERE p.companiaAseguradora = :companiaAseguradora")})
+    , @NamedQuery(name = "PolizaSeguro.findByCompaniaAseguradora", query = "SELECT p FROM PolizaSeguro p WHERE p.companiaAseguradora = :companiaAseguradora")
+    , @NamedQuery(name = "PolizaSeguro.findByPlaca", query = "SELECT p FROM PolizaSeguro p WHERE p.placa = :placa")})
 @XmlRootElement
 public class PolizaSeguro implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
@@ -51,18 +51,25 @@ public class PolizaSeguro implements Serializable {
     @Size(max = 20)
     @Column(name = "COMPANIA_ASEGURADORA")
     private String companiaAseguradora;
-    @JoinColumn(name = "N_POLIZA", referencedColumnName = "PLACA", insertable = false, updatable = false)
+    @Id
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 20)
+    @Column(name = "PLACA")
+    private String placa;
+    @JoinColumn(name = "PLACA", referencedColumnName = "PLACA", insertable = false, updatable = false)
     @OneToOne(optional = false)
     private Vehiculo vehiculo;
 
     public PolizaSeguro() {
     }
 
-    public PolizaSeguro(String nPoliza) {
-        this.nPoliza = nPoliza;
+    public PolizaSeguro(String placa) {
+        this.placa = placa;
     }
 
-    public PolizaSeguro(String nPoliza, Date fechaVencimiento) {
+    public PolizaSeguro(String placa, String nPoliza, Date fechaVencimiento) {
+        this.placa = placa;
         this.nPoliza = nPoliza;
         this.fechaVencimiento = fechaVencimiento;
     }
@@ -91,6 +98,14 @@ public class PolizaSeguro implements Serializable {
         this.companiaAseguradora = companiaAseguradora;
     }
 
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
     public Vehiculo getVehiculo() {
         return vehiculo;
     }
@@ -102,7 +117,7 @@ public class PolizaSeguro implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (nPoliza != null ? nPoliza.hashCode() : 0);
+        hash += (placa != null ? placa.hashCode() : 0);
         return hash;
     }
 
@@ -113,7 +128,7 @@ public class PolizaSeguro implements Serializable {
             return false;
         }
         PolizaSeguro other = (PolizaSeguro) object;
-        if ((this.nPoliza == null && other.nPoliza != null) || (this.nPoliza != null && !this.nPoliza.equals(other.nPoliza))) {
+        if ((this.placa == null && other.placa != null) || (this.placa != null && !this.placa.equals(other.placa))) {
             return false;
         }
         return true;
@@ -121,7 +136,7 @@ public class PolizaSeguro implements Serializable {
 
     @Override
     public String toString() {
-        return "com.eam.proyecto.DTO.PolizaSeguro[ nPoliza=" + nPoliza + " ]";
+        return "com.eam.proyecto.DTO.PolizaSeguro[ placa=" + placa + " ]";
     }
     
 }

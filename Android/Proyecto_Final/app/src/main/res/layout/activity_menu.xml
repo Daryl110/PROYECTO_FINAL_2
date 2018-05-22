@@ -116,7 +116,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:onClick="RCiudadano"
-                            android:text="REGISTRO USUARIOS"
+                            android:text="REGISTRO DE PERSONAS"
                             android:textColor="@android:color/background_light" />
 
                         <Space
@@ -129,7 +129,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:onClick="RVehiculo"
-                            android:text="REGISTRAR VEHICULOS"
+                            android:text="REGISTRAR DE VEHICULOS"
                             android:textColor="@android:color/background_light" />
 
                         <Space
@@ -142,7 +142,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:onClick="RComparendo"
-                            android:text="REGISTRO COMPARENDO"
+                            android:text="REGISTRO DE COMPARENDOS"
                             android:textColor="@android:color/background_light" />
 
                         <Space

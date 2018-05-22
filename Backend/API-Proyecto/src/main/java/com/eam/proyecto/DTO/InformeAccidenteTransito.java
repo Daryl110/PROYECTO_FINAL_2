@@ -66,20 +66,30 @@ public class InformeAccidenteTransito implements Serializable {
     @Column(name = "FECHA_HORA")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaHora;
-    @Size(max = 20)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 20)
     @Column(name = "CLASE_ACCIDENTE")
     private String claseAccidente;
-    @Size(max = 20)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 20)
     @Column(name = "CHOQUE_CON")
     private String choqueCon;
-    @Size(max = 20)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 20)
     @Column(name = "OBJETO_FIJO")
     private String objetoFijo;
     @Lob
     @Column(name = "CROQUIS")
     private Serializable croquis;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "NUMERO_MUERTOS")
     private BigInteger numeroMuertos;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "NUMERO_HERIDOS")
     private BigInteger numeroHeridos;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "informeAccidenteTransitoId")
@@ -103,10 +113,15 @@ public class InformeAccidenteTransito implements Serializable {
         this.id = id;
     }
 
-    public InformeAccidenteTransito(BigDecimal id, String tipoGravedad, Date fechaHora) {
+    public InformeAccidenteTransito(BigDecimal id, String tipoGravedad, Date fechaHora, String claseAccidente, String choqueCon, String objetoFijo, BigInteger numeroMuertos, BigInteger numeroHeridos) {
         this.id = id;
         this.tipoGravedad = tipoGravedad;
         this.fechaHora = fechaHora;
+        this.claseAccidente = claseAccidente;
+        this.choqueCon = choqueCon;
+        this.objetoFijo = objetoFijo;
+        this.numeroMuertos = numeroMuertos;
+        this.numeroHeridos = numeroHeridos;
     }
 
     public BigDecimal getId() {

@@ -41,7 +41,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Comparendo.findByModalidadTransporte", query = "SELECT c FROM Comparendo c WHERE c.modalidadTransporte = :modalidadTransporte")
     , @NamedQuery(name = "Comparendo.findByRadioAccion", query = "SELECT c FROM Comparendo c WHERE c.radioAccion = :radioAccion")
     , @NamedQuery(name = "Comparendo.findByTipoInfractor", query = "SELECT c FROM Comparendo c WHERE c.tipoInfractor = :tipoInfractor")
-    , @NamedQuery(name = "Comparendo.findByDescripcion", query = "SELECT c FROM Comparendo c WHERE c.descripcion = :descripcion")})
+    , @NamedQuery(name = "Comparendo.findByDescripcion", query = "SELECT c FROM Comparendo c WHERE c.descripcion = :descripcion")
+    , @NamedQuery(name = "Comparendo.findByEstado", query = "SELECT c FROM Comparendo c WHERE c.estado = :estado")})
 @XmlRootElement
 public class Comparendo implements Serializable {
 
@@ -57,7 +58,9 @@ public class Comparendo implements Serializable {
     @Column(name = "FECHA")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
-    @Size(max = 20)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 20)
     @Column(name = "LOCALIDAD_COMUNA")
     private String localidadComuna;
     @Basic(optional = false)
@@ -90,21 +93,26 @@ public class Comparendo implements Serializable {
     @Size(min = 1, max = 100)
     @Column(name = "DESCRIPCION")
     private String descripcion;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 30)
+    @Column(name = "ESTADO")
+    private String estado;
     @JoinColumn(name = "GRUA_ID", referencedColumnName = "NUMERO_GRUA")
     @ManyToOne
     private Grua gruaId;
     @JoinColumn(name = "MUNICIPIO_ID", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private Municipio municipioId;
-    @JoinColumn(name = "PERSONA_NIP2", referencedColumnName = "NIP")
+    @JoinColumn(name = "TESTIGO", referencedColumnName = "NIP")
     @ManyToOne
-    private Persona personaNip2;
-    @JoinColumn(name = "PERSONA_NIP", referencedColumnName = "NIP")
+    private Persona testigo;
+    @JoinColumn(name = "INFRACTOR", referencedColumnName = "NIP")
     @ManyToOne(optional = false)
-    private Persona personaNip;
-    @JoinColumn(name = "PERSONA_NIP1", referencedColumnName = "NIP")
+    private Persona infractor;
+    @JoinColumn(name = "AGENTE", referencedColumnName = "NIP")
     @ManyToOne(optional = false)
-    private Persona personaNip1;
+    private Persona agente;
     @JoinColumn(name = "TIPO_INFRACCION_CODIGO", referencedColumnName = "CODIGO")
     @ManyToOne(optional = false)
     private TipoInfraccion tipoInfraccionCodigo;
@@ -121,15 +129,17 @@ public class Comparendo implements Serializable {
         this.id = id;
     }
 
-    public Comparendo(BigDecimal id, Date fecha, String viaPrincipal, String viaSecundaria, String modalidadTransporte, String radioAccion, String tipoInfractor, String descripcion) {
+    public Comparendo(BigDecimal id, Date fecha, String localidadComuna, String viaPrincipal, String viaSecundaria, String modalidadTransporte, String radioAccion, String tipoInfractor, String descripcion, String estado) {
         this.id = id;
         this.fecha = fecha;
+        this.localidadComuna = localidadComuna;
         this.viaPrincipal = viaPrincipal;
         this.viaSecundaria = viaSecundaria;
         this.modalidadTransporte = modalidadTransporte;
         this.radioAccion = radioAccion;
         this.tipoInfractor = tipoInfractor;
         this.descripcion = descripcion;
+        this.estado = estado;
     }
 
     public BigDecimal getId() {
@@ -204,6 +214,14 @@ public class Comparendo implements Serializable {
         this.descripcion = descripcion;
     }
 
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
     public Grua getGruaId() {
         return gruaId;
     }
@@ -220,28 +238,28 @@ public class Comparendo implements Serializable {
         this.municipioId = municipioId;
     }
 
-    public Persona getPersonaNip2() {
-        return personaNip2;
+    public Persona getTestigo() {
+        return testigo;
     }
 
-    public void setPersonaNip2(Persona personaNip2) {
-        this.personaNip2 = personaNip2;
+    public void setTestigo(Persona testigo) {
+        this.testigo = testigo;
     }
 
-    public Persona getPersonaNip() {
-        return personaNip;
+    public Persona getInfractor() {
+        return infractor;
     }
 
-    public void setPersonaNip(Persona personaNip) {
-        this.personaNip = personaNip;
+    public void setInfractor(Persona infractor) {
+        this.infractor = infractor;
     }
 
-    public Persona getPersonaNip1() {
-        return personaNip1;
+    public Persona getAgente() {
+        return agente;
     }
 
-    public void setPersonaNip1(Persona personaNip1) {
-        this.personaNip1 = personaNip1;
+    public void setAgente(Persona agente) {
+        this.agente = agente;
     }
 
     public TipoInfraccion getTipoInfraccionCodigo() {

@@ -49,7 +49,7 @@ public class Tramite implements Serializable {
     @Column(name = "FECHA")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
-    @Size(max = 20)
+    @Size(max = 50)
     @Column(name = "DESCRIPCION")
     private String descripcion;
     @Basic(optional = false)
@@ -57,8 +57,11 @@ public class Tramite implements Serializable {
     @Column(name = "VALOR")
     private BigInteger valor;
     @JoinColumn(name = "PERSONA_NIP", referencedColumnName = "NIP")
-    @ManyToOne
+    @ManyToOne(optional = false)
     private Persona personaNip;
+    @JoinColumn(name = "RECEPTOR", referencedColumnName = "NIP")
+    @ManyToOne
+    private Persona receptor;
     @JoinColumn(name = "TIPO_TRAMITE_ID", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private TipoTramite tipoTramiteId;
@@ -116,6 +119,14 @@ public class Tramite implements Serializable {
 
     public void setPersonaNip(Persona personaNip) {
         this.personaNip = personaNip;
+    }
+
+    public Persona getReceptor() {
+        return receptor;
+    }
+
+    public void setReceptor(Persona receptor) {
+        this.receptor = receptor;
     }
 
     public TipoTramite getTipoTramiteId() {

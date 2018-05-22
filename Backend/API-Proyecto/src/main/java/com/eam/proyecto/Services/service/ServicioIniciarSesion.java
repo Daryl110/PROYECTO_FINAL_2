@@ -40,8 +40,8 @@ public class ServicioIniciarSesion {
             ServicioAdministrador serviceAdmin = new ServicioAdministrador();
             ServicioUsuario serviceUsuario = new ServicioUsuario();
 
-            ArrayList<Administrador> admins = new ArrayList<>(serviceAdmin.findAll());
-            ArrayList<Usuario> usus = new ArrayList<>(serviceUsuario.findAll());
+            ArrayList<Administrador> admins = new ArrayList<>(serviceAdmin.listar());
+            ArrayList<Usuario> usus = new ArrayList<>(serviceUsuario.listar());
 
             boolean acceso = false;
             String rol = "";

@@ -40,7 +40,7 @@ public class Requisitos implements Serializable {
     @NotNull
     @Column(name = "ID")
     private BigDecimal id;
-    @Size(max = 100)
+    @Size(max = 500)
     @Column(name = "DESCRIPCION")
     private String descripcion;
     @JoinColumn(name = "TIPO_TRAMITE_ID", referencedColumnName = "ID")

@@ -13,6 +13,7 @@ import org.json.simple.parser.ParseException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -44,6 +45,23 @@ public class CtlCombo extends Cliente{
         spinner.setAdapter(dataAdapter);
     }
 
+    public void cargarViaSecundaria(Spinner spinner){
+        List<String> items = new ArrayList<>();
+
+        items.add("Seleccione una via secundaria");
+        items.add("AV");
+        items.add("CL");
+        items.add("CR");
+        items.add("AU");
+        items.add("DG");
+        items.add("TR");
+
+        ArrayAdapter<CharSequence> dataAdapter = new ArrayAdapter(this.activity,android.R.layout.simple_spinner_item,new ArrayList(items));
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(dataAdapter);
+    }
+
     public void cargarViaPrincipal(Spinner spinner){
         List<String> items = new ArrayList<>();
 
@@ -61,16 +79,16 @@ public class CtlCombo extends Cliente{
         spinner.setAdapter(dataAdapter);
     }
 
-    public void cargarViaSecundaria(Spinner spinner){
+    public void cargarCategoriaLicencia(Spinner spinner){
         List<String> items = new ArrayList<>();
 
-        items.add("Seleccione una via secundaria");
-        items.add("AV");
-        items.add("CL");
-        items.add("CR");
-        items.add("AU");
-        items.add("DG");
-        items.add("TR");
+        items.add("Seleccione una categoria");
+        items.add("Motocicletas");
+        items.add("Vehiculos de nivel 1");
+        items.add("Vehiculos de nivel 2");
+        items.add("Vehiculos de nivel 3");
+        items.add("Vehiculos de nivel 4");
+        items.add("Vehiculos de nivel 5");
 
         ArrayAdapter<CharSequence> dataAdapter = new ArrayAdapter(this.activity,android.R.layout.simple_spinner_item,new ArrayList(items));
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

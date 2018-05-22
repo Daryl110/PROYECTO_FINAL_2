@@ -42,6 +42,7 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Vehiculo.findByTipoVehiculo", query = "SELECT v FROM Vehiculo v WHERE v.tipoVehiculo = :tipoVehiculo")
     , @NamedQuery(name = "Vehiculo.findByLugarMatricula", query = "SELECT v FROM Vehiculo v WHERE v.lugarMatricula = :lugarMatricula")
     , @NamedQuery(name = "Vehiculo.findByNacionalidad", query = "SELECT v FROM Vehiculo v WHERE v.nacionalidad = :nacionalidad")
+    , @NamedQuery(name = "Vehiculo.findByColor", query = "SELECT v FROM Vehiculo v WHERE v.color = :color")
     , @NamedQuery(name = "Vehiculo.findByCapacidadCarga", query = "SELECT v FROM Vehiculo v WHERE v.capacidadCarga = :capacidadCarga")
     , @NamedQuery(name = "Vehiculo.findByNumeroPasajeros", query = "SELECT v FROM Vehiculo v WHERE v.numeroPasajeros = :numeroPasajeros")
     , @NamedQuery(name = "Vehiculo.findByNoTargetaOperacion", query = "SELECT v FROM Vehiculo v WHERE v.noTargetaOperacion = :noTargetaOperacion")})
@@ -55,10 +56,10 @@ public class Vehiculo implements Serializable {
     @Size(min = 1, max = 20)
     @Column(name = "PLACA")
     private String placa;
-    @Size(max = 10)
+    @Size(max = 20)
     @Column(name = "MODELO")
     private String modelo;
-    @Size(max = 10)
+    @Size(max = 20)
     @Column(name = "LINEA")
     private String linea;
     @Size(max = 20)
@@ -79,6 +80,9 @@ public class Vehiculo implements Serializable {
     @Size(max = 20)
     @Column(name = "NACIONALIDAD")
     private String nacionalidad;
+    @Size(max = 20)
+    @Column(name = "COLOR")
+    private String color;
     @Column(name = "CAPACIDAD_CARGA")
     private BigInteger capacidadCarga;
     @Column(name = "NUMERO_PASAJEROS")
@@ -92,8 +96,6 @@ public class Vehiculo implements Serializable {
     @JoinColumn(name = "EMPRESA_NIT", referencedColumnName = "NIT")
     @ManyToOne
     private Empresa empresaNit;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vehiculoPlaca")
-    private List<Colores> coloresList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vehiculoPlaca")
     private List<Comparendo> comparendoList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vehiculoPlaca")
@@ -180,6 +182,14 @@ public class Vehiculo implements Serializable {
         this.nacionalidad = nacionalidad;
     }
 
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
     public BigInteger getCapacidadCarga() {
         return capacidadCarga;
     }
@@ -226,15 +236,6 @@ public class Vehiculo implements Serializable {
 
     public void setEmpresaNit(Empresa empresaNit) {
         this.empresaNit = empresaNit;
-    }
-
-    @XmlTransient
-    public List<Colores> getColoresList() {
-        return coloresList;
-    }
-
-    public void setColoresList(List<Colores> coloresList) {
-        this.coloresList = coloresList;
     }
 
     @XmlTransient

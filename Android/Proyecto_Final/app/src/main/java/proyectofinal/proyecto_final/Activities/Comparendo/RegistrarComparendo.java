@@ -1,4 +1,4 @@
-package proyectofinal.proyecto_final.Activities;
+package proyectofinal.proyecto_final.Activities.Comparendo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -102,15 +102,10 @@ public class RegistrarComparendo extends AppCompatActivity {
                     tipoInfraccion = cbtipoInfraccion.getSelectedItem().toString();
                     nipAgente = cedAgente;
 
-                    boolean bool = this.controladorComparendo.registrar(id,municipio,fecha,localidad,viaPrincipal,viaSecundaria,
+                    this.controladorComparendo.registrar(id,municipio,fecha,localidad,viaPrincipal,viaSecundaria,
                             descripcion,modalidad,radio,tipoInfractor,placaVehiculo,nipTestigo,nipAgente,nipInfractor,
                             tipoInfraccion);
 
-                    if (bool){
-                        this.finish();
-                    }else{
-                        Toast.makeText(this,"Hubo un error guardando la persona",Toast.LENGTH_LONG).show();
-                    }
                 } catch (ParseException e) {
                     Toast.makeText(this,
                             "Hubo un error guardando la persona en fecha talvez no esta en el formato correcto(yyyy-MM-dd)",

@@ -27,8 +27,8 @@ public class ServicioAdministrador extends EstructuraRestFul<Administrador> {
     @GET
     @Override
     @Produces({MediaType.APPLICATION_JSON})
-    public List<Administrador> findAll() {
-        return super.findAll();
+    public List<Administrador> listar() {
+        return super.listar();
     }
     
 }

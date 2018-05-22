@@ -33,7 +33,8 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "TipoInfraccion.findByCodigo", query = "SELECT t FROM TipoInfraccion t WHERE t.codigo = :codigo")
     , @NamedQuery(name = "TipoInfraccion.findByInmovilizacion", query = "SELECT t FROM TipoInfraccion t WHERE t.inmovilizacion = :inmovilizacion")
     , @NamedQuery(name = "TipoInfraccion.findBySuspencionLicencia", query = "SELECT t FROM TipoInfraccion t WHERE t.suspencionLicencia = :suspencionLicencia")
-    , @NamedQuery(name = "TipoInfraccion.findBySalariosMinimos", query = "SELECT t FROM TipoInfraccion t WHERE t.salariosMinimos = :salariosMinimos")})
+    , @NamedQuery(name = "TipoInfraccion.findBySalariosMinimos", query = "SELECT t FROM TipoInfraccion t WHERE t.salariosMinimos = :salariosMinimos")
+    , @NamedQuery(name = "TipoInfraccion.findByDescripcion", query = "SELECT t FROM TipoInfraccion t WHERE t.descripcion = :descripcion")})
 @XmlRootElement
 public class TipoInfraccion implements Serializable {
 
@@ -56,6 +57,11 @@ public class TipoInfraccion implements Serializable {
     @NotNull
     @Column(name = "SALARIOS_MINIMOS")
     private BigInteger salariosMinimos;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 500)
+    @Column(name = "DESCRIPCION")
+    private String descripcion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoInfraccionCodigo")
     private List<Comparendo> comparendoList;
 
@@ -66,11 +72,12 @@ public class TipoInfraccion implements Serializable {
         this.codigo = codigo;
     }
 
-    public TipoInfraccion(String codigo, BigInteger inmovilizacion, BigInteger suspencionLicencia, BigInteger salariosMinimos) {
+    public TipoInfraccion(String codigo, BigInteger inmovilizacion, BigInteger suspencionLicencia, BigInteger salariosMinimos, String descripcion) {
         this.codigo = codigo;
         this.inmovilizacion = inmovilizacion;
         this.suspencionLicencia = suspencionLicencia;
         this.salariosMinimos = salariosMinimos;
+        this.descripcion = descripcion;
     }
 
     public String getCodigo() {
@@ -103,6 +110,14 @@ public class TipoInfraccion implements Serializable {
 
     public void setSalariosMinimos(BigInteger salariosMinimos) {
         this.salariosMinimos = salariosMinimos;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     @XmlTransient

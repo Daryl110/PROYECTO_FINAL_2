@@ -12,6 +12,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -19,15 +20,16 @@ import org.json.simple.parser.ParseException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Cliente {
+public class Cliente implements Serializable {
 
-    protected String urlPeticion = "http://192.168.137.116:8080/API-Proyecto/Recursos/";
+    protected String urlPeticion = "http://192.168.137.226:8080/API-Proyecto/Recursos/";
 
-    protected JSONObject traerBD(String entidad, Activity activity, Object dato) {
+    protected JSONObject traerBD(String entidad, Object dato) {
 
         JSONObject obj = new JSONObject();
 
@@ -113,18 +115,28 @@ public class Cliente {
         return -1;
     }
 
-    protected void registrar(String entidad, JSONObject request, final Activity activity) {
+    protected void registrar(final String entidad, JSONObject request, final Activity activity) {
 
         try {
             JsonObjectRequest objectRequest = new JsonObjectRequest(
                     Request.Method.POST,
-                    this.urlPeticion + entidad+"/",
+                    this.urlPeticion + entidad.split(" ")[1] + "/",
                     (new org.json.JSONObject(request.toString())),
                     new Response.Listener<org.json.JSONObject>() {
                         @Override
                         public org.json.JSONObject onResponse(org.json.JSONObject response) {
                             Log.d("Response", response.toString());
-                            Toast.makeText(activity,"Se ha registrado exitosamente",Toast.LENGTH_SHORT).show();
+                            try {
+                                if (response.getBoolean("Resultado")){
+                                    Toast.makeText(activity, entidad + " Se ha registrado exitosamente", Toast.LENGTH_SHORT).show();
+                                    activity.finish();
+                                }else{
+                                    Toast.makeText(activity, entidad + " No se ha podido registrar", Toast.LENGTH_SHORT).show();
+                                }
+                            } catch (JSONException e) {
+                                Log.d("Error", e.toString());
+                                Toast.makeText(activity, entidad + " No se ha podido registrar", Toast.LENGTH_SHORT).show();
+                            }
                             return response;
                         }
                     },
@@ -132,7 +144,7 @@ public class Cliente {
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             Log.d("Error", error.toString());
-                            Toast.makeText(activity,"No se ha podido registrar",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activity, entidad + " No se ha podido registrar", Toast.LENGTH_SHORT).show();
                         }
                     }
             );
@@ -143,7 +155,7 @@ public class Cliente {
 
             Thread.sleep(100);
         } catch (Exception e) {
-            e.printStackTrace();
+            Toast.makeText(activity, entidad + " No se ha podido registrar", Toast.LENGTH_SHORT).show();
         }
 
     }

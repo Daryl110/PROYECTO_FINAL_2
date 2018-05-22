@@ -1,15 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.eam.proyecto.Services.Conf;
 
 import java.util.Set;
 import javax.ws.rs.core.Application;
 
 /**
- *
  * @author Daryl Ospina
  */
 @javax.ws.rs.ApplicationPath("Recursos")
@@ -21,20 +15,13 @@ public class ServiceConfig extends Application {
         addRestResourceClasses(resources);
         return resources;
     }
-
-    /**
-     * Do not modify addRestResourceClasses() method.
-     * It is automatically populated with
-     * all resources defined in the project.
-     * If required, comment out calling this method in getClasses().
-     */
+    
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(com.eam.proyecto.Services.service.ServicioAdministrador.class);
         resources.add(com.eam.proyecto.Services.service.ServicioAsistencia.class);
         resources.add(com.eam.proyecto.Services.service.ServicioBlindaje.class);
         resources.add(com.eam.proyecto.Services.service.ServicioCaracteristicaLugar.class);
         resources.add(com.eam.proyecto.Services.service.ServicioCaracteristicaVia.class);
-        resources.add(com.eam.proyecto.Services.service.ServicioColores.class);
         resources.add(com.eam.proyecto.Services.service.ServicioComparendo.class);
         resources.add(com.eam.proyecto.Services.service.ServicioCurso.class);
         resources.add(com.eam.proyecto.Services.service.ServicioDetalleComparendo.class);

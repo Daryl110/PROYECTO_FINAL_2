@@ -34,8 +34,8 @@ public class ServicioVehiculo extends EstructuraRestFul<Vehiculo> {
     @Override
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response create(Vehiculo entity) {
-        return super.create(entity);
+    public Response guardar(Vehiculo entity) {
+        return super.guardar(entity);
     }
 
     @PUT
@@ -43,42 +43,42 @@ public class ServicioVehiculo extends EstructuraRestFul<Vehiculo> {
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
     public Response edit(@PathParam("id") String id, Vehiculo entity) {
-        return super.edit(entity);
+        return super.modificar(entity);
     }
 
     @DELETE
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
     public Response remove(@PathParam("id") String id) {
-        return super.remove(super.find(id));
+        return super.eliminar(super.buscar(id));
     }
 
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
     public Vehiculo find(@PathParam("id") String id) {
-        return super.find(id);
+        return super.buscar(id);
     }
 
     @GET
     @Override
     @Produces({MediaType.APPLICATION_JSON})
-    public List<Vehiculo> findAll() {
-        return super.findAll();
+    public List<Vehiculo> listar() {
+        return super.listar();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_JSON})
     public List<Vehiculo> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
-        return super.findRange(new int[]{from, to});
+        return super.buscarRango(new int[]{from, to});
     }
 
     @GET
     @Path("count")
     @Produces(MediaType.TEXT_PLAIN)
     public String countREST() {
-        return String.valueOf(super.count());
+        return String.valueOf(super.contar());
     }
     
 }

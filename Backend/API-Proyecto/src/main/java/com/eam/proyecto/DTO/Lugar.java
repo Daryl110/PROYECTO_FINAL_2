@@ -51,12 +51,12 @@ public class Lugar implements Serializable {
     private String coordenadaY;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 20)
+    @Size(min = 1, max = 50)
     @Column(name = "DIRECCION")
     private String direccion;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 20)
+    @Size(min = 1, max = 50)
     @Column(name = "LOCALIDAD_COMUNA")
     private String localidadComuna;
     @JoinColumn(name = "ID", referencedColumnName = "ID", insertable = false, updatable = false)

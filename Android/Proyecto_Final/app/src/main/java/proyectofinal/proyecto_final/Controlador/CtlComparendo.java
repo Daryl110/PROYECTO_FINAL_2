@@ -1,6 +1,7 @@
 package proyectofinal.proyecto_final.Controlador;
 
 import android.app.Activity;
+import android.widget.Toast;
 
 import org.json.simple.JSONObject;
 
@@ -19,7 +20,7 @@ public class CtlComparendo extends Cliente {
         return this.numeroRegistros(entidad,this.activity)+1;
     }
 
-    public boolean registrar(int id,int municipio,
+    public void registrar(int id,int municipio,
             Date fecha,
             String localidad,String viaPrincipal,String viaSecundaria,String descripcion,
                              String modalidad,String radio,String tipoInfractor,
@@ -35,28 +36,27 @@ public class CtlComparendo extends Cliente {
             request.put("id", id);
             request.put("localidadComuna", localidad);
             request.put("modalidadTransporte", modalidad);
-            municipioId = this.traerBD("Municipio",this.activity,municipio);
+            municipioId = this.traerBD("Municipio",municipio);
             request.put("municipioId", municipioId);
-            infractor = this.traerBD("Persona",this.activity,nipInfractor);
+            infractor = this.traerBD("Persona",nipInfractor);
             request.put("personaNip", infractor);
-            agente = this.traerBD("Persona",this.activity,nipAgente);
+            agente = this.traerBD("Persona",nipAgente);
             request.put("personaNip1", agente);
-            testigo = this.traerBD("Persona",this.activity,nipTestigo);
+            testigo = this.traerBD("Persona",nipTestigo);
             request.put("personaNip2", testigo);
             request.put("radioAccion", radio);
-            tipoInfraccionId = this.traerBD("TipoInfraccion",this.activity,tipoInfraccion);
+            tipoInfraccionId = this.traerBD("TipoInfraccion",tipoInfraccion);
             request.put("tipoInfraccionCodigo", tipoInfraccionId);
             request.put("tipoInfractor", tipoInfractor);
-            vehiculo = this.traerBD("Vehiculo",this.activity,placaVehiculo);
+            vehiculo = this.traerBD("Vehiculo",placaVehiculo);
             request.put("vehiculoPlaca", vehiculo);
             request.put("viaPrincipal", viaPrincipal);
             request.put("viaSecundaria", viaSecundaria);
 
-            this.registrar("Comparendo",request,activity);
+            this.registrar("El Comparendo",request,activity);
 
-            return true;
         }catch(Exception ex){
-            return false;
+            Toast.makeText(this.activity,"El comparendo no se pudo registrar",Toast.LENGTH_LONG).show();
         }
     }
 }

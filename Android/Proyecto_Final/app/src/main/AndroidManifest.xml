@@ -19,10 +19,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.Menu" />
-        <activity android:name=".Activities.ConsultaComparendo" />
-        <activity android:name=".Activities.RegistrarPersonas" />
-        <activity android:name=".Activities.RegistroVehiculo" />
-        <activity android:name=".Activities.RegistrarComparendo"></activity>
+        <activity android:name=".Activities.Comparendo.ConsultaComparendo" />
+        <activity android:name=".Activities.Persona.RegistrarPersonas" />
+        <activity android:name=".Activities.Vehiculo.RegistroVehiculo" />
+        <activity android:name=".Activities.Comparendo.RegistrarComparendo" />
+        <activity android:name=".Activities.Persona.RegistrarLicencia"></activity>
     </application>
 
 </manifest>

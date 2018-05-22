@@ -8,6 +8,10 @@ import android.widget.TextView;
 
 import org.json.JSONObject;
 
+import proyectofinal.proyecto_final.Activities.Comparendo.ConsultaComparendo;
+import proyectofinal.proyecto_final.Activities.Comparendo.RegistrarComparendo;
+import proyectofinal.proyecto_final.Activities.Persona.RegistrarPersonas;
+import proyectofinal.proyecto_final.Activities.Vehiculo.RegistroVehiculo;
 import proyectofinal.proyecto_final.Controlador.CtlUsuario;
 import proyectofinal.proyecto_final.R;
 

@@ -34,14 +34,14 @@ public class ServicioTipoDocumento extends EstructuraRestFul<TipoDocumento> {
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
     public TipoDocumento find(@PathParam("id") BigDecimal id) {
-        return super.find(id);
+        return super.buscar(id);
     }
 
     @GET
     @Override
     @Produces({MediaType.APPLICATION_JSON})
-    public List<TipoDocumento> findAll() {
-        return super.findAll();
+    public List<TipoDocumento> listar() {
+        return super.listar();
     }
     
 }

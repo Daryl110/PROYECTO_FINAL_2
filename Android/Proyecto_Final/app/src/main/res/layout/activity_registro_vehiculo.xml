@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.RegistroVehiculo">
+    tools:context=".Activities.Vehiculo.RegistroVehiculo">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -60,6 +60,18 @@
                         android:layout_height="14dp" />
 
                     <EditText
+                        android:id="@+id/txtLicenciaTransito_vehiculo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Licencia de transito"
+                        android:inputType="number" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="13dp" />
+
+                    <EditText
                         android:id="@+id/txtModelo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -107,10 +119,57 @@
                         android:layout_width="match_parent"
                         android:layout_height="11dp" />
 
+                    <LinearLayout
+                        android:id="@+id/lytEmpresa"
+                        android:layout_width="match_parent"
+                        android:layout_height="113dp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="47dp"
+                            android:orientation="horizontal">
+
+                            <Spinner
+                                android:id="@+id/cbEmpresa_vehiculo"
+                                android:layout_width="243dp"
+                                android:layout_height="45dp"
+                                android:layout_weight="1" />
+
+                            <Space
+                                android:layout_width="wrap_content"
+                                android:layout_height="45dp"
+                                android:layout_weight="1" />
+
+                            <ImageButton
+                                android:id="@+id/btnAddEmpresa"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@mipmap/add" />
+
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="15dp" />
+
+                        <EditText
+                            android:id="@+id/txtNTarjetaOperacion_vehiculo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:hint="N° Tarjeta de operación"
+                            android:inputType="number" />
+
+                    </LinearLayout>
+
                     <Spinner
                         android:id="@+id/cbTipoVehiculo"
                         android:layout_width="match_parent"
-                        android:layout_height="42dp" />
+                        android:layout_height="42dp"
+                        android:visibility="visible" />
 
                     <Space
                         android:layout_width="match_parent"
@@ -149,7 +208,7 @@
                         android:ems="10"
                         android:fontFamily="sans-serif"
                         android:hint="Capacidad del vehiculo"
-                        android:inputType="textPersonName" />
+                        android:inputType="number" />
 
                     <Space
                         android:layout_width="match_parent"

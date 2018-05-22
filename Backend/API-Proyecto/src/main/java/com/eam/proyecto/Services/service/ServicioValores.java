@@ -35,8 +35,8 @@ public class ServicioValores extends EstructuraRestFul<Valores> {
     @Override
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response create(Valores entity) {
-        return super.create(entity);
+    public Response guardar(Valores entity) {
+        return super.guardar(entity);
     }
 
     @PUT
@@ -44,41 +44,41 @@ public class ServicioValores extends EstructuraRestFul<Valores> {
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
     public Response edit(@PathParam("id") Date id, Valores entity) {
-        return super.edit(entity);
+        return super.modificar(entity);
     }
 
     @DELETE
     @Path("{id}")
     public Response remove(@PathParam("id") Date id) {
-        return super.remove(super.find(id));
+        return super.eliminar(super.buscar(id));
     }
 
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
     public Valores find(@PathParam("id") Date id) {
-        return super.find(id);
+        return super.buscar(id);
     }
 
     @GET
     @Override
     @Produces({MediaType.APPLICATION_JSON})
-    public List<Valores> findAll() {
-        return super.findAll();
+    public List<Valores> listar() {
+        return super.listar();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_JSON})
     public List<Valores> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
-        return super.findRange(new int[]{from, to});
+        return super.buscarRango(new int[]{from, to});
     }
 
     @GET
     @Path("count")
     @Produces(MediaType.TEXT_PLAIN)
     public String countREST() {
-        return String.valueOf(super.count());
+        return String.valueOf(super.contar());
     }
     
 }

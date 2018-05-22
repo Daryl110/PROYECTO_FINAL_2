@@ -34,14 +34,14 @@ public class ServicioValidacion extends EstructuraRestFul<Validacion> {
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
     public Validacion find(@PathParam("id") BigDecimal id) {
-        return super.find(id);
+        return super.buscar(id);
     }
 
     @GET
     @Override
     @Produces({MediaType.APPLICATION_JSON})
-    public List<Validacion> findAll() {
-        return super.findAll();
+    public List<Validacion> listar() {
+        return super.listar();
     }
     
 }
