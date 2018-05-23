@@ -29,7 +29,7 @@ public class RegistrarPersonas extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registrar__personas);
+        setContentView(R.layout.activity_registrar_personas);
 
         this.controladorCombo = new CtlCombo(this);
         this.controladorPersona = new CtlPersona(this);

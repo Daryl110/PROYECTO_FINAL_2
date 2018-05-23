@@ -1,9 +1,9 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <oracle.dbtools.crest.model.design.relational.RelationalDesign>
-   <object objectType="main_view" objectID="792246F6-9BFB-0DCE-EF4C-BBBCFE01BD90" name="PROYECTO_TRANSITO" visible="true"/>
+   <object objectType="sub_view" objectID="120D0E2C-1A83-EC7F-C7BD-24FC23913D9C" name="VEHICULO" visible="false"/>
    <object objectType="sub_view" objectID="20061A0E-F377-469E-4211-E8A9755F75D5" name="ACCIDENTE" visible="false"/>
+   <object objectType="sub_view" objectID="5A562C93-A6E5-704E-3499-733404CE49DA" name="TRAMITE" visible="false"/>
+   <object objectType="main_view" objectID="792246F6-9BFB-0DCE-EF4C-BBBCFE01BD90" name="PROYECTO_TRANSITO" visible="true"/>
    <object objectType="sub_view" objectID="D6D8ED9B-F39A-5DCF-F018-0B98AB40518E" name="COMPARENDO" visible="false"/>
    <object objectType="sub_view" objectID="EFA3E42E-3332-58D5-F15C-F18D82EFE912" name="PERSONA" visible="false"/>
-   <object objectType="sub_view" objectID="5A562C93-A6E5-704E-3499-733404CE49DA" name="TRAMITE" visible="false"/>
-   <object objectType="sub_view" objectID="120D0E2C-1A83-EC7F-C7BD-24FC23913D9C" name="VEHICULO" visible="false"/>
 </oracle.dbtools.crest.model.design.relational.RelationalDesign>

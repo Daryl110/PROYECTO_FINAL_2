@@ -23,7 +23,8 @@
         <activity android:name=".Activities.Persona.RegistrarPersonas" />
         <activity android:name=".Activities.Vehiculo.RegistroVehiculo" />
         <activity android:name=".Activities.Comparendo.RegistrarComparendo" />
-        <activity android:name=".Activities.Persona.RegistrarLicencia"></activity>
+        <activity android:name=".Activities.Persona.RegistrarLicencia" />
+        <activity android:name=".Activities.Vehiculo.RegistrarEmpresa"></activity>
     </application>
 
 </manifest>

@@ -22,7 +22,7 @@ import org.json.simple.parser.ParseException;
  * @author Daryl Ospina
  */
 public abstract class ControladorAbstracto {
-
+    //12949 Puerto de Nicolas
     private final String url = "http://localhost:8080/API-Proyecto/Recursos/";
     
     protected Client cliente = ClientBuilder.newClient();

@@ -79,7 +79,7 @@ public class CtlPersona extends ControladorAbstracto {
             JSONObject request = new JSONObject(), tipoDocumento, municipio;
             request.put("direccion", direccion);
             request.put("eps", eps);
-                request.put("fechaNacimiento", (new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(fechaN)));
+            request.put("fechaNacimiento", (new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(fechaN)));
             if (numeroPlaca != null) {
                 request.put("placaAgente", Integer.parseInt(numeroPlaca));
             }   

@@ -74,6 +74,10 @@ public class RegistroVehiculo extends AppCompatActivity{
         });
     }
 
+    public void abrirVentanaAddEmpresa(View view){
+        this.startActivity(new Intent(this,RegistrarEmpresa.class));
+    }
+
     public void cancelar(View view){
         this.finish();
     }

@@ -26,5 +26,6 @@ dependencies {
     compile project(':volley-master')
     implementation 'com.google.code.gson:gson:2.8.4'
     implementation files('libs/json-simple-1.1.1.jar')
+    //noinspection GradleCompatible
     implementation 'com.android.support:design:25.+'
 }

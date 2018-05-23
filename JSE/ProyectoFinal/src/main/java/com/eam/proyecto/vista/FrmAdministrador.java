@@ -6,6 +6,7 @@
 package com.eam.proyecto.vista;
 
 import com.eam.proyecto.vista.paneles.PnlCrudUsuPerson;
+import com.eam.proyecto.vista.paneles.PnlVehiculos;
 import java.awt.BorderLayout;
 
 /**
@@ -21,6 +22,11 @@ public class FrmAdministrador extends javax.swing.JFrame {
         pnlPerUsu.setLayout(new BorderLayout(5, 5));
         pnlPerUsu.add(panelUsuPerson, BorderLayout.CENTER);
         pnlPerUsu.updateUI();
+        
+        PnlVehiculos pnlVehiculosO = new PnlVehiculos();
+        pnlVehiculos.setLayout(new BorderLayout(5,5));
+        pnlVehiculos.add(pnlVehiculosO,BorderLayout.CENTER);
+        pnlVehiculos.updateUI();
     }
 
     /**
@@ -37,6 +43,7 @@ public class FrmAdministrador extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         pnlPerUsu = new javax.swing.JPanel();
+        pnlVehiculos = new javax.swing.JPanel();
         btnCerrarSesion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,10 +75,23 @@ public class FrmAdministrador extends javax.swing.JFrame {
         );
         pnlPerUsuLayout.setVerticalGroup(
             pnlPerUsuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 629, Short.MAX_VALUE)
+            .addGap(0, 628, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Personas y Usuarios", pnlPerUsu);
+
+        javax.swing.GroupLayout pnlVehiculosLayout = new javax.swing.GroupLayout(pnlVehiculos);
+        pnlVehiculos.setLayout(pnlVehiculosLayout);
+        pnlVehiculosLayout.setHorizontalGroup(
+            pnlVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 574, Short.MAX_VALUE)
+        );
+        pnlVehiculosLayout.setVerticalGroup(
+            pnlVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 628, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Vehiculo", pnlVehiculos);
 
         btnCerrarSesion.setText("Cerrar Sesión");
         btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +113,7 @@ public class FrmAdministrador extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCerrarSesion)
                 .addContainerGap())
@@ -142,6 +162,7 @@ public class FrmAdministrador extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPanel pnlPerUsu;
+    private javax.swing.JPanel pnlVehiculos;
     // End of variables declaration//GEN-END:variables
  
 }
