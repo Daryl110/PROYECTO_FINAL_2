@@ -160,6 +160,23 @@ public class CtlCombo extends Cliente{
         spinner.setAdapter(dataAdapter);
     }
 
+    public void cargarNacionalidad(Spinner spinner){
+        List<String> items = new ArrayList<>();
+
+        items.add("Seleccione una nacionalidad");
+        items.add("Americana");
+        items.add("China");
+        items.add("Japonesa");
+        items.add("Colombiana");
+        items.add("Alemana");
+        items.add("Otra");
+
+        ArrayAdapter<CharSequence> dataAdapter = new ArrayAdapter(this.activity,android.R.layout.simple_spinner_item,new ArrayList(items));
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(dataAdapter);
+    }
+
     public void cargarTipoVehiculo(Spinner spinner){
         List<String> items = new ArrayList<>();
 

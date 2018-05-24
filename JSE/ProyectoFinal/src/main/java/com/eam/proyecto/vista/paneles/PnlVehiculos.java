@@ -1306,7 +1306,7 @@ public class PnlVehiculos extends javax.swing.JPanel {
     }
 
     private void listaVehiculo() {
-        this.tblVehiculos.setModel(this.controVehiculo.listar("vehiculo"));
+        this.tblVehiculos.setModel(this.controVehiculo.listar("Vehiculo"));
 //        btnModificar.setEnabled(false);
 //        btnGuardar.setEnabled(true);
 //        btnActualizar.setEnabled(false);

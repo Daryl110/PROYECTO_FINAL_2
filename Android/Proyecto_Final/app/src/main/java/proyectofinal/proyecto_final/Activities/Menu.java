@@ -10,7 +10,7 @@ import org.json.JSONObject;
 
 import proyectofinal.proyecto_final.Activities.Comparendo.ConsultaComparendo;
 import proyectofinal.proyecto_final.Activities.Comparendo.RegistrarComparendo;
-import proyectofinal.proyecto_final.Activities.Persona.RegistrarPersonas;
+import proyectofinal.proyecto_final.Activities.Persona.RegistroPersonas;
 import proyectofinal.proyecto_final.Activities.Vehiculo.RegistroVehiculo;
 import proyectofinal.proyecto_final.Controlador.CtlUsuario;
 import proyectofinal.proyecto_final.R;
@@ -41,7 +41,7 @@ public class Menu extends AppCompatActivity {
 
 
     public void RCiudadano(View view){
-        startActivity(new Intent(this,RegistrarPersonas.class));
+        startActivity(new Intent(this,RegistroPersonas.class));
     }
 
     public void RVehiculo(View view){

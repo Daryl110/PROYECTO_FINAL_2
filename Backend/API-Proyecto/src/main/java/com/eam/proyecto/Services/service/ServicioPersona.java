@@ -5,6 +5,7 @@
  */
 package com.eam.proyecto.Services.service;
 
+import com.eam.proyecto.DTO.Comparendo;
 import com.eam.proyecto.Services.Estructura.EstructuraRestFul;
 import com.eam.proyecto.DTO.Persona;
 import java.util.List;
@@ -65,6 +66,13 @@ public class ServicioPersona extends EstructuraRestFul<Persona> {
     @Produces({MediaType.APPLICATION_JSON})
     public List<Persona> listar() {
         return super.listar();
+    }
+    
+    @GET
+    @Path("TraerComparendos/{id}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<Comparendo> traerComparendos(@PathParam("id") String id){
+        return super.buscar(id).getComparendoList1();
     }
 
     @GET

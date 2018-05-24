@@ -1,7 +1,5 @@
 package proyectofinal.proyecto_final.Activities.Persona;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,11 +7,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import proyectofinal.proyecto_final.Activities.Persona.RegistrarPersonas;
 import proyectofinal.proyecto_final.Controlador.CtlCombo;
 import proyectofinal.proyecto_final.Controlador.CtlLicencia;
 import proyectofinal.proyecto_final.R;
@@ -78,6 +74,6 @@ public class RegistrarLicencia extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        RegistrarPersonas.registroPersonas.finish();
+        RegistroPersonas.registroPersonas.finish();
     }
 }

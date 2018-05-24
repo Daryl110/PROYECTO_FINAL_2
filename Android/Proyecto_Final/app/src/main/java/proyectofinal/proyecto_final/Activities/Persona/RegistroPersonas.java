@@ -14,11 +14,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import proyectofinal.proyecto_final.Activities.Comparendo.RegistrarComparendo;
 import proyectofinal.proyecto_final.Controlador.CtlCombo;
 import proyectofinal.proyecto_final.Controlador.CtlPersona;
 import proyectofinal.proyecto_final.R;
 
-public class RegistrarPersonas extends AppCompatActivity {
+public class RegistroPersonas extends AppCompatActivity {
 
     private EditText txtNip,txtNombreCompleto,txtFecha,txtDireccion,txtTelefono;
     private Spinner cbEps,cbTipoDocumento,cbMunicipio,cbPersonas;
@@ -102,7 +103,8 @@ public class RegistrarPersonas extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         try {
-            //new CtlCombo(this).cargar(RegistrarLicencia.cbPersona, "Persona", "nip", "Seleccione una persona");
+            new CtlCombo(this).cargar(RegistrarComparendo.cbInfractorComparendo, "Persona", "nip", "Seleccione por nip a el infractor");
+            new CtlCombo(this).cargar(RegistrarComparendo.cbTestigoComparendo, "Persona", "nip", "Seleccione por nip a el Testigo");
         } catch (Exception e) {
             System.out.println(e);
         }
