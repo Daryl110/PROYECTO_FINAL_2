@@ -46,6 +46,10 @@ public class CtlVehiculo extends ControladorAbstracto {
             String empresa_nit, int capacidad_carga, int numero_pasajeros, int no_targeta_operacion) {
 
         try {
+            
+            System.out.println(this.crearJson(placa, modelo, linea, marca, licencia_transito, clase_vehiculo,
+                    tipo_vehiculo, lugar_matricula, nacionalidad, color,
+                    empresa_nit, capacidad_carga, numero_pasajeros, no_targeta_operacion));
 
             return (boolean) ((JSONObject) (new JSONParser().parse(this.registrar(
                     this.crearJson(placa, modelo, linea, marca, licencia_transito, clase_vehiculo,
