@@ -5,7 +5,6 @@
  */
 package com.eam.proyecto.controlador;
 
-import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -28,8 +27,8 @@ public class CtlVehiculo extends ControladorAbstracto {
                     vehisulo2.get("modelo").toString(),
                     vehisulo2.get("linea").toString(),
                     vehisulo2.get("marca").toString(),
-                    vehisulo2.get("clase_vehiculo").toString(),
-                    vehisulo2.get("tipo_vehiculo").toString(),
+                    vehisulo2.get("claseVehiculo").toString(),
+                    vehisulo2.get("tipoVehiculo").toString(),
                     vehisulo2.get("nacionalidad").toString()
 
                 });

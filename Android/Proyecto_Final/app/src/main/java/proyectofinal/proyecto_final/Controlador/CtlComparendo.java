@@ -39,11 +39,13 @@ public class CtlComparendo extends Cliente {
             municipioId = this.traerBD("Municipio",municipio);
             request.put("municipioId", municipioId);
             infractor = this.traerBD("Persona",nipInfractor);
-            request.put("personaNip", infractor);
+            request.put("infractor", infractor);
             agente = this.traerBD("Persona",nipAgente);
-            request.put("personaNip1", agente);
-            testigo = this.traerBD("Persona",nipTestigo);
-            request.put("personaNip2", testigo);
+            request.put("agente", agente);
+            if (nipTestigo != null){
+                testigo = this.traerBD("Persona",nipTestigo);
+                request.put("testigo", testigo);
+            }
             request.put("radioAccion", radio);
             tipoInfraccionId = this.traerBD("TipoInfraccion",tipoInfraccion);
             request.put("tipoInfraccionCodigo", tipoInfraccionId);
@@ -52,6 +54,7 @@ public class CtlComparendo extends Cliente {
             request.put("vehiculoPlaca", vehiculo);
             request.put("viaPrincipal", viaPrincipal);
             request.put("viaSecundaria", viaSecundaria);
+            request.put("estado","HABILITADO");
 
             this.registrar("El Comparendo",request,activity);
 

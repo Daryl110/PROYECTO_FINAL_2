@@ -13,6 +13,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -98,7 +99,7 @@ public class Persona implements Serializable {
     private List<Tramite> tramiteList1;
     @OneToMany(mappedBy = "testigo")
     private List<Comparendo> comparendoList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "infractor")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "infractor", fetch = FetchType.LAZY)
     private List<Comparendo> comparendoList1;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "agente")
     private List<Comparendo> comparendoList2;

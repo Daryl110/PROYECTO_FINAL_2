@@ -25,7 +25,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Cliente implements Serializable {
+public abstract class Cliente implements Serializable {
 
     protected String urlPeticion = "http://192.168.137.226:8080/API-Proyecto/Recursos/";
 

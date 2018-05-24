@@ -1,7 +1,9 @@
 package proyectofinal.proyecto_final.Activities.Comparendo;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -11,6 +13,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import proyectofinal.proyecto_final.Activities.Persona.RegistroPersonas;
+import proyectofinal.proyecto_final.Activities.Vehiculo.RegistroVehiculo;
 import proyectofinal.proyecto_final.Controlador.CtlCombo;
 import proyectofinal.proyecto_final.Controlador.CtlComparendo;
 import proyectofinal.proyecto_final.R;
@@ -18,7 +22,8 @@ import proyectofinal.proyecto_final.R;
 public class RegistrarComparendo extends AppCompatActivity {
 
     private Spinner cbAvenidaPrincipal,cbAvenidaSecundaria,cbModalidad,cbRadioAccion,cbTipoInfractor,
-            cbVehiculo,cbMunicipio,cbtipoInfraccion,cbInfractorComparendo,cbTestigoComparendo;
+            cbMunicipio,cbtipoInfraccion;
+    public static Spinner cbInfractorComparendo,cbTestigoComparendo,cbVehiculo;
     private EditText txtFecha,txtLocalidad,txtViaPrincipal,txtViaSecundari,txtDescripcion;
     private CtlCombo controladorCombo;
     private CtlComparendo controladorComparendo;
@@ -64,6 +69,22 @@ public class RegistrarComparendo extends AppCompatActivity {
         this.controladorCombo.cargar(cbtipoInfraccion,"TipoInfraccion","codigo","Seleccione el codigo del tipo de infracción");
     }
 
+    public void abrirAddPersona(View view){
+        try{
+            this.startActivity(new Intent(this, RegistroPersonas.class));
+        }catch (Exception e){
+            Log.d("[Error]",e.toString());
+        }
+    }
+
+    public void abrirAddVehiculo(View view){
+        try{
+            this.startActivity(new Intent(this, RegistroVehiculo.class));
+        }catch (Exception e){
+            Log.d("[Error]",e.toString());
+        }
+    }
+
     public void cancelar(View view){
         this.finish();
     }
@@ -72,7 +93,7 @@ public class RegistrarComparendo extends AppCompatActivity {
         int id,municipio;
         Date fecha = null;
         String localidad,viaPrincipal,viaSecundaria,descripcion,modalidad,radio,tipoInfractor,
-                placaVehiculo,nipTestigo,nipAgente,nipInfractor,tipoInfraccion;
+                placaVehiculo,nipTestigo = null,nipAgente,nipInfractor,tipoInfraccion;
 
         if((txtFecha.getText().toString().isEmpty() || txtDescripcion.getText().toString().isEmpty() || txtLocalidad.getText().toString().isEmpty() || txtViaPrincipal.getText().toString().isEmpty() || txtViaSecundari.getText().toString().isEmpty() ||
                 cbTipoInfractor.getSelectedItemPosition()==0 || cbRadioAccion.getSelectedItemPosition()==0 || cbAvenidaSecundaria.getSelectedItemPosition()==0 || cbInfractorComparendo.getSelectedItemPosition()==0 ||
@@ -97,7 +118,9 @@ public class RegistrarComparendo extends AppCompatActivity {
                     radio = cbRadioAccion.getSelectedItem().toString();
                     tipoInfractor = cbTipoInfractor.getSelectedItem().toString();
                     placaVehiculo = cbVehiculo.getSelectedItem().toString();
-                    nipTestigo = cbTestigoComparendo.getSelectedItem().toString();
+                    if (cbTestigoComparendo.getSelectedItemPosition() != 0){
+                        nipTestigo = cbTestigoComparendo.getSelectedItem().toString();
+                    }
                     nipInfractor = cbInfractorComparendo.getSelectedItem().toString();
                     tipoInfraccion = cbtipoInfraccion.getSelectedItem().toString();
                     nipAgente = cedAgente;

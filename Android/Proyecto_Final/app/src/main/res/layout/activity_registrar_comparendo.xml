@@ -52,7 +52,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:fontFamily="sans-serif"
-                        android:hint="Fecha del comparendo"
+                        android:hint="Fecha del comparendo (año-mes-dia)"
                         android:inputType="date" />
 
                     <Space
@@ -65,7 +65,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:fontFamily="sans-serif"
-                        android:hint="Modelo del vehiculo"
+                        android:hint="Localidad de la realización"
                         android:inputType="textPersonName" />
 
                     <Space
@@ -149,10 +149,25 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
-                    <Spinner
-                        android:id="@+id/cbVehiculo"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="42dp" />
+                        android:layout_height="52dp"
+                        android:orientation="horizontal">
+
+                        <Spinner
+                            android:id="@+id/cbVehiculo"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:layout_weight="1" />
+
+                        <ImageButton
+                            android:id="@+id/imageButton"
+                            android:layout_width="98dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:onClick="abrirAddVehiculo"
+                            app:srcCompat="@mipmap/add" />
+                    </LinearLayout>
 
                     <Space
                         android:layout_width="match_parent"
@@ -165,11 +180,7 @@
 
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="11dp" />
 
                     <Spinner
                         android:id="@+id/cbTipoinfraccion"
@@ -178,21 +189,51 @@
 
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="15dp" />
 
-                    <Spinner
-                        android:id="@+id/cbInfractor"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="42dp" />
+                        android:layout_height="53dp"
+                        android:orientation="horizontal">
+
+                        <Spinner
+                            android:id="@+id/cbInfractor"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:layout_weight="1" />
+
+                        <ImageButton
+                            android:id="@+id/imageButton2"
+                            android:layout_width="96dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:onClick="abrirAddPersona"
+                            app:srcCompat="@mipmap/add" />
+                    </LinearLayout>
 
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
-                    <Spinner
-                        android:id="@+id/cbTestigo"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="42dp" />
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Spinner
+                            android:id="@+id/cbTestigo"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:layout_weight="1" />
+
+                        <ImageButton
+                            android:id="@+id/imageButton3"
+                            android:layout_width="96dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:onClick="abrirAddPersona"
+                            app:srcCompat="@mipmap/add" />
+                    </LinearLayout>
 
                     <Space
                         android:layout_width="match_parent"

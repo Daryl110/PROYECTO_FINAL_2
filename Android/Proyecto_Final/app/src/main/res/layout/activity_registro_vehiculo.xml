@@ -174,7 +174,16 @@
 
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="12dp" />
+
+                    <Spinner
+                        android:id="@+id/cbNacionalidad_vehiculo"
+                        android:layout_width="match_parent"
+                        android:layout_height="39dp" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="13dp" />
 
                     <EditText
                         android:id="@+id/txtLugarMatricula"
@@ -187,20 +196,7 @@
 
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                    <EditText
-                        android:id="@+id/txtNacionalidad"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:fontFamily="sans-serif"
-                        android:hint="Nacionalidad del vehiculo"
-                        android:inputType="textPersonName" />
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="13dp" />
 
                     <EditText
                         android:id="@+id/txtCapacidad"
@@ -213,7 +209,7 @@
 
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="11dp" />
 
                     <EditText
                         android:id="@+id/txtNumeroPasajeros"
@@ -223,10 +219,6 @@
                         android:fontFamily="sans-serif"
                         android:hint="Ingrese el numero de pasajeros"
                         android:inputType="number" />
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
 
                 </LinearLayout>
 
