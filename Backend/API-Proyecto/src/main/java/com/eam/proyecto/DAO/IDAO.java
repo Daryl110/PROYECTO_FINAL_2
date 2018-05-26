@@ -23,4 +23,5 @@ public interface IDAO<T> {
     public abstract Response eliminar(Object valorId,Class<T> clase);
     public abstract EntityManagerFactory getEntityManagerFactory();
     public abstract void setEntityManager(EntityManagerFactory entityManager);
+    public abstract List cargarConsulta(String qwery,Class<T> clase);
 }

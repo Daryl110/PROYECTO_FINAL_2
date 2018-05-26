@@ -269,7 +269,7 @@ public class Persona implements Serializable {
     public void setComparendoList2(List<Comparendo> comparendoList2) {
         this.comparendoList2 = comparendoList2;
     }
-
+    
     @XmlTransient
     public Licencia getLicencia() {
         return licencia;
